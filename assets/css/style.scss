@@ -5,9 +5,9 @@
 
 html, body{
     font-family: Courier, monospace;
-    background: transparent;
+    overflow: hidden;
+    background: #1D1C22;
 }
-
 .container{
     text-align: right;    
 }
@@ -15,18 +15,18 @@ html, body{
 .wrapper{
     margin-top: 10%;
 }
+h1, h2, h3, p, ul{
+  color: #d0b3d9;
 
-h1, h2, h3, h4, h5, p{
-    color: #D9CAB3;
 }
 h1{
-    font-size: 48px;
+    font-size: 4em;
 }
 h2{
-    font-size: 35px;
+    font-size: 2.5em;
 }
 h3{
-    font-size: 30px;
+    font-size: 1.5em;
 }
 
 a{
@@ -37,73 +37,22 @@ a:hover{
 }
 
 
-@mixin dots($count) {
-  $text-shadow: ();
-  @for $i from 0 through $count {
-    $text-shadow: $text-shadow,
-                 (-.5+(random()) * 3) + em
-                 (-.5+(random()) * 3) + em
-                 7px
-                 hsla(random() * 360, 100%, 50%,.9);
-  }
-  text-shadow: $text-shadow;
-}
-
-html {
-  overflow: hidden;
-  background: rgb(37, 3, 61);
-}
-
-body, head {
-  display: block;
-  color: transparent;
-}
-
-head::before, head::after,
-body::before, body::after {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 3em;
-  height: 3em;
-  content: '.';
-  mix-blend-mode: screen;
-  animation: 44s -27s move infinite ease-in-out alternate;
+.hidden{
+  	display: none;
 }
 
 
-body::before {
-  @include dots(40);
-  animation-duration: 44s;
-  animation-delay: -27s;
-}
-
-body::after {
-  @include dots(40);
-  animation-duration: 43s;
-  animation-delay: -32s;
-}
-
-head::before {
-  @include dots(40);
-  animation-duration: 42s;
-  animation-delay: -23s;
-}
-
-head::after {
-  @include dots(40);
-  animation-duration: 41s;
-  animation-delay: -19s;
+//Menu
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 
-@keyframes move {
-  from {
-    transform: rotate(0deg) scale(12) translateX(-20px);
-  }
-  to {
-    transform: rotate(360deg) scale(18) translateX(20px);
-  }
+//Other details
+::selection{
+  background-color: #1D1C22;
+  color: #A36AB4;
 }
-
 
