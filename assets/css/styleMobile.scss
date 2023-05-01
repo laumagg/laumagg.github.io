@@ -1,0 +1,17 @@
+/*Tablet version*/
+@media screen and (max-width:1300px) and (min-width:700px){
+    
+}
+
+/*Mobile version*/
+@media screen and (max-width : 700px){
+    h1{
+    font-size: 40px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    h3{
+        font-size: 20px;
+    }
+}
