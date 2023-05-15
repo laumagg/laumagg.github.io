@@ -2,20 +2,32 @@
 ---
 
 @import "{{ site.theme }}";
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
 
 html, body{
-    font-family: Courier, monospace;
-    overflow: hidden;
+    // font-family: Courier, monospace;
+    font-family: exo, "segoe ui", helvetica, arial, sans-serif;
     background: #1D1C22;
-}
-.container{
-    text-align: right;    
 }
 
 .wrapper{
-    margin-top: 10%;
+    margin-top: 5%;
+    width: 90%;
 }
-h1, h2, h3, p, ul{
+header{
+    width: 20%;
+}
+section{
+    width: 60%;
+}
+tr td:first-child{
+    font-weight: bold;
+}
+// content
+.container{
+    text-align: right;    
+}
+h1, h2, h3, p, ul, td, strong{
   color: #d0b3d9;
 
 }
@@ -32,13 +44,16 @@ h3{
 a{
     color:#B8D8BA;
 }
-a:hover{
+a:hover, a:active, a:visited, a:link{
     color:#96C599;
 }
 
 
 .hidden{
   	display: none;
+}
+th:first-child{
+    width: 8em;
 }
 
 
