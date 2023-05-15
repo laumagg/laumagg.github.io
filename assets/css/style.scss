@@ -5,9 +5,9 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100);
 
 html, body{
-    // font-family: Courier, monospace;
     font-family: exo, "segoe ui", helvetica, arial, sans-serif;
     background: #1D1C22;
+    font-size: 1em;
 }
 
 .wrapper{
@@ -16,18 +16,21 @@ html, body{
 }
 header{
     width: 20%;
+    height: 80%;
 }
 section{
     width: 60%;
+    height: 80%;
 }
 tr td:first-child{
     font-weight: bold;
 }
-// content
+
+// content ------------------------------------------
 .container{
     text-align: right;    
 }
-h1, h2, h3, p, ul, td, strong{
+h1, h2, h3, p, ul, td, strong, label, a{
   color: #d0b3d9;
 
 }
@@ -41,33 +44,103 @@ h3{
     font-size: 1.5em;
 }
 
-a{
-    color:#B8D8BA;
+//Menu -------------------------------------------
+.menuContainer{
+    display: table;
+    height: 70%; 
+    overflow: hidden;
+    width: -webkit-fill-available;
 }
-a:hover, a:active, a:visited, a:link{
-    color:#96C599;
+.menu{
+    display: table-cell; 
+    vertical-align: middle;
 }
-
-
-.hidden{
-  	display: none;
-}
-th:first-child{
-    width: 8em;
-}
-
-
-//Menu
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+.menu li{
+    margin-bottom: 1em;
+}
 
-//Other details
+.menu a{
+    transition: font-size .2s ease-in-out;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.menu a:hover{
+    font-size: 2em;
+}
+
+
+
+
+.hidden{
+  	display: none;
+}
+
+// Table -----------------------------------------------
+th, td{
+    border-bottom: 1px solid #413f4d;
+}
+th:first-child{
+    width: 8em;
+}
+
+
+
+//Contact form ---------------------------------------------------------
+fieldset{
+    border:none;
+    padding-right: 0;
+    
+}
+.row{
+    padding-top: 1em;
+}
+.row label{
+    font-size: 1.2em;
+    padding-bottom: 0.5em;
+}
+fieldset input, textarea{
+    width: 50%;
+    height: 2em;    
+    margin-top: 0.2em;
+    border:none;
+    border-radius: 4px;
+    background-color: #d0b3d91d;
+    color:white;
+}
+textarea{
+    height: 5em;
+    resize: none;
+
+}
+.btn{
+    width: 50%;
+    height: 2em;    
+    margin-top: 0.2em;
+    border:none;
+    border-radius: 4px;
+    font-family: exo, "segoe ui", helvetica, arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #d0b3d9;
+    color: black;
+}
+
+.btn:hover, .btn:active{
+    background-color: #A36AB4;
+}
+
+//Details -----------------------------------------------
 ::selection{
   background-color: #1D1C22;
   color: #A36AB4;
 }
 
+a:hover, a:active{
+    color:#A36AB4;
+}
