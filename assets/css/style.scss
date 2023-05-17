@@ -19,7 +19,7 @@ header{
     height: 80%;
 }
 section{
-    width: 60%;
+    width: 80%;
     height: 80%;
 }
 tr td:first-child{
@@ -27,9 +27,7 @@ tr td:first-child{
 }
 
 // content ------------------------------------------
-.container{
-    text-align: right;    
-}
+
 h1, h2, h3, p, ul, td, strong, label, a{
   color: #d0b3d9;
 
@@ -47,9 +45,9 @@ h3{
 //Menu -------------------------------------------
 .menuContainer{
     display: table;
-    height: 70%; 
-    overflow: hidden;
+    height: 50%; 
     width: -webkit-fill-available;
+    overflow: hidden;
 }
 .menu{
     display: table-cell; 
