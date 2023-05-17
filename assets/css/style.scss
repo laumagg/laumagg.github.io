@@ -116,8 +116,9 @@ fieldset input, textarea{
 textarea{
     height: 5em;
     resize: none;
-
+    text-align: left;
 }
+
 .btn{
     width: 50%;
     height: 2em;    
@@ -134,6 +135,8 @@ textarea{
 .btn:hover, .btn:active{
     background-color: #A36AB4;
 }
+
+
 
 //Details -----------------------------------------------
 ::selection{

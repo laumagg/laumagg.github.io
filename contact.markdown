@@ -26,10 +26,7 @@ permalink: /contact/
             <div class="row">
             <div class="form-group col-xs-12" id="Message__div">
                 <label title="required" for="Message">Message *</label><br/>
-                <textarea name="Message" id="Message" required="required" 
-                    placeholder="Feel free to write in English, German, Spanish, Italian or even Catalan!" 
-                    class="form-control">
-                </textarea>
+                <textarea name="Message" id="Message" required="required" class="form-control" placeholder="Feel free to write in English, German, Spanish, Italian or even Catalan!"></textarea>
             </div>
         </div>
         <br>
