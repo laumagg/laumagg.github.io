@@ -33,16 +33,17 @@
         {% endif %} -->
 
           <div class="menuContainer">
-            <ul class="menu">
-              <li><a href="{{ "/" | absolute_url }}">About</a></li>
-              <li><a href="{{ "/projects/" | absolute_url }}">Projects</a></li>
-              <li><a href="{{ "/contact/" | absolute_url }}">Contact</a></li>
+            <ul class="menu" id="nav">
+              <li><a href="{{ "/" | absolute_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">About</a></li>
+              <li><a href="{{ "/projects/" | absolute_url }}" class="nav-link{% if page.url == '/projects/' %} active{% endif %}">Projects</a></li>
+              <li><a href="{{ "/contact/" | absolute_url }}" class="nav-link{% if page.url == '/contact/' %} active{% endif %}">Contact</a></li>
             </ul>
           </div>
           </header>
       <section>
-
-      {{ content }}
+        <div class="container">
+          {{ content }}
+          </div>
 
       </section>
       <footer>

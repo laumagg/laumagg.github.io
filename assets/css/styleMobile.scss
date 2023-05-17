@@ -1,3 +1,6 @@
+---
+---
+
 /*Tablet version*/
 @media screen and (max-width:1300px) and (min-width:700px){
     
@@ -5,6 +8,17 @@
 
 /*Mobile version*/
 @media screen and (max-width : 700px){
+
+    header, section{
+        width: auto;
+    }
+    .container{
+        text-align: center;
+    }
+    .container h1{
+        display: none;
+    }
+
     h1{
     font-size: 3em;
     }
@@ -13,5 +27,11 @@
     }
     h3{
         font-size: 14px;
+    }
+
+    /* Menu */
+    .menu{
+        display:flex;
+        justify-content: space-around;
     }
 }
