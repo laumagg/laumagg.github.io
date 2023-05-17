@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Contact
 permalink: /contact/
 ---
 # Let us connect

@@ -19,6 +19,8 @@ header{
     height: 80%;
 }
 section{
+    float: right;
+    text-align: right;
     width: 80%;
     height: 80%;
 }
@@ -75,11 +77,25 @@ ul {
     color: #A36AB4;
 }
 
-
-
-.hidden{
-  	display: none;
+// Project posts ---------------
+.project-links{
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
 }
+.project-redirect{
+    font-weight: bold;
+    font-style: normal;
+    font-size: 4em;
+    transition: margin-right .2s ease-in-out;
+}
+.project-redirect:hover{
+    font-style: italic;
+    margin-right: -.5em;
+}
+
+
+
 
 // Table -----------------------------------------------
 th, td{
@@ -88,8 +104,6 @@ th, td{
 th:first-child{
     width: 7.5em;
 }
-
-
 
 //Contact form ---------------------------------------------------------
 fieldset{
@@ -146,4 +160,7 @@ textarea{
 
 a:hover, a:active, a:focus{
     color:#A36AB4;
+}
+.hidden{
+  	display: none;
 }

@@ -1,7 +1,8 @@
 ---
-
 layout: default
+permalink: /
 ---
+
 # Hey, there!
       
 I'm still working on this beauty.
