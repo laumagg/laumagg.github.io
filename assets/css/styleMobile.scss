@@ -12,6 +12,9 @@
     header, section{
         width: auto;
     }
+    body{
+        padding: 15px;
+    }
     .container{
         text-align: center;
     }
@@ -33,5 +36,12 @@
     .menu{
         display:flex;
         justify-content: space-around;
+    }
+
+    fieldset input, textarea{
+        width: 80%;
+    }
+    th:first-child{
+        text-align: center;
     }
 }
