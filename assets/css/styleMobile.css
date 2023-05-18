@@ -3,6 +3,14 @@
     section{
         float: inherit;
     }
+    .menuContainer{
+        border-left: 1px dotted var(--text-color);
+        border-right: 0;
+    }
+    fieldset{
+        padding: 0;
+    }
+
 }
 
 /*Mobile version*/
@@ -14,24 +22,11 @@
     body{
         padding: 15px;
     }
-    .container{
-        text-align: left;
-    }
-    .container h1{
-        display: none;
-    }
-
-    h1,  .project-redirect{
-        font-size: 3em;
-    }
-    h2{
-        font-size: 20px;
-    }
-    h3{
-        font-size: 14px;
-    }
 
     /* Menu */
+    .menuContainer{
+        border-left: 0;
+    }
     .menu{
         display:flex;
         justify-content: space-around;
@@ -41,10 +36,8 @@
         padding: 0;
         margin: 0;
     }
-    fieldset input, textarea{
+    fieldset input, textarea, .btn{
         width: 90%;
     }
-    .btn{
-        width: 90%;
-    }
+
 }
