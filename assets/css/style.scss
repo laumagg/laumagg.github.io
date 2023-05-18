@@ -121,6 +121,7 @@ fieldset{
 fieldset input, textarea{
     width: 50%;
     height: 2em;    
+    padding:0.2em;
     margin-top: 0.2em;
     border:none;
     border-radius: 4px;
@@ -128,7 +129,8 @@ fieldset input, textarea{
     color: var(--text-color);
 }
 textarea{
-    height: 5em;
+    height: 8em;
+    padding:0.5em;
     resize: none;
     text-align: left;
 }

@@ -1,5 +1,12 @@
+/*Tablet version*/
+@media print, screen and (max-width: 960px){
+    section{
+        float: inherit;
+    }
+}
+
 /*Mobile version*/
-@media screen and (max-width : 800px){
+@media screen and (max-width : 720px){
 
     header, section{
         width: auto;
@@ -8,14 +15,14 @@
         padding: 15px;
     }
     .container{
-        text-align: center;
+        text-align: left;
     }
     .container h1{
         display: none;
     }
 
-    h1{
-    font-size: 3em;
+    h1,  .project-redirect{
+        font-size: 3em;
     }
     h2{
         font-size: 20px;
@@ -29,11 +36,15 @@
         display:flex;
         justify-content: space-around;
     }
-
-    fieldset input, textarea{
-        width: 80%;
+    fieldset{
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
-    th:first-child{
-        text-align: center;
+    fieldset input, textarea{
+        width: 90%;
+    }
+    .btn{
+        width: 90%;
     }
 }
