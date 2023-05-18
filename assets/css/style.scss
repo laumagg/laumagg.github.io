@@ -4,9 +4,17 @@
 @import "{{ site.theme }}";
 @import url(https://fonts.googleapis.com/css?family=Exo:100);
 
+:root {
+    --background-color: #fdf5ec;
+    --highlight-color:  #e2ae8f;
+    --link-color:  #98576d;
+    --text-color: #4d1725;
+    --input-bg-color: #98576d33;
+  }
+
 html, body{
     font-family: exo, "segoe ui", helvetica, arial, sans-serif;
-    background: #1D1C22;
+    background: var(--background-color);
     font-size: 1em;
 }
 
@@ -30,9 +38,16 @@ tr td:first-child{
 
 // content ------------------------------------------
 
-h1, h2, h3, p, ul, td, strong, label, a{
-  color: #d0b3d9;
+h1, h2, h3{
+  color: var(--link-color)
 
+}
+p, ul, td, strong, label{
+    color: var(--text-color);
+    font-weight: 600;
+}
+a{    
+    color: var(--link-color); 
 }
 h1{
     font-size: 4em;
@@ -66,15 +81,11 @@ ul {
 }
 
 .menu a{
-    transition: font-size .2s ease-in-out;
     font-size: 1.5em;
     font-weight: bold;
 }
-.menu a:hover{
-    font-size: 2em;
-}
-.active{
-    color: #A36AB4;
+.menu a:hover, .active{
+    color: var(--highlight-color)
 }
 
 // Project posts ---------------
@@ -92,17 +103,6 @@ ul {
 .project-redirect:hover{
     font-style: italic;
     margin-right: -.5em;
-}
-
-
-
-
-// Table -----------------------------------------------
-th, td{
-    border-bottom: 1px solid #413f4d;
-}
-th:first-child{
-    width: 7.5em;
 }
 
 //Contact form ---------------------------------------------------------
@@ -124,14 +124,22 @@ fieldset input, textarea{
     margin-top: 0.2em;
     border:none;
     border-radius: 4px;
-    background-color: #d0b3d91d;
-    color:white;
+    background-color: var(--input-bg-color);    
+    color: var(--text-color);
 }
 textarea{
     height: 5em;
     resize: none;
     text-align: left;
 }
+fieldset input:focus,
+fieldset input:focus-visible,
+textarea:focus,
+textarea:focus-visible{
+    border:1px solid var(--text-color);
+    outline:none;
+}
+
 
 .btn{
     width: 50%;
@@ -142,24 +150,43 @@ textarea{
     font-family: exo, "segoe ui", helvetica, arial, sans-serif;
     font-size: 1.2em;
     font-weight: bold;
-    background-color: #d0b3d9;
-    color: black;
+    background-color: var(--link-color);
+    color: var(--background-color);
 }
 
 .btn:hover, .btn:active{
-    background-color: #A36AB4;
+    background-color: var(--highlight-color);
 }
 
+// Image gallery ----------------------------------------
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.image-gallery li {
+    margin: 0 0 1% 1%; 
+}
 
+.image-gallery li img {
+    width: 100%; 
+    display: block;
+}
+
+//video
+.video{
+    padding:56.25% 0 0 0;
+    position:relative;
+}
 
 //Details -----------------------------------------------
 ::selection{
-  background-color: #1D1C22;
-  color: #A36AB4;
+  background-color: var(--background-color);
+  color: var(--highlight-color);
 }
 
 a:hover, a:active, a:focus{
-    color:#A36AB4;
+    color:var(--highlight-color);
 }
 .hidden{
   	display: none;
