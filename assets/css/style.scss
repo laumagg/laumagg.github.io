@@ -172,7 +172,10 @@ textarea:focus-visible{
     justify-content: space-evenly;
 }
 .image-gallery li{
-    margin: .5em;
+    margin: 0.5em 0;
+}
+.image-gallery li:has(> .vertical-img){
+    margin: 0.5em;
 }
 .image-gallery li img {
     display: block;
@@ -188,7 +191,7 @@ textarea:focus-visible{
 //video
 .video{
     position: relative;
-    margin: 0.5em;
+    margin: 1em 0;
     padding:56.25% 0 0 0;
 }
 
