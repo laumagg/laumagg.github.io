@@ -3,8 +3,9 @@ layout: default
 permalink: /
 ---
 
-# Hi, I'm Laura, a developer 
+# Hi, I'm Laura, a software developer 
 ## with a passion for digital hybrid realities 
 
-I'm still working on this beauty.
-But it will be ready soon, so stay tuned!
+
+
+_*be advised, this website is, like myself, always under development_

@@ -8,10 +8,9 @@
 
 :root {
     --background-color: #ffffff;
-    --highlight-color:  #d797ae;
+    --highlight-color:  #977099;
     --link-color: #808080;
     --text-color: #000000;
-    --input-bg-color: #00000038;
   }
 
 html, body{
@@ -116,7 +115,7 @@ fieldset input, textarea, .btn{
     height: 2em;    
     padding:0.2em;
     margin-top: 0.2em;
-    border: 1px solid var(--input-bg-color);;
+    border: 1px solid var(--link-color);
     border-radius: 4px;    
     color: var(--text-color);
 }
@@ -153,20 +152,18 @@ textarea:focus-visible{
 .image-gallery {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .image-gallery li{
-    margin: 0 0 1% 1%; 
-}
-.image-gallery li:first-child{
-    margin-left: 0;
-}
-.image-gallery li:last-child{
-    margin-right: 0;
+    margin: .5em;
 }
 .image-gallery li img {
-    width: 100%; 
     display: block;
+    width: 100%; 
+}
+.weaving-img{
+    max-width: 13em;
 }
 
 //video

@@ -18,7 +18,7 @@ An artistic and transgressive multiplayer VR experience \| Meta Quest 2
 
 By incorporating breath sensors and actuators, XBPMMM establishes a connection between players' physical sensations and the virtual or real-world environments. This connection enables players to immerse themselves in the narrative and explore socially relevant issues on a more profound level, fostering a sense of agency and engagement.
 
-**Artists:** Janne Kummer, Anton Krause, Steph Holl-Trieu, Philisha Kraatz, Codi Körner & Johannes Aue
+**Artists:** Janne Kummer, Anton Krause, Steph Holl-Trieu, Philisha Kraatz, Codi Körner & Johannes Aue. <a href="https://xr-unites.fki.htw-berlin.de/en/current-artistic-fellows/" target="_blank">Further information.</a>
 
 **Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xbpmmm/">XR_Unites team</a>, University of Applied Sciences Berlin & Lena Biresch (desktop version)
 

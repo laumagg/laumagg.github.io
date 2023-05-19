@@ -16,7 +16,7 @@ Artistic Mixed Reality installation  \| HoloLens 2
 At 03.09.–04.10.2022, Transient Exposure was presenated as part of the exhibition <a href ="https://codeandmateriality.fki.htw-berlin.de/de/startseite/">Extended Reality – Code and Materiality in Art and Culture</a> of the INKA research group, University of Applied Sciences Berlin.
 
 
-**Artists:** collective reVerb (Susanne Vincenz, Isabel Robson und Mareike Trillhaas), Berlin and Chitrasena Dance Company, Colombo (Sri Lanka)
+**Artists:** collective reVerb (Susanne Vincenz, Isabel Robson und Mareike Trillhaas), Berlin and Chitrasena Dance Company, Colombo (Sri Lanka). <a href="https://xr-unites.fki.htw-berlin.de/en/artistic-fellows/" target="_blank">Further information.</a>
 
 **Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xbpmmm/">XR_Unites team</a>, University of Applied Sciences Berlin
 
