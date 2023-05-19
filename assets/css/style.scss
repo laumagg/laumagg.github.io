@@ -194,3 +194,13 @@ a:hover, a:active, a:focus{
     font-size: 1.5em!important;
     margin-right: 10px;
 }
+
+hr{
+    width: 15%;
+    margin: 4em 0 2px;
+    border-top: 1.5px dotted var(--highlight-color);
+    background: none;
+}
+em{
+    font-size: smaller;
+}
