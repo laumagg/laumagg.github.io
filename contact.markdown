@@ -36,3 +36,6 @@ permalink: /contact/
         </div>
     </fieldset>
 </form>
+
+<hr/>
+_// if you are a digital artist seeking technical advice, please briefly describe your project, your concerns, and provide a time preference_

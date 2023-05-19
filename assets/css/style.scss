@@ -8,7 +8,8 @@
 
 :root {
     --background-color: #ffffff;
-    --highlight-color:  #ab97d7;
+    // --highlight-color:  #1a7993;
+    --highlight-color:  #1A936F;
     --link-color: #808080;
     --text-color: #000000;
   }
@@ -24,12 +25,12 @@ html, body{
     width: 90%;
 }
 header{
-    width: 15%;
+    width: 10%;
     height: 80%;
 }
 section{
     text-align: justify;
-    width: 75%;
+    width: 80%;
 }
 
 // content ------------------------------------------
@@ -51,6 +52,21 @@ a{
     font-size: 1.5em;
 }
 
+#about-list-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.about-list-item{
+    margin-right: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-top:1px dotted var(--text-color);
+}
+.about-list-item p{
+    font-weight: bold;
+}
 
 //Menu -------------------------------------------
 .menuContainer{
@@ -75,7 +91,7 @@ ul {
 }
 
 .menu a{
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 .menu a:hover, .active{
     font-weight: bold;
@@ -198,9 +214,10 @@ a:hover, a:active, a:focus{
 hr{
     width: 15%;
     margin: 4em 0 2px;
-    border-top: 1.5px dotted var(--highlight-color);
+    border-top: 1.5px dotted var(--text-color);
     background: none;
 }
 em{
+    color: var(--highlight-color);
     font-size: smaller;
 }

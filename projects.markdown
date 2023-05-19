@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/
 ---
-# Work & Playground
+# Work & Playground (selection)
 
 <div class="project-links">
     <a href="/projects/aedw/" class="project-redirect">Am Ende der Welt</a>
