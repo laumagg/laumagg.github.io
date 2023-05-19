@@ -8,4 +8,4 @@ permalink: /
 
 
 
-_*be advised, this website is, like myself, always under development_
+_*kindly note that this website, just like me, is constantly under development_

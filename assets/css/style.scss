@@ -8,7 +8,7 @@
 
 :root {
     --background-color: #ffffff;
-    --highlight-color:  #977099;
+    --highlight-color:  #ab97d7;
     --link-color: #808080;
     --text-color: #000000;
   }
@@ -115,7 +115,7 @@ fieldset input, textarea, .btn{
     height: 2em;    
     padding:0.2em;
     margin-top: 0.2em;
-    border: 1px solid var(--link-color);
+    border: 1.5px solid var(--link-color);
     border-radius: 4px;    
     color: var(--text-color);
 }
