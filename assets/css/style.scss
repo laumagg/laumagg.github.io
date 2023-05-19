@@ -162,14 +162,17 @@ textarea:focus-visible{
     display: block;
     width: 100%; 
 }
-.weaving-img{
+.vertical-img{
     max-width: 13em;
+}
+.arluft-img{
+    border: .1px dotted var(--link-color);
 }
 
 //video
 .video{
     position: relative;
-    margin-bottom:1em;
+    margin: 0.5em;
     padding:56.25% 0 0 0;
 }
 

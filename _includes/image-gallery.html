@@ -12,7 +12,9 @@
                     <img src="{{ file.path | relative_url }}" 
                         alt="{{ filename }}" 
                         title="{{ filename }}" 
-                        class= "{% if page.url == '/projects/weaving-dreams/' %} weaving-img{% endif %}"/>
+                        class= "{% if page.url == '/projects/arluft/' %}arluft-img {% endif %}
+                            {% if page.url == '/projects/weaving-dreams/' or
+                                page.url == '/projects/arluft/' %} vertical-img {% endif %}"/>
                 </li>
             {% endif %}
         {% endif %}
