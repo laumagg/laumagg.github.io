@@ -35,10 +35,10 @@ section{
 
 // content ------------------------------------------
 
-h1, h2, h3, .project-redirect{
+h1, h2, h3{
   font-family: Bruno Ace, cursive;
 }
-h1, .project-redirect{
+h1{
     font-size: 2.2em;
 }
 p, ul, td, strong, label, a{
@@ -46,6 +46,9 @@ p, ul, td, strong, label, a{
 }
 a{    
     color: var(--link-color); 
+}
+.project-redirect{
+    font-size: 1.5em;
 }
 
 
@@ -96,7 +99,7 @@ ul {
 //Contact form ---------------------------------------------------------
 fieldset{
     border:none;
-    padding-right: 0;
+    padding: 0;
     
 }
 .row{
@@ -122,6 +125,7 @@ textarea{
     resize: none;
     text-align: left;
 }
+
 fieldset input:focus,
 fieldset input:focus-visible,
 textarea:focus,

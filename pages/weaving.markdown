@@ -2,6 +2,7 @@
 layout: default
 permalink: /projects/weaving-dreams/
 ---
+{% include project-back.html %}
 
 # Weaving Dreams
 

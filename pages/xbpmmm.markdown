@@ -2,6 +2,7 @@
 layout: default
 permalink: /projects/xbpmmm/
 ---
+{% include project-back.html %}
 
 # XBPMMM
 
@@ -19,7 +20,7 @@ By incorporating breath sensors and actuators, XBPMMM establishes a connection b
 
 **Artists:** Janne Kummer, Anton Krause, Steph Holl-Trieu, Philisha Kraatz, Codi Körner & Johannes Aue
 
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xbpmmm/">XR_Unites team, HTW Berlin</a> & Lena Biresch (desktop version)
+**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xbpmmm/">XR_Unites team</a>, University of Applied Sciences Berlin & Lena Biresch (desktop version)
 
 
 <div class="video">
