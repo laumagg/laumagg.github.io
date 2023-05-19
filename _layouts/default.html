@@ -8,6 +8,7 @@
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/styleMobile.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -35,10 +36,17 @@
 
       </section>
       <footer>
-        <!-- {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% if site.data.social-media %}
+        <div id="social-media">
+            {% assign sm = site.data.social-media %}
+            {% for entry in sm %}
+                {% assign key = entry | first %}
+                {% if sm[key].id %}
+                    <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target=”_blank”><i class="fa {{ sm[key].fa-icon }}"></i></a>
+                {% endif %}
+            {% endfor %}
+        </div>
         {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p> -->
       </footer>
     </div>
   </body>

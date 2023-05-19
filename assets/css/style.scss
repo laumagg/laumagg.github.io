@@ -7,11 +7,11 @@
 
 
 :root {
-    --background-color: #f3edee;
+    --background-color: #ffffff;
     --highlight-color:  #d797ae;
-    --link-color: #008d8b;
-    --text-color: #2c2a2b;
-    --input-bg-color: #008d8b38;
+    --link-color: #808080;
+    --text-color: #000000;
+    --input-bg-color: #00000038;
   }
 
 html, body{
@@ -36,7 +36,6 @@ section{
 // content ------------------------------------------
 
 h1, h2, h3, .project-redirect{
-  color: var(--link-color);
   font-family: Bruno Ace, cursive;
 }
 h1, .project-redirect{
@@ -113,9 +112,8 @@ fieldset input, textarea, .btn{
     height: 2em;    
     padding:0.2em;
     margin-top: 0.2em;
-    border:none;
-    border-radius: 4px;
-    background-color: var(--input-bg-color);    
+    border: 1px solid var(--input-bg-color);;
+    border-radius: 4px;    
     color: var(--text-color);
 }
 textarea{
@@ -128,15 +126,16 @@ fieldset input:focus,
 fieldset input:focus-visible,
 textarea:focus,
 textarea:focus-visible{
-    border:1px solid var(--text-color);
     outline:none;
+    border-color: var(--highlight-color);    
+
 }
 
 
 .btn{
-    font-family: exo, "segoe ui", helvetica, arial, sans-serif;
+    border:none;
+    font-family: Hind Vadodara, sans-serif;
     font-size: 1.2em;
-    font-weight: bold;
     background-color: var(--link-color);
     color: var(--background-color);
 }
@@ -177,4 +176,10 @@ a:hover, a:active, a:focus{
 }
 .hidden{
   	display: none;
+}
+
+//Footer
+.fa{
+    font-size: 1.5em!important;
+    margin-right: 10px;
 }
