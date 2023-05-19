@@ -1,5 +1,1 @@
----
-layout: index
-permalink: /index/
 
----
