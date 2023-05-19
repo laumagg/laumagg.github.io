@@ -1,8 +1,5 @@
 /*Tablet version*/
 @media print, screen and (max-width: 960px){
-    section{
-        float: inherit;
-    }
     .menuContainer{
         border-left: 1px dotted var(--text-color);
         border-right: 0;
@@ -10,7 +7,7 @@
     fieldset{
         padding: 0;
     }
-
+    
 }
 
 /*Mobile version*/
