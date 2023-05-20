@@ -23,7 +23,6 @@ html, body{
 .wrapper{
     margin-top: 5%;
     width: 70%;
-    min-height: calc(100vh - 40px);
 }
 header{
     width: 10%;
@@ -59,9 +58,11 @@ a{
     flex-wrap: wrap;
     justify-content: flex-start;
 }
+
 .about-list-item{
     padding-top: 0.5em;
     margin: 1em;
+    margin-left: 0;
     border-top:1px dotted var(--text-color);
 }
 .about-list-item p{
@@ -73,6 +74,7 @@ a{
     display: table;
     height: 50%; 
     width: -webkit-fill-available;
+    width: -moz-available;
     overflow: hidden;
     border-right: 1px dotted var(--text-color);
 }
