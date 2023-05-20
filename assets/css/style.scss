@@ -225,6 +225,7 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .fa{
@@ -233,7 +234,6 @@ footer{
 }
 
 .copyright{
-    margin-top: 1em;
     float: right;
     font-size: small;
 }
