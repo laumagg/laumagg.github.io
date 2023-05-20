@@ -13,5 +13,4 @@ I have cultivated a diverse skill set related to eXtended Reality (XR), includin
 
 {% include about-list.html %}
 
-<hr/>
-_// kindly note that this website, just like me, is constantly under development_
+<p class="comment">// kindly note that this website, just like me, is constantly under development</p>

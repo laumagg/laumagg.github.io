@@ -7,7 +7,12 @@
     fieldset{
         padding: 0;
     }
-    
+    .wrapper, footer{
+        width: 80%;
+    }    
+    .copyright{
+        text-align: right;
+    }
 }
 
 /*Mobile version*/
@@ -18,6 +23,12 @@
     }
     body{
         padding: 15px;
+    }
+    .wrapper{
+        width: 90%;
+    }
+    footer{
+        width: 100%;
     }
 
     /* Menu */

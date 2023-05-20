@@ -30,6 +30,6 @@ Transient Exposure was a Mixed Reality experience that combined physical artifac
 {% include image-gallery.html folder="/uploads/transient/" %}
 
 
-Video and images by Isabel Robson. © reVerb, Chitrasena Dance Company, Sri Lanka, and XR_Unites, HTW Berlin
+<p class="comment">// Video and images by Isabel Robson. © reVerb, Chitrasena Dance Company, Sri Lanka, and XR_Unites, HTW Berlin</p>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
