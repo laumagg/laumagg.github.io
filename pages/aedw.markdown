@@ -6,7 +6,7 @@ permalink: /projects/aedw/
 
 # Am Ende der Welt
 
-### 09.2022 – Now
+### 09.2022 – 06.2023
 
 Artistic multiplayer MR application \| Meta Quest 2, Pro 
 
@@ -16,6 +16,8 @@ Artistic multiplayer MR application \| Meta Quest 2, Pro
 
 Am Ende der Welt (At the end of the world) is a Mixed Reality (MR) art application that explores the boundaries of blending the virtual and real worlds in a co-located multiplayer setup. The Mini Opera utilizes cutting-edge VR technology to push the boundaries of possibility. With the monochromatic passthrough mode of the Meta Quest 2, it creates digital hybrid spaces where the lines between real and virtual become blurred, delivering an experience that goes beyond traditional notions of reality.
 
-**Artists:** Nora Krahl, Amir Baltic, Christoph Clausen, Berlin. <a href="xr-unites.fki.htw-berlin.de/en/current-fellows/" target="_blank">Further information.</a>
+**Artists:** Nora Krahl, Amir Baltic, Christoph Clausen, Berlin. <a href="https://xr-unites.fki.htw-berlin.de/en/current-fellows/" target="_blank">Further information.</a>
 
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xbpmmm/">XR_Unites team</a>, University of Applied Sciences Berlin
+**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/">XR_Unites team</a>, University of Applied Sciences Berlin
+
+{% include image-gallery.html folder="/uploads/aedw/" %}
