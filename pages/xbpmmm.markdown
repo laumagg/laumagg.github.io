@@ -32,7 +32,7 @@ From January 19 to 22, 2023, the immersive experience was presented on a large s
 
 **Artists:** Janne Kummer, Anton Krause, Steph Holl-Trieu, Philisha Kraatz, Codi Körner & Johannes Aue. <a href="https://xr-unites.fki.htw-berlin.de/en/current-artistic-fellows/" target="_blank">Further information.</a>
 
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/">XR_Unites team</a>, University of Applied Sciences Berlin & Lena Biresch (desktop version)
+**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/" target="_blank">XR_Unites team</a>, University of Applied Sciences Berlin & Lena Biresch (desktop version)
 
 {% include image-gallery.html folder="/uploads/xbpmmm/" %}
 

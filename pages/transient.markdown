@@ -25,7 +25,7 @@ Transient Exposure was a Mixed Reality experience that combined physical artifac
 
 **Artists:** artists' collective reVerb (Susanne Vincenz, Isabel Robson und Mareike Trillhaas), Berlin and Chitrasena Dance Company, Colombo (Sri Lanka). <a href="https://xr-unites.fki.htw-berlin.de/en/artistic-fellows/" target="_blank">Further information.</a>
 
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/">XR_Unites team</a>, University of Applied Sciences Berlin
+**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/" target="_blank">XR_Unites team</a>, University of Applied Sciences Berlin
 
 {% include image-gallery.html folder="/uploads/transient/" %}
 

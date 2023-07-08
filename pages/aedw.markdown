@@ -18,6 +18,6 @@ Am Ende der Welt (At the end of the world) is a Mixed Reality (MR) art applicati
 
 **Artists:** Nora Krahl, Amir Baltic, Christoph Clausen, Berlin. <a href="https://xr-unites.fki.htw-berlin.de/en/current-fellows/" target="_blank">Further information.</a>
 
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/">XR_Unites team</a>, University of Applied Sciences Berlin
+**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/" target="_blank">XR_Unites team</a>, University of Applied Sciences Berlin
 
 {% include image-gallery.html folder="/uploads/aedw/" %}
