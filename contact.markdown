@@ -9,7 +9,6 @@ permalink: /contact/
    enctype="multipart/form-data"
    method="POST">
   <fieldset>
-        <br>
         <div class="row">
             <div class="form-group col-xs-12" id="Name__div">
                 <label title="required" for="Name">Name *</label><br/>

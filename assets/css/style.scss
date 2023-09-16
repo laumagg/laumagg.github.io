@@ -126,6 +126,9 @@ fieldset{
 .row{
     padding-top: 1em;
 }
+.row:first-child{
+    padding-top: 0;
+}
 .row label{
     font-size: 1.2em;
     padding-bottom: 0.5em;
