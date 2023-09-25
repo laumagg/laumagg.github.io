@@ -8,13 +8,14 @@
                 file.extname == '.JPEG' %}
                 {% assign filenameparts = file.path | split: "/" %}
                 {% assign filename = filenameparts | last | replace: file.extname,"" %}
-                <li>
+                <li class="{% if page.url != '/projects/weaving-dreams/' and page.url != '/projects/arluft/' %} full-witdh {% endif %}">
                     <img src="{{ file.path | relative_url }}" 
                         alt="{{ filename }}" 
                         title="{{ filename }}" 
-                        class= "{% if page.url == '/projects/arluft/' %}arluft-img {% endif %}
-                            {% if page.url == '/projects/weaving-dreams/' or
-                                page.url == '/projects/arluft/' %} vertical-img {% endif %}"/>
+                        class= "{% if page.url == '/projects/arluft/' %}
+                                arluft-img {% endif %}
+                            {% if page.url == '/projects/weaving-dreams/' or page.url == '/projects/arluft/' %} 
+                                vertical-img {% endif %}"/>
                 </li>
             {% endif %}
         {% endif %}
