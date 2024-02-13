@@ -8,7 +8,7 @@ permalink: /projects/weaving-dreams/
 
 ## Learning about Pua Kumbu
 
-### 03.2023 – 03.2023 
+### 03.2023 – DIKE 2023
 
 AR game created at <a href ="https://asset.uts.edu.my/dike2023/" target="_blank">DIKE 2023</a> (03.03 - 12.03, Malaysia) \| Android
 
