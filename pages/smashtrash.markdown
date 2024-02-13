@@ -20,6 +20,8 @@ With each round, the trash increases by the amount of trash an additional person
 
 You want to reduce the amount falling from the sky? Try to catch the power-upsâ€” these are reusable products which can replace the disposable products and stop them from being added to the trash. Some amount of waste is inevitable, but by using reusable items whenever possible, we can greatly reduce the amount of trash we generate.
 
+**Hackers:** Anna Buchele, Phillip Cherner, Laura Magdaleno Amaro, Roshan Mohan & Markus Sauerbeck
+
 <div class="video">
     <iframe src="https://www.youtube.com/embed/KQxUn8RIQaU?si=Mslwp2DL1JseVdUC" 
             style="position:absolute;top:0;left:0;width:100%;height:100%;" 
@@ -29,7 +31,6 @@ You want to reduce the amount falling from the sky? Try to catch the power-upsâ€
     </iframe>
 </div>
 
-**Hackers:** Anna Buchele, Phillip Cherner, Laura Magdaleno Amaro, Roshan Mohan & Markus Sauerbeck
 
 
 {% include image-gallery.html folder="/uploads/smashtrash/" %}
