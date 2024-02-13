@@ -16,7 +16,7 @@ Artistic multiplayer MR application \| Meta Quest 2, Pro
 
 Am Ende der Welt (At the end of the world) is a Mixed Reality (MR) art application that explores the boundaries of blending the virtual and real worlds in a co-located multiplayer setup. The Mini Opera utilizes cutting-edge VR technology to push the boundaries of possibility. With the monochromatic passthrough mode of the Meta Quest 2, it creates digital hybrid spaces where the lines between real and virtual become blurred, delivering an experience that goes beyond traditional notions of reality.
 
-See our <a href="https://ieeexplore.ieee.org/document/10348744">scientific article</a> for more technical details. 
+See our <a href="https://ieeexplore.ieee.org/document/10348744" target="_blank">scientific article</a> for more technical details. 
 
 **Artists:** Nora Krahl, Amir Baltic, Christoph Clausen, Berlin. <a href="https://xr-unites.fki.htw-berlin.de/en/current-fellows/" target="_blank">Further information.</a>
 
