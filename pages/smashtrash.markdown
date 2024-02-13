@@ -23,7 +23,7 @@ You want to reduce the amount falling from the sky? Try to catch the power-upsâ€
 **Hackers:** Anna Buchele, Phillip Cherner, Laura Magdaleno Amaro, Roshan Mohan & Markus Sauerbeck
 
 <div class="video">
-    <iframe src="https://www.youtube.com/embed/KQxUn8RIQaU?si=Mslwp2DL1JseVdUC" 
+    <iframe src="https://youtu.be/KQxUn8RIQaU?si=hSSMRTzQyiwpaCX-" 
             style="position:absolute;top:0;left:0;width:100%;height:100%;" 
             frameborder="0" 
             allow="autoplay; fullscreen; picture-in-picture" 
