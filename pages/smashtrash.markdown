@@ -6,7 +6,7 @@ permalink: /projects/smashtrash/
 
 # Super Smash Trash
 
-### 2024.01. - MIT Reality Hack
+### 01.2024 - MIT Reality Hack
 
 MR game created at the <a href ="https://www.mitrealityhack.com/" target="_blank">MIT Reality Hack 2024</a> (25.01 - 29.01, USA) \| Meta Quest 2 & 3 
 
