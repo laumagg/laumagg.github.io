@@ -13,9 +13,11 @@
                         alt="{{ filename }}" 
                         title="{{ filename }}" 
                         class= "{% if page.url == '/projects/arluft/' %}
-                                arluft-img {% endif %}
-                            {% if page.url == '/projects/weaving-dreams/' or page.url == '/projects/arluft/' %} 
-                                vertical-img {% endif %}"/>
+                        arluft-img {% endif %}
+                        {% if page.url == '/projects/weaving-dreams/' or page.url == '/projects/arluft/' %} 
+                        vertical-img {% endif %}"
+                        loading="lazy"
+                        decoding="asynchronous"/>
                 </li>
             {% endif %}
         {% endif %}
