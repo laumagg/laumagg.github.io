@@ -47,4 +47,8 @@
     fieldset input, textarea, .btn{
         width: 90%;
     }
+
+    #about-list-container{
+        justify-content: flex-start;
+    }
 }

@@ -19,7 +19,7 @@ The installation was presented as part of <a href ="https://www.institutfrancais
 
 **Artists:** artists' collective <a href ="http://isabelrobson.de/archive/reverb/" target="_blank">reVerb</a> (Susanne Vincenz, Isabel Robson und Mareike Trillhaas) and <a href ="https://www.josephineauffray.com/" target="_blank">Joséphine Auffray</a> (performance artist)
 
-**Development:** Laura Magdaleno Amaro (Lead development) and Christoph Holtmann
+**Development:** Laura Amaro (Lead development) and Christoph Holtmann
 
 {% include image-gallery.html folder="/uploads/cpr/" %}
 
