@@ -13,6 +13,10 @@
     .copyright{
         text-align: right;
     }
+    .about-list-item{
+        margin: 1em 2em;
+        margin-left: 0;
+    }
 }
 
 /*Mobile version*/
