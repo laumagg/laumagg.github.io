@@ -7,7 +7,7 @@ permalink: /projects/cpr/
 
 # Choreographic Plant Room
 
-### 03.2024 - 07.2024
+### 03.2024 - 11.2024
 
 Artistic Mixed Reality experience  \| HoloLens 2 
 
