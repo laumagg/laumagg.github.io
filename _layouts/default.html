@@ -23,24 +23,24 @@
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
-
-          <div class="menuContainer">
-            <ul class="menu" id="nav">
-              <li><a href="{{ "/" | absolute_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">About</a></li>
-              <li><a href="{{ "/projects/" | absolute_url }}" class="nav-link{% if page.url == '/projects/' %} active{% endif %}">Projects</a></li>
-              <li><a href="{{ "/contact/" | absolute_url }}" class="nav-link{% if page.url == '/contact/' %} active{% endif %}">Contact</a></li>
-              <li><a href="{{ "/uploads/PublicCV2025.pdf" | absolute_url }}" target="_blank" class="nav-link">Resume</a></li>
-            </ul>
-          </div>
-          </header>
+          <nav class="menu" id="nav">
+            <a href="{{ "/" | absolute_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">About</a>
+            <a href="{{ "/contact/" | absolute_url }}" class="nav-link{% if page.url == '/contact/' %} active{% endif %}">Contact</a>
+            <a href="{{ "/uploads/PublicCV2025.pdf" | absolute_url }}" target="_blank" class="nav-link">Resume</a>
+          </nav>
+      </header>
       <section>
         <div class="container">
           {{ content }}
-          </div>
+        </div>
 
       </section>
       <footer>
         <div class="footer-wrapper">
+          <div class="copyright">
+            Constantly updating © 2025 by Laura Amaro
+          </div>
+
           {% if site.data.social-media %}
           <div id="social-media">
               {% assign sm = site.data.social-media %}
@@ -52,10 +52,6 @@
               {% endfor %}
           </div>
           {% endif %}
-          
-          <div class="copyright">
-            Constantly updating © 2025 by Laura Amaro
-          </div>
         </div>
       </footer>
     </div>

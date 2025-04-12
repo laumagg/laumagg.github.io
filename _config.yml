@@ -29,7 +29,10 @@
 # github_username:  jekyll
 
 # Build settings
+title: Laura Amaro
 theme: minima
+baseurl: "" # leave blank if deploying to root on GitHub Pages
+url: "https://laumagg.github.io"
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-feed

@@ -1,0 +1,46 @@
+Choreographic Plant Room:
+  title: Choreographic Plant Room
+  image: /uploads/cpr/cpr_1.jpg
+  url: /projects/cpr/
+  size: large
+
+Super Smash Trash:
+  title: Super Smash Trash
+  image: /uploads/smashtrash/team.jpg
+  url: /projects/smashtrash/
+  size: medium
+
+Am Ende der Welt:
+  title: Am Ende der Welt
+  image: /uploads/aedw/aedw2.png
+  url: /projects/aedw/
+  size: large
+
+Weaving Dreams:
+  title: Weaving Dreams
+  image: /uploads\weaving\3_weaver_strory.jpg
+  url: /projects/weaving-dreams/
+  size: vertical
+
+XBPMMM:
+  title: XBPMMM
+  image: /uploads/xbpmmm/1-premiere.jpg
+  url: /projects/xbpmmm/
+  size: large  
+
+AR-Luft:
+  title: AR-Luft
+  image: /uploads/arluft/4-Particles.jpeg
+  url: /projects/arluft/
+  size: vertical 
+
+Transient Exposure:
+  title: Transient Exposure
+  image: /uploads/transient/2-drum-te.png
+  url: /projects/transient-exposure/
+  size: medium
+
+# IKRD (HHI):
+#   title: IKRD (HHI)
+#   image: /assets/images/project2.png
+#   url: /projects/ikrd/

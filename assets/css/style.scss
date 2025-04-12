@@ -7,43 +7,73 @@
 
 
 :root {
-    --background-color: #F1EEFB;
-    --highlight-color:  #4526ac;
-    --link-color: #211254;
-    --text-color: #070411;
+    --background-color: linear-gradient(100deg,rgba(226, 211, 232, 1) 0%, rgba(249, 255, 222, 1) 100%);
+    --highlight-color:  #230426;
+    --highlight-color-2: #562a5a;
+    --link-color: #a2b067;
+    --text-color: #1f1f1f;
   }
 
 html, body{
     font-family: Hind Vadodara, sans-serif;
     background: var(--background-color);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-color);
     font-size: 1em;
     text-rendering: optimizeLegibility;
    -webkit-font-smoothing: subpixel-antialiased;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+   margin:0;
+   padding-bottom: 0;
 }
 
-.wrapper{
-    margin-top: 5%;
-    width: 70%;
-}
-header{
-    width: 10%;
-    height: 80%;
-}
+.wrapper {
+    min-height: 90vh; /* full viewport height */
+    display: flex;
+    flex-direction: column;
+  }
+
 section{
     text-align: justify;
-    width: 80%;
+    width: 100%;
+    flex: 1;
+}
+
+//Menu -------------------------------------------
+header{
+    width: 100%;
+    position: relative;
+}
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+  
+.menu a{
+    font-size: 1.2em;
+    margin-left: 2rem;
+    text-decoration: none;
+}
+.menu a:hover, .active{
+    font-weight: bold;
+    color: var(--highlight-color)
 }
 
 // content ------------------------------------------
 
-h1, h2, h3{
+h1, h2{
   font-family: Bruno Ace, cursive;
   text-align: left;
 }
 h1{
+    color: var(--highlight-color);
     font-size: 2.2em;
+}
+h2{
+    color: var(--highlight-color-2);
 }
 p, ul, td, strong, label, a{
     color: var(--text-color);
@@ -51,9 +81,7 @@ p, ul, td, strong, label, a{
 a{    
     color: var(--link-color); 
 }
-.project-redirect{
-    font-size: 1.5em;
-}
+
 
 #about-list-container{
     display: flex;
@@ -72,49 +100,11 @@ a{
     font-weight: bold;
 }
 
-//Menu -------------------------------------------
-.menuContainer{
-    display: table;
-    height: 50%; 
-    width: -webkit-fill-available;
-    width: -moz-available;
-    overflow: hidden;
-    border-right: 1px dotted var(--text-color);
-}
-.menu{
-    display: table-cell; 
-    vertical-align: middle;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li{
-    margin-bottom: 1em;
-}
-
-.menu a{
-    font-size: 1.2em;
-}
-.menu a:hover, .active{
-    font-weight: bold;
-    color: var(--highlight-color)
-}
 
 // Project posts ---------------
 .project-links{
     display: flex;
     flex-direction: column;
-}
-.project-redirect{
-    font-style: normal;
-    transition: margin-left .2s ease-in-out;
-}
-.project-redirect:hover{
-    font-style: italic;
-    margin-left: .5em;
 }
 
 //Contact form ---------------------------------------------------------
@@ -207,6 +197,80 @@ textarea:focus-visible{
     padding:56.25% 0 0 0;
 }
 
+
+// Main page 
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* hide scrollbar on Firefox */
+    height: 80%;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none; /* hide scrollbar on Chrome/Safari */
+  }
+  
+  .project-tile {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: translateY(calc(5px * var(--i, 1))); /* stagger */
+  }
+  
+  .project-tile:hover {
+    transform: scale(1.05);
+  }
+  
+  .project-tile:nth-child(even) {
+    --i: 3;
+  }
+  .project-tile:nth-child(odd) {
+    --i: 1;
+  }
+  
+  .project-tile img {
+    height: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    object-fit: cover;
+  }
+  
+  .project-tile h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-align: center;
+  }
+  
+  .project-tile.vertical{
+    width:230px;
+    height: 500px;
+  }
+  .project-tile.medium {
+    width: 260px;
+    height: 220px;
+  }
+  
+  .project-tile.large {
+    width: 320px;
+    height: 280px;
+  }
+
+  #main-title{
+    background: none;
+    backdrop-filter: unset;
+    box-shadow: none;
+    text-align: left;
+    position: sticky;
+}
 //Details -----------------------------------------------
 ::selection{
   background-color: var(--background-color);
@@ -226,16 +290,19 @@ a:hover, a:active, a:focus{
     font-size: smaller;
     font-style: italic;
 }
-
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 //Footer
 footer{
-    width: 10%;
+    position: relative;
+    width: 100%;
 }
-
 .footer-wrapper{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -249,3 +316,4 @@ footer{
     float: right;
     font-size: small;
 }
+

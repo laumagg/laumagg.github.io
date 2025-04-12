@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /
+permalink: /about/
 ---
 
 # Hi there, nice to meet you!  
