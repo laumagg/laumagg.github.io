@@ -12,8 +12,30 @@
     --highlight-color-2: #562a5a;
     --link-color: #a2b067;
     --text-color: #1f1f1f;
-  }
 
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--highlight-color-2) transparent;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--highlight-color-2);
+    border-radius: 20px;
+    border: 3px solid transparent;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight-color); 
+  }
 html, body{
     font-family: Hind Vadodara, sans-serif;
     background: var(--background-color);
@@ -50,7 +72,7 @@ header{
 .menu {
     display: flex;
     justify-content: flex-end;
-    padding: 2rem;
+    padding: 1rem;
   }
   
 .menu a{
@@ -102,12 +124,6 @@ a{
 }
 
 
-// Project posts ---------------
-.project-links{
-    display: flex;
-    flex-direction: column;
-}
-
 //Contact form ---------------------------------------------------------
 fieldset{
     border:none;
@@ -130,9 +146,9 @@ fieldset input, textarea, .btn{
     height: 2em;    
     padding:0.2em;
     margin-top: 0.2em;
-    border: 1.5px solid var(--link-color);
+    border: 1.5px solid var(--highlight-color-2);
     border-radius: 4px;    
-    color: var(--text-color);
+    color: white;
 }
 textarea{
     height: 8em;
@@ -146,7 +162,7 @@ fieldset input:focus-visible,
 textarea:focus,
 textarea:focus-visible{
     outline:none;
-    border-color: var(--highlight-color);    
+    border-color: var(--link-color);    
 
 }
 
@@ -155,12 +171,12 @@ textarea:focus-visible{
     border:none;
     font-family: Hind Vadodara, sans-serif;
     font-size: 1.2em;
-    background-color: var(--link-color);
-    color: var(--background-color);
+    background-color: var(--highlight-color-2);
+    color: white;
 }
 
 .btn:hover, .btn:active{
-    background-color: var(--highlight-color);
+    background-color: var(--link-color);
 }
 
 // Image gallery ----------------------------------------
@@ -198,19 +214,13 @@ textarea:focus-visible{
     padding:56.25% 0 0 0;
 }
 
-
 // Main page 
-.gallery-scroll-wrapper{
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
+#gallery-scroll-wrapper{   
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    // scrollbar-width: none; /* hide scrollbar on Firefox */
     padding: 40px;
 }
-// .gallery-scroll-wrapper::-webkit-scrollbar {
-//     display: none; /* hide scrollbar on Chrome/Safari */
-// }
+
 .gallery-wall {
     display: grid;
     grid-auto-flow: column;
@@ -323,7 +333,7 @@ ul {
 footer{
     position: relative;
     width: 100%;
-    margin-top: 2em;
+    margin-top: 1rem;
 }
 .footer-wrapper{
     display: flex;

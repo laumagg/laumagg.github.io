@@ -11,7 +11,7 @@ permalink: /
 </div>
 
 {% if site.data.projects %}
-<div class="gallery-scroll-wrapper">
+<div id="gallery-scroll-wrapper">
 <div class="gallery-wall">
     {% assign p_list = site.data.projects %}
     {% for project in p_list %}
