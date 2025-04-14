@@ -1,5 +1,8 @@
 /*Tablet version*/
 @media print, screen and (max-width: 960px){
+    header{
+        padding-right: 0;
+    }
     .menuContainer{
         border-left: 1px dotted var(--text-color);
         border-right: 0;
@@ -7,12 +10,13 @@
     fieldset{
         padding: 0;
     }
-    .wrapper, footer{
-        width: 80%!important;
+    .wrapper{
+        width: 90%!important;
         margin: auto!important;
-    }    
-    .copyright{
-        text-align: right;
+    }  
+      
+    section{
+        border:none;
     }
 
     .about-list-item{
@@ -46,14 +50,24 @@
     .menu{
         display:flex;
         justify-content: space-around;
+        padding: 1rem 0;
     }
     .menu a{
         margin: 0;
+        padding: 0.3rem;
     }
+
     fieldset{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         padding: 0;
         margin: 0;
+    }
+    fieldset .row {
+        width: 100%;
     }
     fieldset input, textarea, .btn{
         width: 90%;
@@ -68,5 +82,8 @@
     }
     .about-list-item{
         margin: 1em 0;
+    }
+    .copyright{
+        max-width: 50%;
     }
 }

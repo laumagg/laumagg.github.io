@@ -105,6 +105,8 @@ p, ul, td, strong, label, a{
 }
 a{    
     color: var(--link-color); 
+    display: inline-block; /* needed for transform */
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .text-container {
@@ -340,6 +342,7 @@ textarea:focus-visible{
 }
 
 a:hover, a:active, a:focus{
+    transform: scale(1.05);
     color:var(--highlight-color);
 }
 .hidden{
