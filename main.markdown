@@ -39,7 +39,7 @@ permalink: /
 <h2 id="contact">Let us connect</h2>
 <div class="contact-container">
 {% include contact.html %}
-<img src="uploads/portrait-3-removebg.png" 
+<img src="uploads/portrait.png" 
     alt="portrait" 
     title="portrait" 
     class= "portrait"/>
