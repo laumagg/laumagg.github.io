@@ -17,7 +17,7 @@ Choreographic Plant Room is a physical exploration of the digital flora of the S
 
 The installation was presented as part of <a href ="https://www.institutfrancais.de/de/berlin/event/die-nacht-der-ideen-2024-berlin-25087#/" target="_blank">La Nuit des Idees</a> (the Night of Ideas) at the Institut Français Berlin on June 11, 2024. The convergence of physical and digital movement will be further explored in July in creative sessions with students from the Ernst Busch University of Theatre Arts Berlin.
 
-**Artists:** artists' collective <a href ="http://isabelrobson.de/archive/reverb/" target="_blank">reVerb</a> (Susanne Vincenz, Isabel Robson und Mareike Trillhaas) and <a href ="https://www.josephineauffray.com/" target="_blank">Joséphine Auffray</a> (performance artist)
+**Artists:** artists' collective <a href ="http://isabelrobson.de/archive/reverb/" target="_blank">reVerb</a> (Susanne Vincenz, Isabel Robson und Mareike Trillhaas) and <a href ="https://www.instagram.com/oseee_josephine/" target="_blank">Joséphine Auffray</a> (performance artist)
 
 **Development:** Laura Amaro (Lead development) and Christoph Holtmann
 
