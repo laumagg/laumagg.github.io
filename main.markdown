@@ -37,4 +37,11 @@ permalink: /
 {% endif %}
 
 <h2 id="contact">Let us connect</h2>
+<div class="contact-container">
 {% include contact.html %}
+<img src="uploads/portrait-3-removebg.png" 
+    alt="portrait" 
+    title="portrait" 
+    class= "portrait"/>
+</div>
+<p class="comment">// if you are a digital artist seeking technical advice, please briefly describe your project, your concerns, and provide a time preference</p>

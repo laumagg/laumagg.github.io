@@ -56,7 +56,9 @@
         margin: 0;
         padding: 0.3rem;
     }
-
+    .contact-container{
+        flex-direction: column;
+    }
     fieldset{
         display: flex;
         flex-direction: column;
