@@ -385,3 +385,25 @@ footer{
     font-size: small;
 }
 
+#scrollToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    display: none;
+    background-color: var(--highlight-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, opacity 0.3s ease;
+  }
+  
+  #scrollToTop:hover {
+    transform: scale(1.1);
+    background-color: var(--link-color); /* optional alt color */
+  }
