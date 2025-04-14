@@ -84,7 +84,7 @@ header{
 }
 .menu a:hover, .active{
     font-weight: bold;
-    color: var(--highlight-color)
+    color: var(--link-color)
 }
 
 // content ------------------------------------------
@@ -104,7 +104,7 @@ p, ul, td, strong, label, a{
     color: var(--text-color);
 }
 a{    
-    color: var(--link-color); 
+    color: var(--highlight-color-2); 
     display: inline-block; /* needed for transform */
     transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -247,7 +247,7 @@ textarea:focus-visible{
     max-width: 13em;
 }
 .arluft-img{
-    border: .1px dotted var(--link-color);
+    border: .1px dotted var(--highlight-color-opacity);
 }
 
 //video
@@ -357,7 +357,7 @@ textarea:focus-visible{
 
 a:hover, a:active, a:focus{
     transform: scale(1.05);
-    color:var(--highlight-color);
+    color:var(--link-color);
 }
 .hidden{
   	display: none;
@@ -419,5 +419,5 @@ footer{
   
   #scrollToTop:hover {
     transform: scale(1.1);
-    background-color: var(--link-color); /* optional alt color */
+    background-color: var(--link-color); 
   }
