@@ -7,12 +7,10 @@ Choreographic Plant Room:
 
 Super Smash Trash:
   title: Super Smash Trash
-  image: /uploads/smashtrash/team.jpg
+  image: /uploads/smashtrash/team-cut.jpg
   url: /projects/smashtrash/
   size: medium
   stagger: 0
-
-
 
 AR-Luft:
   title: AR-Luft
@@ -28,12 +26,17 @@ Am Ende der Welt:
   size: medium
   stagger: 0
 
+XBPMMM:
+  title: XBPMMM
+  image: /uploads/xbpmmm/1-premiere-cut.jpg
+  url: /projects/xbpmmm/
+  size: large
 
 Transient Exposure:
   title: Transient Exposure
-  image: /uploads/transient/2-drum-te.png
+  image: /uploads/transient/2-drum-te-cut.png
   url: /projects/transient-exposure/
-  size: large
+  size: medium
   stagger: 0
 
 
