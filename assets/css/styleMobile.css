@@ -8,11 +8,13 @@
         padding: 0;
     }
     .wrapper, footer{
-        width: 80%;
+        width: 80%!important;
+        margin: auto!important;
     }    
     .copyright{
         text-align: right;
     }
+
     .about-list-item{
         margin: 1em 2em;
         margin-left: 0;
@@ -34,7 +36,9 @@
     footer{
         width: 100%;
     }
-
+    h1{
+        font-size: 1.75em;
+    }
     /* Menu */
     .menuContainer{
         border-left: 0;
@@ -42,6 +46,9 @@
     .menu{
         display:flex;
         justify-content: space-around;
+    }
+    .menu a{
+        margin: 0;
     }
     fieldset{
         width: 100%;
@@ -51,8 +58,15 @@
     fieldset input, textarea, .btn{
         width: 90%;
     }
+    .text-content{
+        padding: 3rem 2rem;
+    }
 
     #about-list-container{
+        flex-direction: column;
         justify-content: flex-start;
+    }
+    .about-list-item{
+        margin: 1em 0;
     }
 }
