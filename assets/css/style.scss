@@ -12,6 +12,7 @@
     --highlight-color-2: #562a5a;
     --link-color: #a2b067;
     --text-color: #1f1f1f;
+    --text-background: #81608444;
 
 }
 * {
@@ -104,6 +105,44 @@ p, ul, td, strong, label, a{
 a{    
     color: var(--link-color); 
 }
+
+.text-container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2rem;
+    margin: 2rem auto;
+  }
+
+  .text-container::before { 
+    content: "";   
+    position: absolute;
+    inset: 0;
+    background-image: url('/uploads/geometric.png');
+    filter: blur(50px);
+    z-index: 1;
+  }
+  .text-content {
+    position: relative;
+    z-index: 2; /* keep content above blur */
+    text-align: center;
+    padding: 4rem 6rem;
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 1rem;
+    backdrop-filter: blur(4px); 
+  }
+  
+  .about-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: 'Hind Vadodara', sans-serif;
+    color: var(--text-color);
+    max-width: 70ch;
+    margin: 0 auto 1.5rem;
+  }
 
 
 #about-list-container{

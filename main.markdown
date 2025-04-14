@@ -10,7 +10,17 @@ permalink: /
     <h2>XR and Computer Vision Innovation</h2>
 </div>
 
+<div class= "text-container">
+    <div class ="text-content">
+    <h2>Hi, nice to meet you!</h2>
+    <p>Currently, I am pursuing a <b>Master's degree in Applied Computer Science</b> with a specialization in Visual Computing at the University of Applied Sciences Berlin and work as a graduate research assistant at <b>Fraunhofer Institut HHI</b>. Previously, I completed a Bachelor's program in Environmental Computer Science, where I focused on web development and GIS.</p>
+    <p>I have cultivated a diverse skill set related to <b>eXtended Reality (XR)</b>, including 3D computing using the Unity and Unreal game engines, programming, and human-centered interaction. The convergence of technology, nature, and human experience fascinates me, and I strive to use technology to drive innovation and make a positive impact. I also love partnering with the <b>creative community</b> to capture the wonder of hybrid encounters.</p>
+    </div>
+</div>
+
+
 {% if site.data.projects %}
+<h2>Featured Work and Playground</h2>
 <div id="gallery-scroll-wrapper">
 <div class="gallery-wall">
     {% assign p_list = site.data.projects %}
