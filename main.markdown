@@ -5,9 +5,9 @@ permalink: /
 
 <div id="about" class= "text-container">
     <div class ="text-content">
-    <h1>Hi, I'm Laura Amaro, so nice to meet you!</h1>
-    <p>Currently, I am pursuing a <b>Master's degree in Applied Computer Science</b> with a specialization in Visual Computing at the University of Applied Sciences Berlin and work as a graduate research assistant at <b>Fraunhofer Institut HHI</b>. Previously, I completed a Bachelor's program in Environmental Computer Science, where I focused on web development and GIS.</p>
-    <p>I have cultivated a diverse skill set related to <b>eXtended Reality (XR)</b>, including 3D computing using the Unity and Unreal game engines, programming, and human-centered interaction. The convergence of technology, nature, and human experience fascinates me, and I strive to use technology to drive innovation and make a positive impact. I also love partnering with the <b>creative community</b> to capture the wonder of hybrid encounters.</p>
+    <h1>Hi, I'm Laura, so nice to meet you!</h1>
+    <p>Bridging academic research and creative exploration, my work in Visual Computing is shaped by ongoing Master’s studies and hands-on research at the <b>Fraunhofer Institute for Telecommunications, HHI</b>, where I contribute to projects in immersive media technologies. My academic journey is focused on <b>computer vision</b>, <b>image processing</b>, and <b>immersive technologies</b>.</p> 
+    <p>Over the years, I’ve developed a broad skill set in <b>eXtended Reality (XR)</b>, including 3D computing with Unity and Unreal Engine, programming, and human-centered design. Deeply inspired by the intersection of technology, nature, and human experience, I’m driven to create meaningful, innovative applications. I also enjoy collaborating with the <b>creative community</b> to explore the potential of hybrid, immersive experiences that spark curiosity and connection.</p>
     {% include about-list.html%}
     </div>
 </div>
