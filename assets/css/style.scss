@@ -99,6 +99,7 @@ h1{
 }
 h2{
     color: var(--highlight-color-2);
+    font-size: 2em;
 }
 p, ul, td, strong, label, a{
     color: var(--text-color);
@@ -113,6 +114,7 @@ a{
 .text-container {
     position: relative;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -123,7 +125,7 @@ a{
     position: relative;
     text-align: right;
     padding: 2rem;
-    font-size: 1.5em;
+    margin-right: 1e,;
   }
 
     #about h1{
@@ -146,6 +148,7 @@ a{
     background: rgba(255, 255, 255, 0.4); 
     border-radius: 1rem;
     backdrop-filter: blur(4px); 
+    text-align: center;
 }
 .about-list-item p{
     font-weight: bold;
