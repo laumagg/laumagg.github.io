@@ -4,12 +4,12 @@ permalink: /
 ---
 
 <div id="about" class= "text-container">
-    <h1>Hi, I'm Laura, so nice to meet you!</h1>
+    <h1>Hi, there, so nice to meet you!</h1>
     <div class ="text-content">
         <p>I'm Laura — a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science.</p>
     </div>
-    {% include about-list.html%}
 </div>
+    {% include about-list.html%}
 
 
 {% if site.data.projects %}
