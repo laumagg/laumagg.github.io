@@ -112,24 +112,25 @@ a{
 .text-container {
     position: relative;
     margin: 2rem 0 4rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .text-container::before { 
-    content: "";   
-    position: absolute;
-    inset: 0;
-    background-image: url('/uploads/geometric.png');
-    filter: blur(60px) brightness(1.2);
-    z-index: 1;
-  }
+//   .text-container::before { 
+//     content: "";   
+//     position: absolute;
+//     inset: 0;
+//     background-image: url('/uploads/geometric.png');
+//     filter: blur(60px) brightness(1.2);
+//     z-index: 1;
+//   }
   .text-content {
+    width: 65%;
     position: relative;
-    z-index: 2; /* keep content above blur */
-    text-align: center;
+    text-align: left;
     padding: 4rem 6rem;
-    background: rgba(255, 255, 255, 0.4); 
-    border-radius: 1rem;
-    backdrop-filter: blur(4px); 
   }
 #about h1{
     text-align: center;
@@ -140,13 +141,16 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    z-index: 2; /* keep content above blur */
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 1rem;
+    backdrop-filter: blur(4px); 
 }
 
 .about-list-item{
     padding-top: 0.5em;
     margin: 1em 4em;
     margin-left: 0;
-    border-top:1px dotted var(--text-color);
 }
 .about-list-item p{
     font-weight: bold;

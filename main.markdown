@@ -4,12 +4,11 @@ permalink: /
 ---
 
 <div id="about" class= "text-container">
-    <div class ="text-content">
     <h1>Hi, I'm Laura, so nice to meet you!</h1>
-    <p>Bridging academic research and creative exploration, my work in Visual Computing is shaped by ongoing <b>Master’s studies</b> in Applied Computer Science and hands-on research at the <b>Fraunhofer Institute for Telecommunications, HHI</b>, where I contribute to multiple projects in immersive media technologies. My academic journey is focused on <b>computer vision</b>, <b>image processing</b>, and <b>immersive technologies</b>.</p> 
-    <p>Over the years, I’ve developed a broad skill set in <b>eXtended Reality (XR)</b>, including 3D computing with Unity and Unreal Engine, programming, and human-centered design. Deeply inspired by the intersection of technology, nature, and human experience, I’m driven to create meaningful, innovative applications. I also enjoy collaborating with the <b>creative community</b> to explore the potential of hybrid, immersive experiences that spark curiosity and connection.</p>
-    {% include about-list.html%}
+    <div class ="text-content">
+        <p>I'm Laura — a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science.</p>
     </div>
+    {% include about-list.html%}
 </div>
 
 
