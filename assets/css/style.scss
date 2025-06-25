@@ -398,12 +398,10 @@ ul {
   }
 //Footer
 footer{
-    box-sizing: border-box;
-    position: relative;
     width: 100%;
     margin-top: 4rem;
     background: rgba(255, 255, 255, 0.7); 
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 1rem 1rem 0 0;
     backdrop-filter: blur(4px); 
     z-index: 1;
 }

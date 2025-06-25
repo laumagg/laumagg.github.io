@@ -42,12 +42,8 @@
 /*Mobile version*/
 @media screen and (max-width : 720px){
 
-   footer{
-        width: 100%;
-    }
-    #footer-wrapper{
+    .footer-wrapper{
         width: 90%;
-        margin: auto;
     }
     h1{
         font-size: 2.2em;
