@@ -132,6 +132,11 @@ a{
         text-align: center;
         margin: auto auto;
     }
+    #about p{
+        text-align: center;
+        margin: auto auto;
+    }
+
 
 #about-list-container{
     display: flex;
@@ -142,6 +147,7 @@ a{
 }
 
 .about-list-item{
+    min-width: 200px;
     padding: 2.5em;
     background: rgba(255, 255, 255, 0.4); 
     border-radius: 1rem;

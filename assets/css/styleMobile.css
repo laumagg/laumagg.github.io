@@ -26,7 +26,7 @@
         border:none;
     }
     #about-list-container{
-        flex-direction: column;
+        justify-content: space-evenly;
         gap: 1.5em;
     }
     .about-list-item{
@@ -70,7 +70,7 @@
         flex-wrap: wrap;
     }
     .text-content{
-        text-align: left;
+        text-align: center;
         padding: 3rem 2rem;
     }
 
