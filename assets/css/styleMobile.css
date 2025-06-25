@@ -45,6 +45,10 @@
    footer{
         width: 100%;
     }
+    #footer-wrapper{
+        width: 90%;
+        margin: auto;
+    }
     h1{
         font-size: 2.2em;
     }
@@ -56,6 +60,7 @@
         border-left: 0;
     }
     .menu{
+        width: 100%;
         display:flex;
         justify-content: space-around;
         padding: 1rem 0;
@@ -76,7 +81,7 @@
 
     #about-list-container{
         flex-direction: column;
-
+        margin: 0 0 3em 0;
         gap: 1.5em;
     }
     .about-list-item{
