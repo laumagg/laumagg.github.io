@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/arluft/
 ---
-{% include project-back.html %}
+<div id="project-wrapper">
 
 # AR-Luft
 
@@ -23,3 +23,4 @@ AR-Luft contains three views: a 2D map view and two visualizations in AR. In the
 
 {% include image-gallery.html folder="/uploads/arluft" %}
 
+</div>

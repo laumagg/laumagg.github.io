@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/weaving-dreams/
 ---
-{% include project-back.html %}
+<div id="project-wrapper">
 
 # Weaving Dreams
 
@@ -22,3 +22,4 @@ The aim of the project was to deliver general information about Pua Kumbu from t
 
 {% include image-gallery.html folder="/uploads/weaving" %}
 
+</div>

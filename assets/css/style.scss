@@ -69,15 +69,19 @@ section{
 
 //Menu -------------------------------------------
 header{
-    width: 70%;
-    position: relative;
-    margin:auto;
-    margin-bottom: 2em;
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.4); 
+    border-radius: 0 0 1rem 1rem;
+    backdrop-filter: blur(4px); 
+    z-index: 1;
 }
 .menu {
+    width: 70%;
+    margin:auto;
+    padding: 1rem;
     display: flex;
     justify-content: flex-end;
-    padding: 1rem;
   }
   
 .menu a{
@@ -91,12 +95,14 @@ header{
 
 // content ------------------------------------------
 
-#about-wrapper, #projects-wrapper, #contact-wrapper{
+#about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 70%;
     margin: auto;
 }
 
-
+#about-wrapper{
+    margin-top: 5em;
+}
 h1, h2{
   font-family: Bruno Ace, cursive;
   text-align: left;
