@@ -2,6 +2,7 @@
 layout: default
 permalink: /projects/cpr/
 ---
+{% capture content %}
 
 # Choreographic Plant Room
 
@@ -23,3 +24,8 @@ The installation was presented as part of <a href ="https://www.institutfrancais
 
 <p class="comment">// Images by Isabel Robson. © reVerb</p>
 
+{% endcapture %}
+
+<div id="project-wrapper">
+  {{ content | markdownify }}
+</div>

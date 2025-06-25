@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/xbpmmm/
 ---
-<div id="project-wrapper">
+{% capture content %}
 
 # XBPMMM
 
@@ -38,4 +38,8 @@ From January 19 to 22, 2023, the immersive experience was presented on a large s
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
+{% endcapture %}
+
+<div id="project-wrapper">
+  {{ content | markdownify }}
 </div>

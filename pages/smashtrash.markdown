@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/smashtrash/
 ---
-<div id="project-wrapper">
+{% capture content %}
 
 # Super Smash Trash
 
@@ -39,4 +39,8 @@ You want to reduce the amount falling from the sky? Try to catch the power-upsâ€
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
+{% endcapture %}
+
+<div id="project-wrapper">
+  {{ content | markdownify }}
 </div>

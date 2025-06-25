@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/transient-exposure/
 ---
-<div id="project-wrapper">
+{% capture content %}
 
 # Transient exposure
 
@@ -35,4 +35,8 @@ Transient Exposure was a Mixed Reality experience that combined physical artifac
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 
+{% endcapture %}
+
+<div id="project-wrapper">
+  {{ content | markdownify }}
 </div>
