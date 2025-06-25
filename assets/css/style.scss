@@ -101,7 +101,7 @@ header{
     margin: auto;
 }
 
-#about-wrapper, #project-wrapper{
+#about-wrapper, #project-wrapper, #four04-wrapper{
     margin-top: 5em;
 }
 h1, h2{
@@ -116,14 +116,16 @@ h2{
     color: var(--highlight-color-2);
     font-size: 2em;
 }
-p, ul, td, strong, label, a{
+p, ul, td, strong, label{
     color: var(--text-color);
-    font-size: 1.2em
+    font-size: 1.2em;
 }
 a{    
     color: var(--highlight-color-2); 
     display: inline-block; /* needed for transform */
     transition: transform 0.2s ease, color 0.2s ease;
+    font-size: 1em;
+
 }
 
 .text-container {
@@ -400,7 +402,7 @@ footer{
     width: 70%;
     margin: auto;
     margin-top: 4rem;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     border-top: 1px solid var(--highlight-color-opacity);
 }
 .footer-wrapper{

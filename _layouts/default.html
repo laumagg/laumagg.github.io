@@ -35,10 +35,6 @@
       <button id="scrollToTop" title="Back to top">↑</button>
       <footer>
         <div class="footer-wrapper">
-          <div class="copyright">
-            Constantly updating © 2025 by Laura Amaro
-          </div>
-
           {% if site.data.social-media %}
           <div id="social-media">
               {% assign sm = site.data.social-media %}
@@ -50,6 +46,9 @@
               {% endfor %}
           </div>
           {% endif %}
+          <div class="copyright">
+            Constantly updating © 2025 by Laura Amaro
+          </div>
         </div>
       </footer>
     </div>

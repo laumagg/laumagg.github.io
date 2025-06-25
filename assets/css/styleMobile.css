@@ -1,7 +1,7 @@
 /*Tablet version - big or landscape*/
 @media screen and (max-width : 1400px){
     
-#about-wrapper, #project-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 90%;
 }
 
@@ -68,6 +68,7 @@
     .menu a{
         margin: 0;
         padding: 0.3rem;
+        font-size: 1em;
     }
     /*content*/
     .text-container{
@@ -75,8 +76,9 @@
         justify-content: space-around;
     }
     .text-content{
+        width: 100%;
         text-align: center;
-        padding: 3rem 2rem;
+        padding: 3rem 0;
     }
 
     #about-list-container{

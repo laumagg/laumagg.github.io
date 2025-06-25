@@ -47,5 +47,4 @@ permalink: /
         title="portrait" 
         class= "portrait"/>
     </div>
-    <p class="comment">// if you are a digital artist seeking technical advice, please briefly describe your project, your concerns, and provide a time preference</p>
 </div>
