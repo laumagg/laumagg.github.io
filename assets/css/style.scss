@@ -71,7 +71,7 @@ section{
 header{
     position: fixed;
     width: 100%;
-    background: rgba(255, 255, 255, 0.4); 
+    background: rgba(255, 255, 255, 0.7); 
     border-radius: 0 0 1rem 1rem;
     backdrop-filter: blur(4px); 
     z-index: 1;
@@ -87,6 +87,7 @@ header{
 .menu a{
     margin-left: 2rem;
     text-decoration: none;
+    font-family: Bruno Ace, cursive;
 }
 .menu a:hover, .active{
     font-weight: bold;
@@ -156,7 +157,7 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 5em;
+    margin: 5em 0;
 }
 
 .about-list-item{

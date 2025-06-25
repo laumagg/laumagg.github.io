@@ -2,7 +2,6 @@
 layout: default
 permalink: /projects/aedw/
 ---
-<div id="project-wrapper">
 
 # Am Ende der Welt
 
@@ -25,4 +24,3 @@ See our <a href="https://ieeexplore.ieee.org/document/10348744" target="_blank">
 
 {% include image-gallery.html folder="/uploads/aedw/" %}
 
-</div>

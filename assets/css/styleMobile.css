@@ -3,8 +3,12 @@
     
 #about-wrapper, #project-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 90%;
-    margin: auto;
 }
+
+#about-wrapper{
+    margin-top:5em;
+}
+
 }
 
 /*Tablet version*/
@@ -38,14 +42,7 @@
 /*Mobile version*/
 @media screen and (max-width : 720px){
 
-    header, section{
-        width: auto;
-    }
-    body{
-        padding: 15px;
-    }
-
-    footer{
+   footer{
         width: 100%;
     }
     h1{

@@ -3,8 +3,6 @@ layout: default
 permalink: /projects/cpr/
 ---
 
-<div id="project-wrapper">
-
 # Choreographic Plant Room
 
 ### 03.2024 - 11.2024
@@ -25,4 +23,3 @@ The installation was presented as part of <a href ="https://www.institutfrancais
 
 <p class="comment">// Images by Isabel Robson. © reVerb</p>
 
-</div>
