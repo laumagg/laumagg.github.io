@@ -1,5 +1,5 @@
 /*Tablet version*/
-@media print, screen and (max-width: 960px){
+@media print, screen and (max-width: 1024px){
     header{
         padding-right: 0;
     }
@@ -58,11 +58,21 @@
     }
     /*content*/
     .text-container{
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
     .text-content{
         text-align: left;
+        padding: 3rem 2rem;
     }
+
+    #about-list-container{
+        flex-direction: column;
+        gap: 1.5em;
+    }
+    .about-list-item{
+        margin: 0;
+    }
+    
     /*contact*/
     .contact-container{
         flex-direction: column;
@@ -82,16 +92,8 @@
     fieldset input, textarea, .btn{
         width: 90%;
     }
-    .text-content{
-        padding: 3rem 2rem;
-    }
-
-    #about-list-container{
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .about-list-item{
-        margin: 1em 0;
+    .contact-container img{
+        margin-top: 1em; 
     }
     .copyright{
         max-width: 50%;
