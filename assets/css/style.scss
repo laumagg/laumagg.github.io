@@ -101,9 +101,15 @@ header{
     margin: auto;
 }
 
-#about-wrapper, #project-wrapper, #four04-wrapper{
+#about-wrapper, #project-wrapper{
     margin-top: 5em;
 }
+
+#four04-wrapper { margin-top: 15em; }
+.page-404 .wrapper{ 
+    height: 100%;
+}
+
 h1, h2{
   font-family: Bruno Ace, cursive;
   text-align: left;

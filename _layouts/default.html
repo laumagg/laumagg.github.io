@@ -70,6 +70,10 @@
           behavior: "smooth"
         });
       });
+
+      if (window.location.pathname.includes("404")) {
+        document.body.classList.add("page-404");
+      }
     </script>
 
   </body>
