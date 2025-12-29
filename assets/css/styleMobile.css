@@ -4,7 +4,9 @@
 #about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 90%;
 }
-
+#header-wrapper{
+    width: 100%;
+}
 #about-wrapper{
     margin-top:5em;
 }
@@ -42,6 +44,13 @@
 /*Mobile version*/
 @media screen and (max-width : 720px){
 
+    #header-wrapper{
+        width: 100%;
+        padding: 0;
+    }
+    header img{ /*hide logo*/
+        display: none;
+    }
     .footer-wrapper{
         width: 90%;
     }

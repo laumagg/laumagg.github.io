@@ -82,10 +82,9 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
 }
 header img{
-    object-fit: contain;
+    height: 70px;
 }
 .menu {
     padding: 1rem;
