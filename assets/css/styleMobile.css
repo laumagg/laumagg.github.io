@@ -1,12 +1,10 @@
 /*Tablet version - big or landscape*/
 @media screen and (max-width : 1400px){
     
-#about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#header-wrapper, #about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 90%;
 }
-#header-wrapper{
-    width: 100%;
-}
+
 #about-wrapper{
     margin-top:5em;
 }

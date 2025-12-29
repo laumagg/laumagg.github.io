@@ -1,7 +1,4 @@
----
----
 
-@import "{{ site.theme }}";
 @import url(https://fonts.googleapis.com/css?family=Bruno+Ace);
 @import url(https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300);
 
@@ -97,7 +94,6 @@ header img{
 }
 .menu a:hover, .active{
     font-weight: bold;
-    color: var(--link-color)
 }
 
 // content ------------------------------------------
