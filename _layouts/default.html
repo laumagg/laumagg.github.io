@@ -16,15 +16,18 @@
   <body>
     <div class="wrapper">
       <header>
+        <div id="header-wrapper">
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
-          <nav class="menu" id="nav">
-            <a href="{{ '/' | relative_url }}#about" class="nav-link">About</a>
-            <a href="{{ '/' | relative_url }}#projects" class="nav-link">Projects</a>
-            <a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a>
-            <a href="{{ '/uploads/PublicCV2025.pdf' | absolute_url }}" target="_blank" class="nav-link">Resume</a>
-          </nav>
+        
+        <nav class="menu" id="nav">
+          <a href="{{ '/' | relative_url }}#about" class="nav-link">About</a>
+          <a href="{{ '/' | relative_url }}#projects" class="nav-link">Projects</a>
+          <a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a>
+          <a href="{{ '/uploads/PublicCV2025.pdf' | absolute_url }}" target="_blank" class="nav-link">Resume</a>
+        </nav>
+      </div>
       </header>
       <section>
         <div class="container">
