@@ -8,8 +8,8 @@
 
 :root {
     --background-color: #FFFBFE;
+    --darker-background-color: #D0CFCF;
     --highlight-color:  #C96A4A;
-    --link-color: #C96A4A;
     --text-color: #565254;
     --highlight-color-opacity: #c96a4a4b;
 
@@ -132,7 +132,7 @@ p, ul, td, strong, label{
     font-size: 1.2em;
 }
 a{    
-    color: var(--link-color); 
+    color: var(--highlight-color); 
     display: inline-block; /* needed for transform */
     transition: transform 0.2s ease, color 0.2s ease;
     font-size: 1em;
@@ -176,10 +176,11 @@ a{
 .about-list-item{
     min-width: 200px;
     padding: 2.5em;
-    background: rgba(255, 255, 255, 0.4); 
     border-radius: 1rem;
     backdrop-filter: blur(4px); 
     text-align: center;
+    background: var(--dark-background-color);
+    color: var(--background-color)
 }
 .about-list-item p{
     font-weight: bold;
@@ -232,7 +233,7 @@ fieldset input:focus-visible,
 textarea:focus,
 textarea:focus-visible{
     outline:none;
-    border-color: var(--link-color);    
+    border-color: var(--highlight-color);    
 
 }
 
@@ -242,11 +243,11 @@ textarea:focus-visible{
     font-family: Hind Vadodara, sans-serif;
     font-size: 1.2em;
     background-color: var(--highlight-color);
-    color: white;
+    color:var(--background-color);
 }
 
 .btn:hover, .btn:active{
-    background-color: var(--link-color);
+    background-color: var(--text-color);
 }
 
 .contact-container img{
@@ -357,7 +358,7 @@ textarea:focus-visible{
 
 a:hover, a:active, a:focus{
     transform: scale(1.05);
-    color:var(--link-color);
+    color:var(--text-color);
 }
 .hidden{
   	display: none;
@@ -424,5 +425,5 @@ footer{
   
   #scrollToTop:hover {
     transform: scale(1.1);
-    background-color: var(--link-color); 
+    background-color: var(--text-color); 
   }
