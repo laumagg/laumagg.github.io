@@ -8,10 +8,11 @@
 
 :root {
     --background-color: #FFFBFE;
-    --darker-background-color: #D0CFCF;
     --highlight-color:  #C96A4A;
     --text-color: #565254;
+    --light-gray-color: #D0CFCF;
     --highlight-color-opacity: #c96a4a4b;
+    --header-footer-backround: #565254b7;
 
 }
 * {
@@ -70,7 +71,7 @@ section{
 header{
     position: fixed;
     width: 100%;
-    background: var(--dark-background-color);
+    background: var(--text-color);
     border-radius: 0 0 1rem 1rem;
     backdrop-filter: blur(4px); 
     z-index: 1;
@@ -108,6 +109,7 @@ header img{
     margin-top: 5em;
 }
 
+#about-wrapper { margin-top: 8em; }
 #four04-wrapper { margin-top: 15em; }
 
 .page-404 .wrapper{ 
@@ -123,7 +125,7 @@ h1{
     font-size: 3em;
 }
 h2{
-    color: var(--text-color);
+    color: var(--highlight-color);
     font-size: 2em;
 }
 p, ul, td, strong, label{
@@ -161,6 +163,7 @@ a{
     #about p{
         text-align: center;
         margin: auto auto;
+
     }
 
 
@@ -169,6 +172,7 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 2em;
 }
 
 .about-list-item{
