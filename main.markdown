@@ -14,6 +14,7 @@ permalink: /
     </div>
 </div>
 
+ <div class="wave-container"></div>
 <div id="projects-wrapper">
 <div id="projects-inner-wrapper">
 {% if site.data.projects %}
