@@ -83,14 +83,20 @@
         text-align: center;
         padding: 3rem 0;
     }
-
+    #about{
+        flex-direction: column-reverse;
+    }
     #about-list-container{
         flex-direction: column;
-        margin: 0 0 3em 0;
+        margin: 0;
         gap: 1.5em;
     }
     .about-list-item{
         margin: 0;
+        
+    }
+    #hero-selfie{
+        max-width: 60%;
     }
     
     /*contact*/

@@ -109,10 +109,10 @@ header img{
     margin-top: 5em;
 }
 
-#about-wrapper { margin-top: 8em; }
+#about-wrapper, #project-wrapper { margin-top: 8em; }
 
 
-#projects-wrapper{
+#projects-wrapper{  
     background-color: var(--light-gray-color);
     margin-top: 5em;
     padding: 4em 0;
@@ -176,7 +176,7 @@ a{
 #about h1{
     margin-bottom: 1em;
 }
-#selfie{
+#hero-selfie{
     max-width: 35%;
     border-radius: 10%;
     display: block;
