@@ -74,9 +74,9 @@
         font-size: 1em;
     }
     /*content*/
-    .wave-container::before {    
+    /* .wave-container::before {    
     height: 20px
-  }  
+  }   */
     .text-container{
         flex-wrap: wrap;
         justify-content: space-around;
