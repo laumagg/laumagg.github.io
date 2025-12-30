@@ -158,6 +158,7 @@ a{
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
+    gap: 1.5em;
   }
 
   .text-content {
@@ -174,6 +175,12 @@ a{
 }
 #about h1{
     margin-bottom: 1em;
+}
+#selfie{
+    max-width: 35%;
+    border-radius: 10%;
+    display: block;
+    margin: auto;
 }
 
 #about-list-container{
