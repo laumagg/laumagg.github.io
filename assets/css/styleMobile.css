@@ -74,6 +74,9 @@
         font-size: 1em;
     }
     /*content*/
+    .wave-container::before {    
+    height: 20px
+  }  
     .text-container{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -93,12 +96,13 @@
     }
     .about-list-item{
         margin: 0;
-        
+
     }
     #hero-selfie{
         max-width: 60%;
     }
     
+
     /*contact*/
     .contact-container{
         flex-direction: column;
