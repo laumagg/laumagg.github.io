@@ -117,7 +117,7 @@ header img{
     margin-top: 5em;
     padding: 4em 0;
 }
-#projects-inner-wrapper h2{
+#projects{
     color: var(--text-color);
     margin-bottom: 1em;
 }
@@ -168,16 +168,13 @@ a{
     margin-right: 1e,;
   }
 
-    #about h1{
-        text-align: center;
-        margin: auto auto;
-    }
-    #about p{
-        text-align: center;
-        margin: auto auto;
-
-    }
-
+#about h1, #about p{
+    text-align: center;
+    margin: auto auto;
+}
+#about h1{
+    margin-bottom: 1em;
+}
 
 #about-list-container{
     display: flex;
@@ -318,7 +315,7 @@ textarea:focus-visible{
     border-radius: 1rem;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
     margin-bottom: 2rem;    
     width: 340px;
