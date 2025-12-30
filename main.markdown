@@ -14,7 +14,6 @@ permalink: /
     </div>
 </div>
 
- <div class="wave-container">
 <div id="projects-wrapper">
 <div id="projects-inner-wrapper">
 {% if site.data.projects %}
@@ -35,7 +34,7 @@ permalink: /
 </div>
 {% endif %}
 </div>
-</div></div>
+</div>
 
 <div id="contact-wrapper">
     <h2 id="contact">Let us connect</h2>
