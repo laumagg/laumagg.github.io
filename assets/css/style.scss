@@ -115,9 +115,11 @@ header img{
 #projects-wrapper{
     background-color: var(--light-gray-color);
     margin-top: 5em;
+    padding: 4em 0;
 }
-#projects-wrapper h1{
+#projects-inner-wrapper h2{
     color: var(--text-color);
+    margin-bottom: 1em;
 }
 #projects-inner-wrapper{ margin: 0 auto; }
 
