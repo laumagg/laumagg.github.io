@@ -292,13 +292,6 @@ textarea:focus-visible{
 }
 
 // Main page 
-#gallery-scroll-wrapper{   
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    padding: 40px;
-    margin-bottom: 4rem;
-}
-
 .gallery-wall {
     display: grid;
     grid-auto-flow: column;
@@ -306,19 +299,19 @@ textarea:focus-visible{
     grid-auto-columns: min-content; /*tiles size themselves*/
     gap: 3rem;
     height: 600px;
-    scroll-snap-align: start;
     width: max-content;
 }
 
   
 .gallery-tile {
-    scroll-snap-align: start;
     border-radius: 1rem;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem;    
+    width: 340px;
+    height: 220px;
 }
   
 .gallery-image-wrapper {
@@ -355,31 +348,6 @@ textarea:focus-visible{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* Control tile sizes */
-.gallery-tile.vertical {
-    grid-row: span 2;
-    width: 250px;
-    height: 450px;
-}
-
-.gallery-tile.small {
-    width: 250px;
-    height: 400px;
-}
-
-.gallery-tile.medium {
-    grid-column: span 2;
-    width: 340px;
-    height: 220px;
-    margin-left: 3rem;
-}
-
-.gallery-tile.large {
-    grid-column: span 3;
-    width: 450px;
-    height: 250px;
 }
 
 
