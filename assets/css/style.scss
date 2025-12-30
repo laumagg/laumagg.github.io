@@ -103,15 +103,25 @@ header img{
 
 // content ------------------------------------------
 
-#about-wrapper, #projects-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#about-wrapper, #projects-inner-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 70%;
     margin: auto;
     margin-top: 5em;
 }
 
 #about-wrapper { margin-top: 8em; }
-#four04-wrapper { margin-top: 15em; }
 
+
+#projects-wrapper{
+    background-color: var(--light-gray-color);
+    margin-top: 5em;
+}
+#projects-wrapper h1{
+    color: var(--text-color);
+}
+#projects-inner-wrapper{ margin: 0 auto; }
+
+#four04-wrapper { margin-top: 15em; }
 .page-404 .wrapper{ 
     height: 100vh;
 }
@@ -382,7 +392,7 @@ footer{
     position: static;
     width: 100%;
     margin-top: 4rem;
-    background: var(--dark-background-color);
+    background: var(--header-footer-backround);
     border-radius: 1rem 1rem 0 0;
     backdrop-filter: blur(4px); 
     z-index: 1;

@@ -15,6 +15,7 @@ permalink: /
 
 <div id="projects-wrapper">
 {% if site.data.projects %}
+<div id="projects-inner-wrapper">
 <h2 id="projects">Featured Work and Playground</h2>
 <div class="gallery-wall">
     {% assign p_list = site.data.projects %}
@@ -31,6 +32,7 @@ permalink: /
     {% endfor %}
 </div>
 {% endif %}
+</div>
 </div>
 
 <div id="contact-wrapper">
