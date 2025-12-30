@@ -7,17 +7,16 @@
 
 
 :root {
-    --background-color: linear-gradient(100deg,rgba(226, 211, 232, 1) 0%, rgba(249, 255, 222, 1) 100%);
-    --highlight-color:  #310835;
-    --highlight-color-2: #562a5a;
-    --link-color: #a2b067;
-    --text-color: #1f1f1f;
-    --highlight-color-opacity: #31083540;
+    --background-color: #FFFBFE;
+    --highlight-color:  #C96A4A;
+    --link-color: #C96A4A;
+    --text-color: #565254;
+    --highlight-color-opacity: #c96a4a4b;
 
 }
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--highlight-color-2) transparent;
+    scrollbar-color: var(--highlight-color) transparent;
   }
   
   /* Works on Chrome, Edge, and Safari */
@@ -30,7 +29,7 @@
   }
   
   *::-webkit-scrollbar-thumb {
-    background-color: var(--highlight-color-2);
+    background-color: var(--highlight-color);
     border-radius: 20px;
     border: 3px solid transparent;
   }
@@ -106,7 +105,7 @@ header img{
     margin: auto;
 }
 
-#about-wrapper, #project-wrapper{
+#about-wrapper, #project-wrapper, #contact-wrapper{
     margin-top: 5em;
 }
 
@@ -125,7 +124,7 @@ h1{
     font-size: 3em;
 }
 h2{
-    color: var(--highlight-color-2);
+    color: var(--text-color);
     font-size: 2em;
 }
 p, ul, td, strong, label{
@@ -133,7 +132,7 @@ p, ul, td, strong, label{
     font-size: 1.2em;
 }
 a{    
-    color: var(--highlight-color-2); 
+    color: var(--link-color); 
     display: inline-block; /* needed for transform */
     transition: transform 0.2s ease, color 0.2s ease;
     font-size: 1em;
@@ -217,7 +216,7 @@ fieldset input, textarea, .btn{
     height: 2.5em;    
     padding:0.2em;
     margin-top: 0.2em;
-    border: 1.5px solid var(--highlight-color-2);
+    border: 1.5px solid var(--highlight-color);
     border-radius: 4px;    
     color: white;
 }
@@ -242,7 +241,7 @@ textarea:focus-visible{
     border:none;
     font-family: Hind Vadodara, sans-serif;
     font-size: 1.2em;
-    background-color: var(--highlight-color-2);
+    background-color: var(--highlight-color);
     color: white;
 }
 
