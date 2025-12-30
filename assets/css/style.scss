@@ -293,13 +293,10 @@ textarea:focus-visible{
 
 // Main page 
 .gallery-wall {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(2, 1fr); /*Number of vertical lanes*/
-    grid-auto-columns: min-content; /*tiles size themselves*/
-    gap: 3rem;
-    height: 600px;
-    width: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
 }
 
   
@@ -315,16 +312,18 @@ textarea:focus-visible{
 }
   
 .gallery-image-wrapper {
-    position: relative;
     width: 100%;
     height: 100%;
 }
 
 .gallery-image-wrapper img {
-    display: block;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-fit: cover;
+}
+.gallery-image-wrapper.vertical img {
+    height: auto;
+    width: 100%;
 }
 .gallery-tile h2{
     display: none;

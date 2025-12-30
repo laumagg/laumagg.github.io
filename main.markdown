@@ -22,7 +22,7 @@ permalink: /
         {% assign key = project | first %}
         {% assign margin = "-20,-10, 0, 10, 20" | split: "," %}
         {% assign random_margin = margin | sample %}
-        <div class="gallery-tile">
+        <div class="gallery-tile {{ p_list[key].state }}">
             <a href="{{ p_list[key].url }}">
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
