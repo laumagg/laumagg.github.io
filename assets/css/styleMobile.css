@@ -1,7 +1,7 @@
 /*Tablet version - big or landscape*/
 @media screen and (max-width : 1400px){
     
-#header-wrapper, #about-wrapper, #projects-inner-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#header-wrapper, #about-wrapper, .section-inner-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
     width: 90%;
 }
 
@@ -88,6 +88,7 @@
     }
     #about{
         flex-direction: column-reverse;
+        margin-bottom: 4em;
     }
     #about-list-container{
         flex-direction: column;

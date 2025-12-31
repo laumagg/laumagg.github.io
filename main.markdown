@@ -14,12 +14,12 @@ permalink: /
     </div>
 </div>
 
-<div id="projects-wrapper">
-<div id="projects-inner-wrapper">
-{% if site.data.projects %}
-<h2 id="projects">Featured Work and Playground</h2>
+<div id="work" class="section-wrapper">
+<div class="section-inner-wrapper">
+{% if site.data.work-projects %}
+<h2>Featured Work</h2>
 <div class="gallery-wall">
-    {% assign p_list = site.data.projects %}
+    {% assign p_list = site.data.work-projects %}
     {% for project in p_list %}
         {% assign key = project | first %}
         <div class="gallery-tile {{ p_list[key].orientation }}">
@@ -35,6 +35,30 @@ permalink: /
 {% endif %}
 </div>
 </div>
+
+
+<div id="fun" class="section-wrapper">
+<div class="section-inner-wrapper">
+{% if site.data.fun-projects %}
+<h2>Fun</h2>
+<div class="gallery-wall">
+    {% assign p_list = site.data.fun-projects %}
+    {% for project in p_list %}
+        {% assign key = project | first %}
+        <div class="gallery-tile {{ p_list[key].orientation }}">
+            <a href="{{ p_list[key].url }}">
+                <div class="gallery-image-wrapper">
+                    <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
+                </div>
+                    <h2>{{ p_list[key].title }}</h2>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+</div>
+
 
 <div id="contact-wrapper">
     <h2 id="contact">Let us connect</h2>

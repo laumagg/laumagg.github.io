@@ -3,17 +3,6 @@ Choreographic Plant Room:
   image: /uploads/cuts/cpr_thumb.jpg
   url: /projects/cpr/
 
-Super Smash Trash:
-  title: Super Smash Trash
-  image: /uploads/cuts/team-cut.jpg
-  url: /projects/smashtrash/
-
-AR-Luft:
-  title: AR-Luft
-  image: /uploads/cuts/arluft-thumb.jpeg
-  url: /projects/arluft/
-  orientation: vertical 
-
 Am Ende der Welt:
   title: Am Ende der Welt
   image: /uploads/aedw/aedw2.png
@@ -29,9 +18,4 @@ Transient Exposure:
   image: /uploads/cuts/2-drum-te-cut.png
   url: /projects/transient-exposure/
 
-Weaving Dreams:
-  title: Weaving Dreams
-  image: /uploads/cuts/weaving-dreams-thumb.jpg
-  url: /projects/weaving-dreams/
-  orientation: vertical
 
