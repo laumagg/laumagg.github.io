@@ -23,7 +23,7 @@ permalink: /
     {% for project in p_list %}
         {% assign key = project | first %}
         <div class="gallery-tile {{ p_list[key].orientation }}">
-            <a href="{{ p_list[key].url }}">
+            <a href="{{ p_list[key].url }}" target="_blank">
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
                 </div>
