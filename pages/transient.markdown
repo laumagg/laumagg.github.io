@@ -6,7 +6,7 @@ permalink: /projects/transient-exposure/
 
 # Transient exposure
 
-### 2021.01. - 2021.09.
+### 01.2021 - 09.2021
 
 Artistic Mixed Reality installation  \| HoloLens 2 
 

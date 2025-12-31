@@ -8,7 +8,7 @@ permalink: /projects/arluft/
 
 ## Bachelor's thesis prototype 
 
-### 2022.04. – 2022.09.
+### 04.2022 – 09.2022
 
 **Development of an interactive AR display of the Berlin Air Quality Monitoring Network data** 
 

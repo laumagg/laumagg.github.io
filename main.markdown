@@ -7,8 +7,8 @@ permalink: /
     <div id="about" class= "text-container">
         <img src="/uploads/cuts/selfie.jpg" alt="selfie" id="hero-selfie">    
         <div class ="text-content">
-            <h1>Hi, there, so nice to meet you!</h1>
-            <p>I'm Laura — a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science at the HTW Berlin.</p>
+            <h1>XR Developer & Researcher</h1>
+            <p>Hey, nice to meet you! I'm Laura, a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science at the HTW Berlin.</p>
             {% include about-list.html%}
         </div>
     </div>
