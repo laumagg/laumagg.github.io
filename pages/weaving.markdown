@@ -10,7 +10,7 @@ permalink: /projects/weaving-dreams/
 
 ### 03.03 - 12.03
 
-AR game created at <a href ="https://asset.uts.edu.my/dike2023/" target="_blank">DIKE 2023</a> in Kuching, Malaysia \| Android
+AR game created at <a href ="https://www.htw-berlin.de/forschung/online-forschungskatalog/projekte/projekt/?eid=3425" target="_blank">DIKE 2023</a> in Kuching, Malaysia \| Android
 
 **Technologies:** Unity, C#, ARCore
 
