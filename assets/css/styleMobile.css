@@ -75,9 +75,8 @@
         font-size: 1em;
     }
     /*content*/
-    /* .wave-container::before {    
-    height: 20px
-  }   */
+
+    #about-wrapper, #project-wrapper { margin-top: 5em; }
     .text-container{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -85,14 +84,14 @@
     .text-content{
         width: 100%;
         text-align: center;
-        padding: 3rem 0;
+        padding: 0;
     }
     #about{
         flex-direction: column-reverse;
     }
     #about-list-container{
         flex-direction: column;
-        margin: 0;
+        margin: 1em 0;
         gap: 1.5em;
     }
     .about-list-item{
