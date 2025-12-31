@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/styleMobile.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <!-- Icon library for hamburger menu -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Favicon links -->
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -40,6 +42,10 @@
           <a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a>
           <a href="{{ '/uploads/PublicCV2025.pdf' | absolute_url }}" target="_blank" class="nav-link">Resume</a>
         </nav>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="openNavMenu()">
+          <i class="fa fa-bars"></i>
+        </a>
       </div>
       </header>
 
@@ -96,7 +102,25 @@
         }
       });
 
+      // Hamburger Menu
+      function openNavMenu() {
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("open");
+    }
+
+    // Close menu when a link is clicked
+    document.addEventListener("DOMContentLoaded", () => {
+      const nav = document.getElementById("nav");
+      const links = nav.querySelectorAll(".nav-link");
+
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+        });
+      });
+    });
     </script>
+
 
   </body>
 </html>

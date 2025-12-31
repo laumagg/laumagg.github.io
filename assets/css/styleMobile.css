@@ -46,10 +46,9 @@
     #header-wrapper{
         width: 100%;
         padding: 0;
+        align-items: self-start; /* Align items to the start of the header */
     }
-    header img{ /*hide logo*/
-        display: none;
-    }
+
     .footer-wrapper{
         width: 90%;
     }
@@ -59,21 +58,53 @@
     h2{
         font-size: 1.7em;
     }
-    /* Menu */
-    .menuContainer{
-        border-left: 0;
+
+    /* Menu */  
+    header .icon {display: block;}   
+
+    #header-wrapper {
+    overflow: hidden;
+    background-color: var(--header-footer-background);
+    position: relative;
     }
-    .menu{
-        width: 100%;
-        display:flex;
-        justify-content: space-around;
-        padding: 1rem 0;
+
+    /* Hide the links inside the navigation menu  */
+    .menu {
+    display: none;
     }
+    .menu.open {
+    display: block;
+    animation: fadeDown 0.3s ease;
+    }
+    @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Style navigation menu links */
     .menu a{
-        margin: 0;
-        padding: 0.3rem;
-        font-size: 1em;
+    color: var(--background-color);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
     }
+
+
+    /* Style the hamburger menu */
+    header .icon {
+    display: block;
+    z-index: 10;
+    color: var(--background-color);
+    margin: 1em;
+    }
+
+    /* Add a grey background color on mouse-over
+    .menu a:hover {
+    background-color: #ddd;
+    color: black;
+    } */
+        
     /*content*/
 
     #about-wrapper, #project-wrapper { margin-top: 5em; }
