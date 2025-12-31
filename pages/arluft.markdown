@@ -1,31 +1,39 @@
 ---
-layout: default
+layout: project
 permalink: /projects/arluft/
+title: AR-Luft
+subtitle: Bachelor's Thesis Prototype
+intro: Development of an interactive augmented reality visualization of Berlin’s air quality monitoring data for educational use.
+header-image: /uploads/headers/luftstationen.png
+year: 2022
+event: Bachelor's Thesis
+location: Berlin, Germany
+platform: Android
+
+tech:
+  - Unity
+  - C#
+  - AR Foundation
+  - Mapbox
+  - Blender
+  - REST API
+  - JSON
+
+team:
+  developers:
+    - name: Laura Amaro
+      url: https://lauraamaro.eu
+      role: Concept, development, and design
+
+gallery-media-path: /uploads/arluft
 ---
-{% capture content %}
 
-# AR-Luft
+AR-Luft is a prototypical augmented reality application developed as part of a bachelor’s thesis. It visualizes air quality data from the Berlin Air Quality Monitoring Network (Berliner Luftgüte-Messnetz, BLUME) in an interactive and educational way.
 
-## Bachelor's thesis prototype 
+The primary goal of the project was to introduce younger audiences to BLUME as an organization and to raise awareness of air quality and environmental monitoring. The application is aimed at children and teenagers between the ages of 10 and 15 and is designed to support school excursions, project days, or environmental education programs.
 
-### 04.2022 – 09.2022
+The application features three main views: a 2D map view showing the locations of BLUME measuring stations, and two augmented reality visualizations. In the map view, users can select individual stations to explore the pollutants measured at each location. This interaction leads into the first AR experience, in which users collect visualized pollutant particles. The second AR view presents the temporal development of pollutant measurements across all stations in a three-dimensional graph.
 
-**Development of an interactive AR display of the Berlin Air Quality Monitoring Network data** 
+All visualizations are generated using live data retrieved via the BLUME REST API. The Unity project is published as open-source and available on GitHub: https://github.com/laumagg/AR-Luft  
 
-Data visualization with AR in an educational context \| Android 
-
-**Technologies:** Unity, C#, AR Foundation, MapBox, Blender, Rest-API, JSON
-
-In the context of this work, a prototypical application was created that visualizes the Berlin air quality data retrieved from the Berlin Air Quality
-Monitoring Network (Berliner Luftgüte-Messnetzes, BLUME) using augmented reality. The goal was to introduce the younger generation to BLUME as an organization and its tasks. The prototype developed, AR-Luft, is aimed at young people between 10 and 15 years of age and is to be used as support for class trips or theme days.
-
-AR-Luft contains three views: a 2D map view and two visualizations in AR. In the map view, the locations of the BLUME measuring stations are displayed. A list of pollutants measured there is displayed by selecting a station from which one can pick a station. There begins the first AR experience, which aims to collect pollutant particles. Finally, the temporal development of the pollutant measurements of all measuring stations is displayed in a 3D graph. Both views were created using the Rest API of BLUME was used to create them. The Unity project is published as open-source code on <a href= "https://github.com/laumagg/AR-Luft" target= "_blank">GitHub</a>, where it can be downloaded. An APK can be provided under request. 
-
-{% include image-gallery.html folder="/uploads/arluft" %}
-
-
-{% endcapture %}
-
-<div id="project-wrapper">
-  {{ content | markdownify }}
-</div>
+An APK can be provided upon request.

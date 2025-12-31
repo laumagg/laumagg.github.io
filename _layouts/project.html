@@ -1,0 +1,181 @@
+---
+layout: default
+---
+
+<div id="project-wrapper">  
+    <div class="project-section project-header-wrapper">
+        <div>
+            <h1 class="project-title">{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h3 class="project-subtitle">{{ page.subtitle }}</h3>
+            {% endif %}
+        </div>
+        <p class="project-intro">{{ page.intro }}</p>
+</div>
+
+<div class="project-header-image">
+    <img src="{{ page.header-image | relative_url }}" alt="{{ page.title }} header image">
+</div>
+    
+        
+    <div class="project-section">
+    <div class="project-details">
+        <div class="about-list-item">
+            <p>Technologies</p>
+            <ul class="project-tech">
+                {% for t in page.tech %}
+                <li class="tag">{{ t }}</li>
+                {% endfor %}
+            </ul>
+            </div>
+
+            <table>
+                
+                <tr>
+                    <td>Platform</td>
+                    <td>{{ page.platform }}</td>
+                </tr>                
+                <tr>
+                    <td>Year</td>
+                    <td>{{ page.year }}</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{ page.location }}</td>
+                </tr>
+                {% if page.event %}
+                <tr>
+                    <td>Event</td>
+                    <td>{{ page.event }}</td>
+                </tr>
+                {% endif %}
+
+                <!-- team -->
+                {% if page.team.artists and page.team.artists.size > 0 %}
+                <tr>
+                    <td>Artists</td>
+                    <td>
+                        <ul class="people">
+                        {% for p in page.team.artists %}
+                            <li>
+                            {% if p.url %}
+                                <a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+                            {% else %}
+                                {{ p.name }}
+                            {% endif %}
+                            {% if p.role %}<span class="muted"> — {{ p.role }}</span>{% endif %}
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                <tr>
+                {% endif %}
+                
+                {% if page.team.developers and page.team.developers.size > 0 %}
+                <tr>
+                    <td>Developers</td>
+                    <td>
+                        <ul class="people">
+                        {% for p in page.team.developers %}
+                            <li>
+                            {% if p.url %}
+                                <a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+                            {% else %}
+                                {{ p.name }}
+                            {% endif %}
+                            {% if p.role %}<span class="muted"> — {{ p.role }}</span>{% endif %}
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                <tr>
+                {% endif %}
+                
+                {% if page.team.all and page.team.all.size > 0 %}
+                <tr>
+                    <td>Team</td>
+                    <td>
+                        <ul class="people">
+                        {% for p in page.team.all %}
+                            <li>
+                            {% if p.url %}
+                                <a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+                            {% else %}
+                                {{ p.name }}
+                            {% endif %}
+                            {% if p.role %}<span class="muted"> — {{ p.role }}</span>{% endif %}
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                <tr>
+                {% endif %}
+            </table>
+
+        </div>
+    </div>
+
+
+
+    {% if page.video %}
+    <div class="project-section">
+    {% if page.video.vimeo_id %}
+        <div class="video">
+        <iframe
+            src="https://player.vimeo.com/video/{{ page.video.vimeo_id }}{% if page.video.vimeo_hash %}?h={{ page.video.vimeo_hash }}{% endif %}"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        </div>
+    {% endif %}
+
+    {% if page.video.youtube_id %}
+        <div class="video">
+        <iframe
+            src="https://www.youtube-nocookie.com/embed/{{ page.video.youtube_id }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        </div>
+    {% endif %}
+
+    {% if page.video.linkedin_embed %}
+        <div class="video">
+        {{ page.video.linkedin_embed }}
+        </div>
+    {% endif %}
+
+    {% if page.video.mp4 %}
+        <video class="video-file" controls playsinline>
+        <source src="{{ page.video.mp4 | relative_url }}" type="video/mp4">
+        </video>
+    {% endif %}
+    </div>
+    {% endif %}
+
+  <div class="project-section">
+    <div class="project-summary">
+      {{ content }}
+    </div>
+
+        {% if page.publication %}
+        <div class="project-publication">
+            <h3>Check out our publication for more technical details:</h3>
+            <ul>
+                <li>{{ page.publication.title }}</li>
+                <li>{{ page.publication.venue }}</li>
+                <li>{{ page.publication.year }}</li>
+                <li>{{ page.publication.url }}</li>
+
+            </ul>
+        </div>
+        {% endif %}
+  </div>
+
+    <div class="project-section">
+    {% include image-gallery.html folder=page.gallery-media-path %}
+    </div>
+</div>
+

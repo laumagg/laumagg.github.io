@@ -1,46 +1,37 @@
 ---
-layout: default
+layout: project
 permalink: /projects/smashtrash/
+title: Super Smash Trash
+intro: A mixed-reality game created during MIT Reality Hack 2024 to visualize personal waste production and its collective impact.
+header-image: /uploads/headers/smashtrash.jpg
+year: 2024
+event: MIT Reality Hack 2024 (Living Harmony Track)
+location: Boston, USA
+platform: Meta Quest 2 & Meta Quest 3
+
+tech:
+  - Unity
+  - C#
+  - Meta Presence Platform
+  - ShapesXR
+
+team:
+  developers:
+    - name: Anna Buchele
+    - name: Phillip Cherner
+    - name: Laura Amaro
+      url: https://lauraamaro.eu
+    - name: Roshan Mohan
+    - name: Markus Sauerbeck
+
+gallery-media-path: /uploads/smashtrash
+
+video:
+  youtube_id: KQxUn8RIQaU
 ---
-{% capture content %}
 
-# Super Smash Trash
+Super Smash Trash is a mixed-reality game prototype developed during the MIT Reality Hack 2024 as part of the *Living Harmony* track. The experience is designed to help players visualize the amount of waste they generate on a daily basis and to understand how small individual decisions can compound across large populations.
 
-### 01.2024
+The game features a physical controller that mirrors the in-game interaction: a trash bag that players use to catch waste falling from the sky before it hits the ground. This physical-digital coupling creates an experience that is immersive not only visually and sonically, but also through embodied interaction.
 
-MR game created at the <a href ="https://www.mitrealityhack.com/" target="_blank">MIT Reality Hack 2024</a> (25.01 - 29.01, USA) \| Meta Quest 2 & 3 
-
-**Technologies:** Unity, C#, Meta Presence Platform, ShapesXR
-
-Super Smash Trash is a game built during the 2024 MIT Reality Hack. As part of the Living Harmony track, Super Smash Trash is designed to help people visualize the amount of waste they generate, and experience how seemingly minor decisions can compound over a great amount of people. Featuring a physical controller that mirrors the one used in gameplay, Super Smash Trash is an experience that is immersive physically as well as through visuals and audio.
-
-Grab your trusty physical controller: a trash bag — and try to catch the trash falling from the heavens, before it hits the ground!
-
-With each round, the trash increases by the amount of trash an additional person produces per day. How low can you survive in this infinite game mode?
-
-You want to reduce the amount falling from the sky? Try to catch the power-ups— these are reusable products which can replace the disposable products and stop them from being added to the trash. Some amount of waste is inevitable, but by using reusable items whenever possible, we can greatly reduce the amount of trash we generate.
-
-**Hackers:** Anna Buchele, Phillip Cherner, Laura Magdaleno Amaro, Roshan Mohan & Markus Sauerbeck
-
-<div class="video">
-    <iframe src="https://www.youtube.com/embed/KQxUn8RIQaU?si=2zH_Wxd3LlwaErFN" 
-            title="YouTube video player" 
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-    </iframe>
-</div>
-
-
-
-{% include image-gallery.html folder="/uploads/smashtrash/" %}
-
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-{% endcapture %}
-
-<div id="project-wrapper">
-  {{ content | markdownify }}
-</div>
+With each round, the volume of trash increases based on the amount of waste produced by an additional person per day, turning the game into an infinite survival challenge. Players can reduce the incoming trash by collecting power-ups representing reusable products, which replace disposable items and prevent them from being added to the waste stream. While some waste is inevitable, the game highlights how everyday choices can significantly reduce overall trash generation.

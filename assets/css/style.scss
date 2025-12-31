@@ -44,7 +44,8 @@ html, body{
     background-size: cover;
     background-attachment: fixed;
     color: var(--text-color);
-    font-size: 1em;
+    font-size: 100%; /* ≈ 16px */
+    line-height: 1.6;
     text-rendering: optimizeLegibility;
    -webkit-font-smoothing: subpixel-antialiased;
    -webkit-font-smoothing: antialiased;
@@ -53,7 +54,9 @@ html, body{
    padding: 0;
 }
 
-
+body{
+    font-size: 1.0625em;   /* ≈ 17px */
+}
 .wrapper {
     min-height: 90vh; 
     width: 100%;
@@ -105,14 +108,14 @@ header .icon{display: none;}
 
 // content ------------------------------------------
 
-#about-wrapper, .section-inner-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#about-wrapper, .section-inner-wrapper, #contact-wrapper, .project-section, #four04-wrapper{
     width: 70%;
     margin: auto;
     margin-top: 5em;
 }
 
-#about-wrapper, #project-wrapper { margin-top: 8em; }
-
+#about-wrapper { margin-top: 8em; }
+#project-wrapper { margin-top: 15em; }
 
 .section-wrapper{  
     padding: 4em 0;
@@ -138,18 +141,16 @@ header .icon{display: none;}
 h1, h2{
   font-family: Bruno Ace, cursive;
   text-align: left;
+  color: var(--highlight-color);
 }
-h1{
-    color: var(--highlight-color);
+h1{    
     font-size: 3em;
 }
 h2{
-    color: var(--highlight-color);
     font-size: 2em;
 }
-p, ul, td, strong, label{
+p, ul, td, strong, label, a{
     color: var(--text-color);
-    font-size: 1.2em;
 }
 a{    
     color: var(--highlight-color); 
@@ -215,25 +216,7 @@ a{
 .about-list-item p{
     font-weight: bold;
 }
-// Projects section -----------------------------------------
-// .wave-container {  
-//   height: 40vh;
-//   background-color: #fffbfe;
-//   position: relative;
-// }
 
-// .wave-container::before {   
-//   content: "";
-//   width: 100%;
-//   height: 40px;
-//   position: absolute;
-//   bottom: -0.3%;
-//   left: 0;
-//   background-size: auto;
-//   background-repeat: repeat no-repeat;
-//   background-position: 61vw bottom;
-//   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  92' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 67L50 63C100 59 200 51 300 34C400 18 500 -7 600 1C700 9 800 51 900 67C1000 84 1100 76 1150 72L1200 67V92H1150C1100 92 1000 92 900 92C800 92 700 92 600 92C500 92 400 92 300 92C200 92 100 92 50 92H0V67Z' fill='%23d0cfcf'/></svg>");
-// }
 //Contact form ---------------------------------------------------------
 .contact-container{
     display: flex;
@@ -256,7 +239,7 @@ fieldset{
     padding-top: 0;
 }
 .row label{
-    font-size: 1.2em;
+    font-size: 1em;
     padding-bottom: 0.5em;
 }
 fieldset input, textarea, .btn{
@@ -304,6 +287,48 @@ textarea:focus-visible{
     flex: 1;
 }
 
+// projects --------------------------------------------
+.project-header-wrapper, .project-details{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 2em;
+    margin-bottom: 2em;
+    justify-content: space-between;
+
+}
+.project-header-image{ 
+    width: 100%;
+    height: 400px; 
+    overflow: hidden;
+}
+.project-header-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.project-intro{
+    max-width: 45%;
+    text-align: right;
+}
+.project-details table{
+    max-width: 65%;
+}
+.project-publication{
+    padding: 2em;
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    border-radius: 1rem;
+}
+.project-publication h3, .project-publication li{
+    color: var(--background-color);
+}
+.project-publication li{
+    font-style: italic;
+    margin-left: 1em;
+}
 // Image gallery ----------------------------------------
 
 .image-gallery {
@@ -338,7 +363,13 @@ textarea:focus-visible{
     margin: 1em 0;
     padding:56.25% 0 0 0;
 }
-
+.video iframe, .video video{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
 // Main page 
 .gallery-wall {
     display: flex;

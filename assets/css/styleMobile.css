@@ -1,9 +1,10 @@
 /*Tablet version - big or landscape*/
 @media screen and (max-width : 1400px){
     
-#header-wrapper, #about-wrapper, .section-inner-wrapper, #contact-wrapper, #project-wrapper, #four04-wrapper{
+#header-wrapper, #about-wrapper, .section-inner-wrapper, #contact-wrapper, .project-section, #four04-wrapper{
     width: 90%;
 }
+
 
 #about-wrapper{
     margin-top:5em;
@@ -108,6 +109,23 @@
     /*content*/
 
     #about-wrapper, #project-wrapper { margin-top: 5em; }
+   .project-header-wrapper, .project-details{
+        flex-direction:column;
+        align-items: center;
+    }
+    .project-details{ flex-direction: column-reverse;}
+    .project-title{
+        text-align: center;
+    }
+    .project-intro {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .project-details table{
+        max-width: 90%;
+    }
+
     .text-container{
         flex-wrap: wrap;
         justify-content: space-around;

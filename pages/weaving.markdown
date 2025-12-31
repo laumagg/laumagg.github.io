@@ -1,29 +1,37 @@
 ---
-layout: default
+layout: project
 permalink: /projects/weaving-dreams/
+title: Weaving Dreams
+subtitle: Learning About Pua Kumbu
+intro: An augmented reality learning game introducing the cultural significance of Pua Kumbu weaving from the perspective of the indigenous Iban community.
+header-image: /uploads/headers/weaving.jpg
+year: 2023
+event: DIKE 2023 Summer School
+location: Kuching, Malaysia
+platform: Android
+
+tech:
+  - Unity
+  - C#
+  - ARCore
+  - Augmented Reality
+
+team:
+  developers:
+    - name: Laura Amaro
+      url: https://lauraamaro.eu
+      role: Development
+    - name: Leonid Barscht
+      url: https://leonid-barsht.de/ 
+      role: Development
+    - name: DIKE 2023 student team
+      role: Content creation and concept
+
+gallery-media-path: /uploads/weaving
 ---
-{% capture content %}
 
-# Weaving Dreams
+Weaving Dreams is an augmented reality learning game developed during the DIKE 2023 summer school in Kuching, Malaysia. The project focuses on the art of *Pua Kumbu* weaving on the island of Borneo, a traditional cotton textile used for sacred ceremonial purposes and healing rituals within the indigenous Iban community of Sarawak.
 
-## Learning about Pua Kumbu
+Traditionally, the dyeing and weaving processes of Pua Kumbu are governed by rules, prohibitions, and taboos that are deeply rooted in Iban beliefs. The patterns are considered sacred and are understood to represent the dreams of the master weaver. In recent years, concerns have arisen as these patterns are increasingly used for commercial purposes while the cultural traditions behind them risk being forgotten.
 
-### 03.03 - 12.03
-
-AR game created at <a href ="https://www.htw-berlin.de/forschung/online-forschungskatalog/projekte/projekt/?eid=3425" target="_blank">DIKE 2023</a> in Kuching, Malaysia \| Android
-
-**Technologies:** Unity, C#, ARCore
-
-The topic of the project was the art of Pua Kumbu weaving on Borneo island. Pua Kumbu are traditional cotton cloths used for sacred ceremonial purposes and healing rituals in the indigenous Iban community of Sarawak. Traditionally, the dyeing and weaving processes are subject to rules, prohibitions, and taboos that are closely connected to Iban beliefs. The patterns are considered sacred and represent the dreams of the master weaver.
-
-The main concern of the Iban is that the Pua Kumbu patterns are now widely used for commercial purposes, while their traditions are being forgotten. Therefore, during the summer school, an AR app was developed to convey the traditions associated with this weaving art. A total of eight participants, two from the German University of Applied Sciences Berlin and six from different Malaysian universities, were involved in the conception and development of the app.
-
-The aim of the project was to deliver general information about Pua Kumbu from the traditional weavers perspective. The target group comprised visitors and interested citizens from the age of eight without prior knowledge who are eager to learn about this weaving art in a modern and playful way. 
-
-{% include image-gallery.html folder="/uploads/weaving" %}
-
-{% endcapture %}
-
-<div id="project-wrapper">
-  {{ content | markdownify }}
-</div>
+In response, the project team developed an AR application to convey the cultural context and traditions of Pua Kumbu weaving in an accessible and engaging way. The app was created collaboratively by eight participants—two from the University of Applied Sciences Berlin and six from various Malaysian universities—and is designed for visitors and interested citizens aged eight and above, with no prior knowledge required. Through a playful and immersive approach, the application aims to foster cultural understanding while respecting the perspective of traditional weavers.

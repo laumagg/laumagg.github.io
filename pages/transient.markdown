@@ -1,42 +1,42 @@
 ---
-layout: default
+layout: project
 permalink: /projects/transient-exposure/
+title: Transient Exposure
+intro: An artistic mixed-reality installation combining physical artifacts, digital augmentation, and spatial sound to explore archival dance material.
+header-image: /uploads/headers/transient.png
+year: 2021
+event: Extended Reality – Code and Materiality in Art and Culture
+location: Berlin, Germany / Colombo, Sri Lanka
+platform: HoloLens 2
+
+tech:
+  - Unity
+  - C#
+  - MRTK
+
+team:
+  artists:
+    - name: reVerb (artists' collective)
+      url: http://isabelrobson.de/archive/reverb/
+      role: Concept and artistic direction
+    - name: Mareike Trillhaas 
+      role: Sound design and live music
+    - name: Chitrasena Dance Company
+      role: Archive material and performance heritage
+  developers:
+    - name: XR_Unites team
+      url: https://xr-unites.fki.htw-berlin.de/en/xru-team/
+      role: Project management and development
+
+gallery-media-path: /uploads/transient
 ---
-{% capture content %}
 
-# Transient exposure
+Transient Exposure was an artistic mixed-reality installation that combined physical artifacts, partially interactive digital augmentations, and three-dimensional sound to present archival material from the Chitrasena Dance Company in Colombo, Sri Lanka. The project explored how mixed reality can offer new modes of access to cultural archives and embodied histories.
 
-### 01.2021 - 09.2021
+By layering digital content onto physical exhibition elements, the installation created an immersive environment in which visitors could experience the history and cultural significance of the dance company in a spatial and performative way. The combination of visual augmentation and spatial audio played a central role in conveying the embodied nature of dance beyond traditional documentation formats.
 
-Artistic Mixed Reality installation  \| HoloLens 2 
+The installation was presented as part of the exhibition *Extended Reality – Code and Materiality in Art and Culture* by the INKA research group at the University of Applied Sciences Berlin.
 
-**Technologies:** Unity, C#, MRTK
-
-Transient Exposure was a Mixed Reality experience that combined physical artifacts, partially interactive digital augmentations and 3D sound to showcase archive material from the Chitrasena Dance Company (Colombo, Sri Lanka). This innovative approach aimed to provide visitors with a unique and engaging way to experience the rich history and cultural significance of the dance company. The installation was presented as part of the exhibition <a href ="https://codeandmateriality.fki.htw-berlin.de/de/startseite/">Extended Reality – Code and Materiality in Art and Culture</a> of the INKA research group, University of Applied Sciences Berlin.
-
-<!-- video not available
-<div class="video">
-    <iframe src="https://player.vimeo.com/video/606456337?h=cb17777b58" 
-            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-            frameborder="0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
-</div> -->
-
-**Artists:** artists' collective reVerb (Susanne Vincenz, Isabel Robson und Mareike Trillhaas), Berlin and Chitrasena Dance Company, Colombo (Sri Lanka). <a href="https://xr-unites.fki.htw-berlin.de/en/artistic-fellows/" target="_blank">Further information.</a>
-
-**Development:** <a href="https://xr-unites.fki.htw-berlin.de/en/xru-team/" target="_blank">XR_Unites team</a>, University of Applied Sciences Berlin
-
-{% include image-gallery.html folder="/uploads/transient/" %}
-
-
-<p class="comment">// Video and images by Isabel Robson. © reVerb, Chitrasena Dance Company, Sri Lanka, and XR_Unites, HTW Berlin</p>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-{% endcapture %}
-
-<div id="project-wrapper">
-  {{ content | markdownify }}
-</div>
+<p class="comment">
+// Images by Isabel Robson. © reVerb, Chitrasena Dance Company, Sri Lanka, and XR_Unites, HTW Berlin
+</p>
