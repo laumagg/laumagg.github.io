@@ -11,13 +11,11 @@ location: Berlin, Germany
 platform: Android
 
 tech:
-  - Unity
-  - C#
+  - Unity, C#
   - AR Foundation
   - Mapbox
   - Blender
-  - REST API
-  - JSON
+  - REST API, JSON
 
 team:
   developers:
@@ -34,6 +32,6 @@ The primary goal of the project was to introduce younger audiences to BLUME as a
 
 The application features three main views: a 2D map view showing the locations of BLUME measuring stations, and two augmented reality visualizations. In the map view, users can select individual stations to explore the pollutants measured at each location. This interaction leads into the first AR experience, in which users collect visualized pollutant particles. The second AR view presents the temporal development of pollutant measurements across all stations in a three-dimensional graph.
 
-All visualizations are generated using live data retrieved via the BLUME REST API. The Unity project is published as open-source and available on GitHub: https://github.com/laumagg/AR-Luft  
+All visualizations are generated using live data retrieved via the BLUME REST API. The Unity project is published as open-source and available on <a href=" https://github.com/laumagg/AR-Luft" target="_blank">GitHub</a>.
 
 An APK can be provided upon request.

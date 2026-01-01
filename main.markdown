@@ -23,7 +23,12 @@ permalink: /
     {% for project in p_list %}
         {% assign key = project | first %}
         <div class="gallery-tile {{ p_list[key].orientation }}">
-            <a href="{{ p_list[key].url }}" target="_blank">
+            {% assign link = p_list[key].url %}
+            {% if link contains '://' %}
+            <a href="{{ link }}" target="_blank" rel="noopener noreferrer">
+             {% else %}
+            <a href="{{ link }}">
+            {% endif %}
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
                 </div>
@@ -46,7 +51,12 @@ permalink: /
     {% for project in p_list %}
         {% assign key = project | first %}
         <div class="gallery-tile {{ p_list[key].orientation }}">
-            <a href="{{ p_list[key].url }}">
+            {% assign link = p_list[key].url %}
+            {% if link contains '://' %}
+            <a href="{{ link }}" target="_blank" rel="noopener noreferrer">
+             {% else %}
+            <a href="{{ link }}">
+            {% endif %}
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
                 </div>
