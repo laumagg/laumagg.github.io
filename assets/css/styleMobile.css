@@ -148,8 +148,11 @@
     #hero-selfie{
         max-width: 60%;
     }
-    .wave-container::before {    
+    .work-fun-wave-container::before {    
         height: 16px;
+    }
+    .fun-contact-wave-container::before {    
+        height: 23px;
     } 
 
     /*contact*/
