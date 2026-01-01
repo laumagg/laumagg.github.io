@@ -41,7 +41,7 @@ permalink: /
 </div>
 </div>
 
-<div class="wave-container"></div>
+<div class="work-fun-wave-container"></div>
 
 <div id="fun" class="section-wrapper">
 <div class="section-inner-wrapper animate-on-view fade-in-slow">
@@ -70,7 +70,7 @@ permalink: /
 </div>
 </div>
 
-
+<div class="fun-contact-wave-container"></div>
 <div id="contact-wrapper">
     <h2 id="contact" class="animate-on-view fade-in-slow">Let us connect</h2>
     <div class="contact-container animate-on-view fade-in-slow">
