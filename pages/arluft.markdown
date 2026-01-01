@@ -4,7 +4,7 @@ permalink: /projects/arluft/
 title: AR-Luft
 subtitle: Bachelor's Thesis Prototype
 intro: Development of an interactive augmented reality visualization of Berlin’s air quality monitoring data for educational use.
-header-image: /uploads/headers/luftstationen.png
+header-image: /uploads/headers/arluft.jpg
 year: 2022
 event: Bachelor's Thesis
 location: Berlin, Germany

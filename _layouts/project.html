@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div id="project-wrapper">  
-    <div class="project-section project-header-wrapper animate-on-view fade-in-slow">
+    <div id="project-title-wrapper" class="project-section project-header-wrapper animate-on-view fade-in-slow">
         <div>
             <h1 class="project-title ">{{ page.title }}</h1>
             {% if page.subtitle %}
@@ -13,8 +13,7 @@ layout: default
         <p class="project-intro">{{ page.intro }}</p>
 </div>
 
-<div class="project-header-image">
-    <img src="{{ page.header-image | relative_url }}" alt="{{ page.title }} header image">
+<div id="project-hero" class="project-hero-image" style="background-image: url('{{ page.header-image | relative_url }}');">
 </div>
     
         
@@ -156,12 +155,12 @@ layout: default
     {% endif %}
 
   <div class="project-section">
-    <div class="project-summary">
+    <div class="project-summary animate-on-view fade-in-slow">
       {{ content }}
     </div>
 
         {% if page.publication %}
-        <div class="project-publication">
+        <div class="project-publication animate-on-view fade-in-slow">
             <h3>Check out our publication for more technical details:</h3>
             <ul>
                 <li>{{ page.publication.title }}</li>

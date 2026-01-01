@@ -4,7 +4,9 @@
 #header-wrapper, #about-wrapper, .section-inner-wrapper, #contact-wrapper, .project-section, #four04-wrapper{
     width: 90%;
 }
-
+.project-hero-image{
+    background-attachment: scroll;
+}
 
 #about-wrapper{
     margin-top:5em;

@@ -3,7 +3,7 @@ layout: project
 permalink: /projects/soldersense/
 title: SolderSense
 intro: A tutorial-based mixed-reality learning experience for practicing soldering fundamentals using a stylus-mapped virtual soldering iron.
-header-image: /uploads/headers/soldersense.jpeg
+header-image: /uploads/headers/xrcc1.jpeg
 year: 2025
 event: XRCC – Education Track by Meta and Logitech
 location: Berlin, Germany

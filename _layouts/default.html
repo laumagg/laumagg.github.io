@@ -27,7 +27,7 @@
     <div class="wrapper">
 
       <!-- Header -->
-      <header>
+      <header  id="site-header">
         <div id="header-wrapper">
         {% if site.logo %}
         <a href="{{ '/' | relative_url }}">
@@ -141,6 +141,29 @@
       );
       elements.forEach(el => observer.observe(el));
     });
+    
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const header = document.getElementById("site-header");
+      const title = document.getElementById("project-title-wrapper");
+
+      // If there's no project title, we are NOT on a project page
+      // → header should behave normally (sticky & visible)
+      if (!header || !title || !("IntersectionObserver" in window)) {
+        header?.classList.add("visible-menu");
+        return;
+      }
+
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          header.classList.toggle("visible-menu", entry.isIntersecting);
+        },
+        { threshold: 0.15 }
+      );
+
+      io.observe(title);
+    });
+
 
     </script>
 
