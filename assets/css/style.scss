@@ -509,3 +509,36 @@ footer{
     transform: scale(1.1);
     background-color: var(--text-color); 
   }
+
+// Animations -------------------------------------------
+  @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-view {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.fade-in {
+  --fade-duration: 400ms;
+}
+
+.fade-in-slow {
+  --fade-duration: 900ms;
+}
+
+.animate-on-view.is-visible {
+  animation: fadeIn var(--fade-duration) ease-out forwards;
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in.is-visible, .fade-in-slow.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

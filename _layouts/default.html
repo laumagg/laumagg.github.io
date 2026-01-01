@@ -35,7 +35,7 @@
         </a>
         {% endif %}
         
-        <nav class="menu" id="nav">
+        <nav class="menu animate-on-view fade-in" id="nav">
           <a href="{{ '/' | relative_url }}" class="nav-link">About</a>
           <a href="{{ '/' | relative_url }}#work" class="nav-link">Work</a>
           <a href="{{ '/' | relative_url }}#fun" class="nav-link">Fun</a>
@@ -119,6 +119,29 @@
         });
       });
     });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".animate-on-view");
+
+      if (!("IntersectionObserver" in window) || elements.length === 0) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target); // animate once
+            }
+          });
+        },
+        {
+          threshold: 0.15, // trigger when 15% is visible
+        }
+      );
+      elements.forEach(el => observer.observe(el));
+    });
+
     </script>
 
 

@@ -4,7 +4,7 @@ permalink: /
 ---
 
 <div id="about-wrapper">
-    <div id="about" class= "text-container">
+    <div id="about" class= "text-container animate-on-view fade-in-slow">
         <img src="/uploads/cuts/selfie.jpg" alt="selfie" id="hero-selfie">    
         <div class ="text-content">
             <h1>XR Developer & Researcher</h1>
@@ -15,7 +15,7 @@ permalink: /
 </div>
 
 <div id="work" class="section-wrapper">
-<div class="section-inner-wrapper">
+<div class="section-inner-wrapper animate-on-view fade-in-slow">
 {% if site.data.work-projects %}
 <h2>Featured Work</h2>
 <div class="gallery-wall">
@@ -38,7 +38,7 @@ permalink: /
 
 
 <div id="fun" class="section-wrapper">
-<div class="section-inner-wrapper">
+<div class="section-inner-wrapper animate-on-view fade-in-slow">
 {% if site.data.fun-projects %}
 <h2>Fun</h2>
 <div class="gallery-wall">
@@ -61,8 +61,8 @@ permalink: /
 
 
 <div id="contact-wrapper">
-    <h2 id="contact">Let us connect</h2>
-    <div class="contact-container">
+    <h2 id="contact" class="animate-on-view fade-in-slow">Let us connect</h2>
+    <div class="contact-container animate-on-view fade-in-slow">
     {% include contact.html %}
     <img src="uploads/portrait.png" 
         alt="portrait" 
