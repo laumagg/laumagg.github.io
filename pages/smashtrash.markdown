@@ -3,7 +3,7 @@ layout: project
 permalink: /projects/smashtrash/
 title: Super Smash Trash
 intro: A mixed-reality game created during MIT Reality Hack 2024 to visualize personal waste production and its collective impact.
-header-image: /uploads/headers/smashtrash.jpg
+header-image: /uploads/headers/smashtrash-thumb.jpg
 year: 2024
 event: MIT Reality Hack 2024 (Living Harmony Track)
 location: Boston, USA
