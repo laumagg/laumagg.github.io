@@ -148,7 +148,9 @@
     #hero-selfie{
         max-width: 60%;
     }
-    
+    .wave-container::before {    
+        height: 16px;
+    } 
 
     /*contact*/
     .contact-container{

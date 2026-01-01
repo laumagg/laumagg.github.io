@@ -144,7 +144,24 @@ header .icon{display: none;}
 #fun .section-inner-wrapper h2{
     color: var(--background-color);
 }
-
+.wave-container{
+    position: relative;
+    height: 32px;
+    overflow: hidden;
+    background: var(--light-gray-color);
+}
+.wave-container::before {   
+  content: "";
+  width: 100%;
+  height: 32px;
+  position: absolute;
+  bottom: -0.3%;
+  left: 0;
+  background-size: auto;
+  background-repeat: repeat no-repeat;
+  background-position: 18vw bottom;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  87' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 63L50 60C100 56 200 48 300 32C400 17 500 -7 600 1C700 9 800 48 900 63C1000 79 1100 71 1150 67L1200 63V87H1150C1100 87 1000 87 900 87C800 87 700 87 600 87C500 87 400 87 300 87C200 87 100 87 50 87H0V63Z' fill='%23c96a4a'/></svg>");
+}
 
 #four04-wrapper { margin-top: 15em; }
 .page-404 .wrapper{ 

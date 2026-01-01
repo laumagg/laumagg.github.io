@@ -41,6 +41,7 @@ permalink: /
 </div>
 </div>
 
+<div class="wave-container"></div>
 
 <div id="fun" class="section-wrapper">
 <div class="section-inner-wrapper animate-on-view fade-in-slow">
