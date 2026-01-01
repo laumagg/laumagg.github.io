@@ -28,14 +28,14 @@
 
       <!-- Header -->
       <header  id="site-header">
-        <div id="header-wrapper">
+        <div id="header-wrapper" class="animate-on-view fade-in">
         {% if site.logo %}
         <a href="{{ '/' | relative_url }}">
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         </a>
         {% endif %}
         
-        <nav class="menu animate-on-view fade-in" id="nav">
+        <nav class="menu" id="nav">
           <a href="{{ '/' | relative_url }}" class="nav-link">About</a>
           <a href="{{ '/' | relative_url }}#work" class="nav-link">Work</a>
           <a href="{{ '/' | relative_url }}#fun" class="nav-link">Fun</a>
