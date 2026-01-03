@@ -297,7 +297,7 @@ fieldset input, textarea, .btn{
     margin-top: 0.2em;
     border: 1.5px solid var(--highlight-color);
     border-radius: 4px;    
-    color: white;
+    color: var(--text-color);
 }
 textarea{
     height: 8em;
@@ -457,7 +457,7 @@ textarea:focus-visible{
     bottom: 0;
     margin: 0;
     padding: 1rem;
-    color: white;
+    color: var(--background-color);
     border-radius: 0.5rem;
     text-align: center;
     backdrop-filter: invert(80%);
@@ -538,7 +538,7 @@ footer{
     z-index: 100;
     display: none;
     background-color: var(--highlight-color);
-    color: white;
+    color: var(--background-color);
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
