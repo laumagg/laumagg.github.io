@@ -105,20 +105,23 @@
         
     /*content*/
 
-    #about-wrapper, #project-wrapper { margin-top: 5em; }
+    #about-wrapper, #project-wrapper { margin-top: 2em; }
    .project-header-wrapper, .project-details{
         flex-direction:column;
         align-items: center;
     }
-    .project-details{ flex-direction: column-reverse;}
-    .project-title{
+    .project-title-wrapper{
+        margin-top: 0;
+    }
+    .project-title, .project-subtitle {
         text-align: center;
     }
     .project-intro {
         max-width: 100%;
         text-align: center;
     }
-
+    
+    .project-details{ flex-direction: column-reverse;}
     .project-details table{
         max-width: 90%;
     }
