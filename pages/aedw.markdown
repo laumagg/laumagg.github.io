@@ -1,7 +1,7 @@
 ---
 layout: project
 permalink: /projects/aedw/
-title: Am Ende der Welt
+title: Am Ende <br>der Welt
 intro: An artistic, co-located multiplayer mixed-reality experience blending live performance
 header-image: /uploads/headers/aedw2.png
 year: 2023

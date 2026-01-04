@@ -1,7 +1,8 @@
 ---
 layout: project
 permalink: /projects/cpr/
-title: Choreographic Plant Room
+title: Choreographic
+  Plant Room
 intro: An artistic, co-located, mixed reality experience linking live performance, spatial movement, and digital flora through augmented reality.
 header-image: /uploads/headers/cpr_1.jpg
 year: 2024

@@ -1,7 +1,8 @@
 ---
 layout: project
 permalink: /projects/time-lab-interactive/
-title: Interactive TiME Lab
+title: Interactive<br>
+  TiME Lab
 intro: A framework for co-located, multiplayer interactive experiences using real-time positional and pose tracking.
 header-image: /uploads/headers/timelab.jpg
 year: 2025
