@@ -11,7 +11,6 @@
     --highlight-color:  #C96A4A;
     --text-color: #565254;
     --light-gray-color: #D0CFCF;
-    --highlight-color-opacity: #c96a4a4b;
     --header-footer-background: #565254b7;
 
 }
@@ -398,7 +397,7 @@ textarea:focus-visible{
     max-width: 13em;
 }
 .arluft-img{
-    border: .1px dotted var(--highlight-color-opacity);
+    border: .1px dotted var(--highlight-color);
 }
 
 //video
@@ -584,5 +583,16 @@ footer{
     opacity: 1;
     transform: none;
     animation: none;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0e0f12;
+    --highlight-color:  #C96A4A;
+    --text-color: #eaeaf0;
+    --light-gray-color: #D0CFCF;
+    --header-footer-background: #565254b7;
   }
 }
