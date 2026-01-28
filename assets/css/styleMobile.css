@@ -16,6 +16,9 @@
 
 /*Tablet version*/
 @media print, screen and (max-width: 1030px){
+    #header-wrapper, #about-wrapper, .section-inner-wrapper, #contact-wrapper, .project-section, #four04-wrapper{
+    width: 85%;
+}
     header{
         padding-right: 0;
     }
