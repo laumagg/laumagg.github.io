@@ -585,14 +585,3 @@ footer{
     animation: none;
   }
 }
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #0e0f12;
-    --highlight-color:  #C96A4A;
-    --text-color: #eaeaf0;
-    --light-gray-color: #D0CFCF;
-    --header-footer-background: #565254b7;
-  }
-}
