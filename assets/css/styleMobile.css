@@ -156,7 +156,7 @@
 
     }
     #hero-selfie{
-        max-width: 80%;
+        max-width: 80%!important;
     }
     .work-fun-wave-container::before {    
         height: 16px;
