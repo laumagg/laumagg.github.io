@@ -4,7 +4,7 @@ permalink: /
 ---
 
 <div id="about-wrapper">
-    <div id="about" class= "text-container animate-on-view fade-in-slow">
+    <div id="about" class= "hero-container animate-on-view fade-in-slow">
         <img src="/uploads/cuts/selfie.jpg" alt="selfie" id="hero-selfie">    
         <div class ="text-content">
             <h1>XR Developer & Researcher</h1>

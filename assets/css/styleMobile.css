@@ -33,6 +33,13 @@
     section{
         border:none;
     }
+
+    .hero-container{
+        flex-direction: column-reverse;
+        gap: 0;
+        margin-bottom: 4em;
+    }
+
     #about-list-container{
         justify-content: space-evenly;
         gap: 1.5em;
@@ -40,6 +47,14 @@
     }
     .about-list-item{
         margin: 0;
+    }
+
+    .text-content{
+        width: 95%;
+    }
+
+    #hero-selfie{
+        width: 45%;
     }
 }
 
@@ -126,22 +141,14 @@
         max-width: 90%;
     }
 
-    .text-container{
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
     .text-content{
         width: 100%;
         text-align: center;
         padding: 0;
     }
-    #about{
-        flex-direction: column-reverse;
-        margin-bottom: 4em;
-    }
     #about-list-container{
         flex-direction: column;
-        margin: 1em 0;
+        margin: 1.5em;
         gap: 1.5em;
     }
     .about-list-item{
@@ -149,7 +156,7 @@
 
     }
     #hero-selfie{
-        max-width: 60%;
+        max-width: 80%;
     }
     .work-fun-wave-container::before {    
         height: 16px;
