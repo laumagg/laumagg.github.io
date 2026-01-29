@@ -6,6 +6,7 @@
 }
 .project-hero-image{
      height: 40vh;
+     background-attachment: scroll;
 }
 
 #about-wrapper{
