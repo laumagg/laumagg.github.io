@@ -365,12 +365,15 @@ textarea:focus-visible{
     color: var(--background-color);
     border-radius: 1rem;
 }
-.project-publication h3, .project-publication li{
+.project-publication h3, .project-publication li .project-publication a{
     color: var(--background-color);
 }
 .project-publication li{
     font-style: italic;
     margin-left: 1em;
+}
+.project-publication a:hover{
+    color: var(--text-color);
 }
 // Image gallery ----------------------------------------
 
