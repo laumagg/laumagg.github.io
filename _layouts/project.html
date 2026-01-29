@@ -178,3 +178,12 @@ layout: default
     </div>
 </div>
 
+<script>
+    window.addEventListener("scroll", () => {
+        const hero = document.querySelector(".project-hero-image");
+        const offset = window.scrollY * 0.3;
+        hero.style.backgroundPositionY = `${offset}px`;
+        });
+
+</script>
+
