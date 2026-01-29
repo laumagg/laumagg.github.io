@@ -345,8 +345,9 @@ textarea:focus-visible{
 }
 .project-hero-image{ 
     width: 100%;
-    height: 400px; 
-    background-position: center;
+    height: 60vh; 
+    min-height: 400px;
+    background-position: center 0px;
     background-repeat: no-repeat;
     background-size: cover;
 }
