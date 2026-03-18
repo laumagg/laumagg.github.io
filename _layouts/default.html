@@ -8,25 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/css/styleMobile.css?v=" | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Icon library for hamburger menu -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!---------------------- Styling ------------------------------------------>
+<link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+<link rel="stylesheet" href="{{ "/assets/css/styleMobile.css?v=" | append: site.github.build_revision | relative_url }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Icon library for hamburger menu -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Favicon links -->
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Laura Amaro" />
-  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+<!-- Favicon links -->
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Laura Amaro" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
 
-  <!-- hCaptcha script for Contact form -->
+
+<!---------------------- Code ------------------------------------------>
+<!-- hCaptcha script for Contact form -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
 
   </head>
   <body>
+
     <div class="wrapper">
 
       <!-- Header -->
@@ -81,97 +85,8 @@
         </div>
       </footer>
     </div>
-
     
-    <script>
-      const scrollBtn = document.getElementById("scrollToTop");
-    
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollBtn.style.display = "block";
-        } else {
-          scrollBtn.style.display = "none";
-        }
-      });
-    
-      scrollBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        if (document.getElementById("four04-wrapper")) {
-          document.body.classList.add("page-404");
-        }
-      });
-
-      // Hamburger Menu
-      function openNavMenu() {
-      const nav = document.getElementById("nav");
-      nav.classList.toggle("open");
-    }
-
-    // Close menu when a link is clicked
-    document.addEventListener("DOMContentLoaded", () => {
-      const nav = document.getElementById("nav");
-      const links = nav.querySelectorAll(".nav-link");
-
-      links.forEach(link => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("open");
-        });
-      });
-    });
-
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const elements = document.querySelectorAll(".animate-on-view");
-
-      if (!("IntersectionObserver" in window) || elements.length === 0) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target); // animate once
-            }
-          });
-        },
-        {
-          threshold: 0.15, // trigger when 15% is visible
-        }
-      );
-      elements.forEach(el => observer.observe(el));
-    });
-    
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const header = document.getElementById("site-header");
-      const title = document.getElementById("project-title-wrapper");
-
-      // If there's no project title, we are NOT on a project page
-      // → header should behave normally (sticky & visible)
-      if (!header || !title || !("IntersectionObserver" in window)) {
-        header?.classList.add("visible-menu");
-        return;
-      }
-
-      const io = new IntersectionObserver(
-        ([entry]) => {
-          header.classList.toggle("visible-menu", entry.isIntersecting);
-        },
-        { threshold: 0.15 }
-      );
-
-      io.observe(title);
-    });
-
-
-    </script>
-
+    {% include scripts.html %}
 
   </body>
 </html>
