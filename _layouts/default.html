@@ -37,13 +37,13 @@
       <header  id="site-header">
         <div id="header-wrapper" class="animate-on-view fade-in">
         {% if site.logo %}
-        <a href="{{ '/' | relative_url }}">Laura Amaro
+        <a id="logo-name" href="{{ '/' | relative_url }}">Laura Amaro
           {% comment %} <img src="{{site.logo | relative_url}}" alt="Logo" /> {% endcomment %}
         </a>
         {% endif %}
         
         <nav class="menu" id="nav">
-          <a href="{{ '/' | relative_url }}" class="nav-link">About</a>
+          {% comment %} <a href="{{ '/' | relative_url }}" class="nav-link">About</a> {% endcomment %}
           <a href="{{ '/' | relative_url }}#work" class="nav-link">Work</a>
           <a href="{{ '/' | relative_url }}#fun" class="nav-link">Fun</a>
           <a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a>

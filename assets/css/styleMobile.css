@@ -41,7 +41,7 @@
     .hero-container{
         flex-direction: column-reverse;
         gap: 0;
-        margin-bottom: 4em;
+        margin-bottom: 1em;
     }
 
     #about-list-container{
@@ -114,12 +114,10 @@
     color: var(--background-color);
     margin: 1em;
     }
-
-    /* Add a grey background color on mouse-over
-    .menu a:hover {
-    background-color: #ddd;
-    color: black;
-    } */
+    #logo-name{
+        margin-top: 1em;
+    }
+   
         
     /*content*/
 
