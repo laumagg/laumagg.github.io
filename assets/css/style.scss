@@ -98,7 +98,7 @@ section{
     justify-content: space-between;
     align-items: center;
 }
-    
+
 header img{
     height: 50px;
     padding: 0.6em;
@@ -108,7 +108,7 @@ header .icon{display: none;}
     padding: 1rem;
   }
   
-.menu a{
+#header-wrapper a{
     margin-left: 2rem;
     text-decoration: none;
     font-family: Bruno Ace, cursive;
@@ -126,7 +126,7 @@ header .icon{display: none;}
     margin: auto;
     margin-top: 5em;
 }
-#about-wrapper { margin-top: 2em; }
+#about-wrapper { margin-top: 3em; }
 #project-wrapper { margin-top: 15em; }
 
 .section-wrapper{  
@@ -223,10 +223,11 @@ a{
     padding: 2rem;
   }
 
-#about h1, #about p{
+#about h1, #about p, #about-wrapper h1{
     text-align: center;
     margin: auto auto;
 }
+
 #about h1{
     margin-bottom: 1em;
 }
@@ -261,6 +262,52 @@ a{
 }
 .about-list-item p{
     font-weight: bold;
+}
+
+.logo-gallery {
+  overflow: hidden;
+  width: 100%;
+  padding: 1.5rem 0;
+  transform: translateZ(0);
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+}
+
+.logo-track ul {
+  display: flex;
+  align-items: center;
+  gap: 0;              // remove gap, use fixed li width instead
+  list-style: none;
+  margin: 0;
+  padding: 0;          // remove padding too — any asymmetry breaks -50%
+}
+
+.logo-track ul li {
+  width: 200px;        
+  flex-shrink: 0;      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    padding: 0 24px;
+
+}
+
+.logo-track ul li img {
+  max-width: 200px;    
+  max-height: 100px;
+  width: auto;
+  height: auto;        
+  object-fit: contain;
+//   filter: grayscale(100%);
+//   opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s;
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 //Contact form ---------------------------------------------------------

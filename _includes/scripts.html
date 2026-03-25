@@ -84,4 +84,28 @@
       io.observe(title);
     });
 
+ //Logo img
+  const track = document.getElementById('logo-track');
+  const list  = document.getElementById('logo-list');
+
+  let offset = 0;
+  let listWidth = 0;
+
+  function setupMarquee() {
+    // measure after images are loaded
+    listWidth = list.getBoundingClientRect().width;
+    requestAnimationFrame(step);
+  }
+
+  function step() {
+    offset -= 1; // px per frame — increase for faster scroll
+    if (Math.abs(offset) >= listWidth) {
+      offset = 0; // reset exactly at list boundary
+    }
+    track.style.transform = `translateX(${offset}px)`;
+    requestAnimationFrame(step);
+  }
+
+  // wait for all images to load before measuring
+  window.addEventListener('load', setupMarquee);
 </script>

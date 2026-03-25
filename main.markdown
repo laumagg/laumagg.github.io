@@ -4,14 +4,15 @@ permalink: /
 ---
 
 <div id="about-wrapper">
+    <h1>XR Developer & Researcher</h1>
     <div id="about" class= "hero-container animate-on-view fade-in-slow">
         <img src="/uploads/cuts/selfie.jpg" alt="selfie" id="hero-selfie">    
         <div class ="text-content">
-            <h1>XR Developer & Researcher</h1>
             <p>Hey, nice to meet you! I'm Laura, a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science at the HTW Berlin.</p>
             {% include about-list.html%}
         </div>
     </div>
+    {% include partner-logos.html %}
 </div>
 
 <div id="work" class="section-wrapper">
