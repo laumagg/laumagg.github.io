@@ -18,7 +18,7 @@ permalink: /
 <div class="section-inner-wrapper animate-on-view fade-in-slow">
 {% if site.data.work-projects %}
 <h2>Featured Work</h2>
-<div class="gallery-wall">
+<div id="work-gallery" class="gallery-wall">
     {% assign p_list = site.data.work-projects %}
     {% for project in p_list %}
         {% assign key = project | first %}
@@ -32,7 +32,7 @@ permalink: /
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
                 </div>
-                    <h2>{{ p_list[key].title }}</h2>
+                <h2><span class="title-highlight">{{ p_list[key].title }}</span></h2>
             </a>
         </div>
     {% endfor %}
@@ -47,7 +47,7 @@ permalink: /
 <div class="section-inner-wrapper animate-on-view fade-in-slow">
 {% if site.data.fun-projects %}
 <h2>Fun</h2>
-<div class="gallery-wall">
+<div id="fun-gallery" class="gallery-wall">
     {% assign p_list = site.data.fun-projects %}
     {% for project in p_list %}
         {% assign key = project | first %}
@@ -61,7 +61,7 @@ permalink: /
                 <div class="gallery-image-wrapper">
                     <img src="{{ p_list[key].image }}" alt="{{ p_list[key].title }}">
                 </div>
-                    <h2>{{ p_list[key].title }}</h2>
+                <h2><span class="title-highlight">{{ p_list[key].title }}</span></h2>
             </a>
         </div>
     {% endfor %}

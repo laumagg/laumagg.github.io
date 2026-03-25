@@ -251,7 +251,7 @@ a{
 
 .about-list-item{
     min-width: 200px;
-    padding: 2em;
+    padding: 1em;
     border-radius: 1rem;
     backdrop-filter: blur(4px); 
     text-align: center;
@@ -422,12 +422,10 @@ textarea:focus-visible{
     justify-content: space-evenly;
     gap: 1rem;
 }
-
   
 .gallery-tile {
     border-radius: 1rem;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
     margin-bottom: 2rem;    
@@ -461,10 +459,17 @@ textarea:focus-visible{
     color: var(--background-color);
     border-radius: 0.5rem;
     text-align: center;
-    backdrop-filter: invert(80%);
 }
-.gallery-tile:hover {
+
+.gallery-wall:hover .gallery-tile{
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.gallery-wall:hover .gallery-tile:hover {
     transform: scale(1.05);    
+    filter: grayscale(0%)!important;
+
 }
 
 .gallery-tile:hover h2{
@@ -473,6 +478,17 @@ textarea:focus-visible{
     justify-content: center;
 }
 
+.title-highlight {
+  background-color: var(--highlight-color);
+  margin: 1em;
+  border-radius: 0.25em;
+  padding: 0.125em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+#fun-gallery .title-highlight{
+    background-color: var(--text-color)
+}
 
 //Details -----------------------------------------------
 ::selection{
