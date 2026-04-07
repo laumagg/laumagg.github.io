@@ -23,6 +23,7 @@ team:
     - name: Laura Amaro
       url: https://lauraamaro.eu
       role: Research and development
+    - name: HHI team
 
 gallery-media-path: /uploads/timelab
 ---
