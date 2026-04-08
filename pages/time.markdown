@@ -34,4 +34,4 @@ Using RGB-D cameras and LiDAR sensors, spatial movement data from multiple users
 
 The resulting pipeline supports the creation of applications in which users can navigate, explore, and interact with temporal visual data in a spatially coherent manner. The framework is designed for use in large-scale immersive setups such as the TiME Lab, where multiple participants can simultaneously engage with shared digital content.
 
-Read more about the TiME Lab: [https://www.hhi.fraunhofer.de/das-fraunhofer-hhi/kooperationen/time-lab.html] https://www.hhi.fraunhofer.de/das-fraunhofer-hhi/kooperationen/time-lab.html  
+Read more about the [TiME Lab](https://www.hhi.fraunhofer.de/das-fraunhofer-hhi/kooperationen/time-lab.html).   
