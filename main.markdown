@@ -8,7 +8,12 @@ permalink: /
     <div id="about" class= "hero-container animate-on-view fade-in-slow">
         <img src="/uploads/cuts/selfie.jpg" alt="selfie" id="hero-selfie">    
         <div class ="text-content">
-            <p>Hey, nice to meet you! I'm Laura, a researcher and developer working at the intersection of computer vision, extended reality, and immersive media. I explore how technology can deepen and enhance the human experience through my work at Fraunhofer HHI and my master’s studies in Applied Computer Science at the HTW Berlin.</p>
+            <p>Hey, nice to meet you! I'm Laura, an software engineer working at the intersection of extended reality, computer vision, and immersive spaces. My works spans from emergency medical training to infrastructure simulations that change how people perceive the world around them.
+            <br/>
+            At Fraunhofer HHI, I lead and develop XR applications in Unity and Unreal Engine: real-time avatar animation, 360° video pipelines, and multi-user VR systems. At the institute's immersive TiME Lab, I engineered LiDAR and camera-based pipelines for real-time people tracking. 
+            <br/>
+            I recently completed my MSc in Applied Computer Science and am now exploring where immersive technology truly matters. Check out my projects down below!
+            </p>
             {% include about-list.html%}
         </div>
     </div>
