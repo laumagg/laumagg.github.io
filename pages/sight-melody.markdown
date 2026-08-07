@@ -1,4 +1,4 @@
 ---
-layout: sight-melody
+layout: sigh-melody
 permalink: /sight-melody
 ---
