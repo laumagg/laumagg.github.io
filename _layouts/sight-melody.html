@@ -573,6 +573,13 @@ function fillMeasure(totalTicks, diff, opts={}){
       if(pairedRestsOnly){
         candidates = candidates.filter(a => !(a.notes.length===1 && a.notes[0].rest));
       }
+      // Half notes (blancas) may only start exactly on a beat (position
+      // aligned to beatTicks) — never mid-beat, which would be a syncopated
+      // "contratiempo" entry. Applies to plain and dotted half notes alike.
+      candidates = candidates.filter(a => {
+        const hasHalf = a.notes.some(n => n.dur==='h');
+        return !hasHalf || (position % beatTicks === 0);
+      });
       if(candidates.length===0){ ok=false; break; }
       // Weighted pick: while under the rest-tick budget, actively favor
       // rest-containing atoms so the target population % is actually
@@ -980,7 +987,7 @@ function generate(){
       }
       measureFlats.push(okFlat || flat);
     } else {
-      const seq = fillMeasure(measureTicks, state.diff, {...popOpts, minNotes:2});
+      const seq = fillMeasure(measureTicks, state.diff, {...popOpts, beatTicks, minNotes:2});
       measureFlats.push(mergeEighthRestPairs(flattenAndSplitRests(seq, beatTicks), beatTicks));
     }
   }
