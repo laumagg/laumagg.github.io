@@ -113,9 +113,34 @@
   /* ---------- Layout ---------- */
   main{max-width:720px;margin:0 auto;padding:12px 12px calc(110px + env(safe-area-inset-bottom,0px));}
 
+  .search-row{display:flex;gap:8px;margin-bottom:10px;}
   .search{
-    position:relative;margin-bottom:10px;
+    position:relative;flex:1;min-width:0;
   }
+  .mic[aria-pressed="true"]{background:var(--danger);border-color:var(--danger);color:#fff;animation:mic-pulse 1.2s ease-in-out infinite;}
+  @keyframes mic-pulse{0%,100%{box-shadow:0 0 0 0 rgba(179,38,30,.45);}50%{box-shadow:0 0 0 8px rgba(179,38,30,0);}}
+
+  .voice-panel{
+    background:var(--panel);border:1px solid var(--accent);border-radius:var(--radius);
+    padding:12px 14px;margin-bottom:12px;
+  }
+  .voice-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .voice-status{font-weight:600;color:var(--accent-strong);}
+  .voice-close{width:40px;height:40px;border:0;background:none;color:var(--muted);font-size:24px;margin:-8px -8px -8px 0;}
+  .voice-transcript{margin:6px 0 8px;color:var(--muted);font-style:italic;overflow-wrap:anywhere;}
+  .voice-transcript:empty{display:none;}
+  .voice-results{list-style:none;margin:0 0 10px;padding:0;}
+  .voice-results li{padding:8px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+  .voice-results .v-name{font-weight:600;}
+  .voice-results .v-note{color:var(--muted);font-size:14px;}
+  .voice-results .v-ok{color:var(--accent-strong);}
+  .voice-results .v-full{flex-basis:100%;font-size:14px;color:var(--muted);}
+  .voice-results input,.voice-results select{min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);}
+  .voice-results input{flex:1 1 140px;min-width:0;}
+  .voice-results select{flex:1 1 130px;}
+  .voice-results .btn{min-height:44px;padding:0 14px;}
+  .chip{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent-strong);font-weight:600;}
+  .voice-actions{display:flex;gap:8px;}
   .search input{
     width:100%;min-height:var(--tap);padding:0 44px 0 42px;
     border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
@@ -325,10 +350,28 @@
   <main>
     <!-- Groceries -->
     <section id="view-compra">
-      <div class="search">
-        <svg class="lens" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg>
-        <input id="search" type="search" placeholder="Buscar producto…" autocomplete="off" enterkeyhint="search" aria-label="Buscar producto">
-        <button class="clear" id="search-clear" type="button" aria-label="Borrar búsqueda" hidden>×</button>
+      <div class="search-row">
+        <div class="search">
+          <svg class="lens" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Buscar producto…" autocomplete="off" enterkeyhint="search" aria-label="Buscar producto">
+          <button class="clear" id="search-clear" type="button" aria-label="Borrar búsqueda" hidden>×</button>
+        </div>
+        <button class="icon-btn mic" id="mic-btn" type="button" aria-label="Añadir por voz" aria-pressed="false" hidden>
+          <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>
+        </button>
+      </div>
+
+      <div id="voice-panel" class="voice-panel" hidden>
+        <div class="voice-head">
+          <span id="voice-status" class="voice-status"></span>
+          <button class="voice-close" id="voice-close" type="button" aria-label="Cerrar">×</button>
+        </div>
+        <p id="voice-transcript" class="voice-transcript"></p>
+        <ul id="voice-results" class="voice-results"></ul>
+        <div class="voice-actions">
+          <button class="btn ghost" type="button" id="voice-undo" hidden>Deshacer</button>
+          <button class="btn grow" type="button" id="voice-again">Hablar otra vez</button>
+        </div>
       </div>
 
       <div class="segmented" role="group" aria-label="Modo">
@@ -942,6 +985,217 @@
     $('#shop-progress').textContent = total ? `${inCart}/${total} en el carro` : '';
     $('#finish-btn').disabled = total === 0 && ![...state.items.values()].some((i) => i.in_cart);
   }
+
+  // ---------- voice input ----------
+  // Say e.g. "leche, dos plátanos y pan de molde": known items get checked (= go to Modo compra),
+  // unknown ones are offered to add (checked) with a category picker.
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const voice = { rec: null, listening: false, finalText: '', error: null, undo: [] };
+
+  // Words ignored between products (only when they're not part of a product name).
+  const VOICE_STOP = new Set(norm(
+    'y e o u de del la el los las lo un una unos unas al a en con por favor mas tambien ademas luego ' +
+    'algo poco poquito dos tres cuatro cinco seis siete ocho nueve diez doce media medio kilo kilos ' +
+    'litro litros paquete paquetes bote botes lata latas bolsa bolsas botella botellas docena gramos gramo ' +
+    'carton cartones anade anadir agrega agregar pon poner apunta apuntar necesito necesitamos hay que ' +
+    'comprar compra falta faltan me nos quiero queremos lista'
+  ).split(/\s+/));
+
+  const variants = (w) => {
+    const v = [w];
+    if (w.length > 3 && w.endsWith('s')) v.push(w.slice(0, -1));
+    if (w.length > 4 && w.endsWith('es')) v.push(w.slice(0, -2));
+    return v;
+  };
+  const wordEq = (a, b) => { const vb = variants(b); return variants(a).some((v) => vb.includes(v)); };
+  const tokens = (s) => s.split(/\s+/).map((w) => w.replace(/[^\p{L}\p{N}]/gu, '')).filter(Boolean);
+  const capitalize = (s) => s.charAt(0).toLocaleUpperCase('es') + s.slice(1);
+
+  function voiceCatalog() {
+    return [...state.items.values()].map((item) => ({ item, words: tokens(norm(item.name)) }));
+  }
+  function exactMatches(cat, words) {
+    return cat.filter((c) => c.words.length === words.length && c.words.every((w, i) => wordEq(w, words[i]))).map((c) => c.item);
+  }
+  function containsMatches(cat, words) {
+    return cat.filter((c) => {
+      for (let s = 0; s + words.length <= c.words.length; s++) {
+        if (words.every((w, i) => wordEq(c.words[s + i], w))) return true;
+      }
+      return false;
+    }).map((c) => c.item);
+  }
+
+  // Returns [{ kind: 'match'|'ambiguous'|'unknown', items?, text }]
+  function parseVoice(text) {
+    const cat = voiceCatalog();
+    const out = [];
+    const seen = new Set();
+    const push = (items, phrase) => {
+      if (items.length === 1) {
+        if (seen.has(items[0].id)) return;
+        seen.add(items[0].id);
+        out.push({ kind: 'match', items, text: phrase });
+      } else {
+        out.push({ kind: 'ambiguous', items: items.sort(byName).slice(0, 6), text: phrase });
+      }
+    };
+    for (const chunk of text.split(/[,;.]+/)) {
+      const orig = tokens(chunk);
+      const words = orig.map(norm);
+      let unknown = [];
+      const flush = () => {
+        while (unknown.length && VOICE_STOP.has(words[unknown[unknown.length - 1]])) unknown.pop();
+        if (!unknown.length) return;
+        const uw = unknown.map((i) => words[i]);
+        const phrase = unknown.map((i) => orig[i].toLocaleLowerCase('es')).join(' ');
+        const m = containsMatches(cat, uw);
+        if (m.length) push(m, phrase);
+        else out.push({ kind: 'unknown', text: capitalize(phrase) });
+        unknown = [];
+      };
+      let i = 0;
+      while (i < words.length) {
+        let found = null;
+        for (let j = words.length; j > i; j--) {
+          const m = exactMatches(cat, words.slice(i, j));
+          if (m.length) { found = { m, j }; break; }
+        }
+        if (found) {
+          flush();
+          push(found.m, orig.slice(i, found.j).join(' '));
+          i = found.j;
+        } else {
+          if (!(unknown.length === 0 && VOICE_STOP.has(words[i]))) unknown.push(i);
+          i++;
+        }
+      }
+      flush();
+    }
+    return out;
+  }
+
+  function checkFromVoice(item) {
+    const cur = state.items.get(item.id);
+    if (!cur) return 'gone';
+    if (cur.is_checked) return 'already';
+    voice.undo.push(cur.id);
+    updateItem(cur.id, { is_checked: true });
+    return 'checked';
+  }
+
+  function renderVoiceRow(li, entry) {
+    li.replaceChildren();
+    if (entry.kind === 'match' || entry.done) {
+      const it = entry.done || entry.items[0];
+      const note = entry.status === 'already' ? 'ya estaba en la lista' : entry.status === 'added' ? 'añadido' : 'marcado';
+      li.append(el('span', { class: 'v-ok', textContent: '✓' }), el('span', { class: 'v-name', textContent: it.name }),
+        el('span', { class: 'v-note', textContent: `${it.category} · ${note}` }));
+    } else if (entry.kind === 'ambiguous') {
+      li.append(el('span', { class: 'v-full', textContent: `"${entry.text}": ¿cuál?` }),
+        ...entry.items.map((it) => el('button', { class: 'chip', type: 'button', textContent: `${it.name} (${it.category})`,
+          onclick: () => { entry.status = checkFromVoice(it); entry.done = it; renderVoiceRow(li, entry); updateUndo(); } })));
+    } else {
+      const input = el('input', { type: 'text', value: entry.text, 'aria-label': 'Nombre del producto' });
+      const sel = el('select', { 'aria-label': 'Categoría' }, ...CATEGORIES.map((c) => el('option', { value: c, textContent: c })));
+      sel.value = 'Otros';
+      const btn = el('button', { class: 'btn', type: 'button', textContent: 'Añadir' });
+      btn.onclick = async () => {
+        const write = addItem(sel.value, input.value, { checked: true });
+        if (!write) return;
+        btn.disabled = true;
+        if (await write) {
+          entry.done = { name: input.value.trim(), category: sel.value };
+          entry.status = 'added';
+          renderVoiceRow(li, entry);
+        } else btn.disabled = false;
+      };
+      li.append(el('span', { class: 'v-full', textContent: 'No está en la lista. Añadir a…' }), input, sel, btn);
+    }
+  }
+
+  function updateUndo() { $('#voice-undo').hidden = voice.undo.length === 0; }
+
+  function applyVoice(text) {
+    voice.undo = [];
+    const entries = parseVoice(text);
+    const list = $('#voice-results');
+    list.replaceChildren();
+    for (const entry of entries) {
+      if (entry.kind === 'match') entry.status = checkFromVoice(entry.items[0]);
+      const li = el('li');
+      renderVoiceRow(li, entry);
+      list.append(li);
+    }
+    const checked = entries.filter((e) => e.status === 'checked').length;
+    $('#voice-status').textContent = entries.length
+      ? (checked ? `${checked} marcado${checked === 1 ? '' : 's'}` : 'Revisa la lista')
+      : 'No he reconocido ningún producto';
+    updateUndo();
+  }
+
+  function setListening(on) {
+    voice.listening = on;
+    $('#mic-btn').setAttribute('aria-pressed', String(on));
+    $('#voice-again').textContent = on ? 'Parar' : 'Hablar otra vez';
+  }
+
+  function startVoice() {
+    if (voice.listening) { voice.rec && voice.rec.stop(); return; }
+    const rec = new SpeechRec();
+    rec.lang = 'es-ES';
+    rec.interimResults = true;
+    rec.continuous = false;
+    rec.maxAlternatives = 1;
+    voice.rec = rec;
+    voice.finalText = '';
+    voice.error = null;
+    rec.onresult = (e) => {
+      let fin = '', interim = '';
+      for (let k = 0; k < e.results.length; k++) {
+        const r = e.results[k];
+        if (r.isFinal) fin += r[0].transcript + ', ';
+        else interim += r[0].transcript;
+      }
+      voice.finalText = fin;
+      $('#voice-transcript').textContent = (fin + interim).replace(/,\s*$/, '') || '…';
+    };
+    rec.onerror = (e) => { voice.error = e.error; };
+    rec.onend = () => {
+      setListening(false);
+      if (voice.finalText.trim()) { applyVoice(voice.finalText); return; }
+      const msg = voice.error === 'not-allowed' || voice.error === 'service-not-allowed'
+        ? 'Permite el micrófono para usar la voz'
+        : voice.error === 'network' ? 'Sin conexión para reconocer la voz' : 'No te he oído';
+      $('#voice-status').textContent = msg;
+    };
+    $('#voice-panel').hidden = false;
+    $('#voice-results').replaceChildren();
+    $('#voice-transcript').textContent = '';
+    $('#voice-status').textContent = 'Escuchando… di los productos';
+    voice.undo = [];
+    updateUndo();
+    try { rec.start(); setListening(true); }
+    catch (err) { $('#voice-status').textContent = 'No se pudo usar el micrófono'; }
+  }
+
+  if (SpeechRec) $('#mic-btn').hidden = false;
+  $('#mic-btn').addEventListener('click', startVoice);
+  $('#voice-again').addEventListener('click', startVoice);
+  $('#voice-close').addEventListener('click', () => {
+    if (voice.listening && voice.rec) voice.rec.abort();
+    $('#voice-panel').hidden = true;
+  });
+  $('#voice-undo').addEventListener('click', () => {
+    for (const id of voice.undo) {
+      const it = state.items.get(id);
+      if (it && it.is_checked) updateItem(id, { is_checked: false, in_cart: false });
+    }
+    voice.undo = [];
+    updateUndo();
+    $$('#voice-results li').forEach((li) => { const ok = $('.v-note', li); if (ok && /marcado/.test(ok.textContent)) li.style.opacity = '.45'; });
+    $('#voice-status').textContent = 'Deshecho';
+  });
 
   // ---------- events ----------
   $('#search').addEventListener('input', (e) => {
