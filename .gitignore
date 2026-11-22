@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# leon46 secrets / generated config
+.env
+.env.local
+.env.*.local
+assets/js/leon46-config.js

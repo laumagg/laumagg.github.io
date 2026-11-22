@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2F6B4F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Leon46">
+<title>Leon46</title>
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Supabase JS client (UMD build, exposes window.supabase) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<!-- Optional, git-ignored: generated from .env.local by scripts/leon46-env.rb -->
+<script src="/assets/js/leon46-config.js"></script>
+<style>
+  :root{
+    --accent:#2F6B4F;
+    --accent-strong:#245640;
+    --accent-soft:#E5F0EA;
+    --danger:#B3261E;
+    --ink:#1C1C1E;
+    --muted:#6E6E73;
+    --paper:#F6F5F1;
+    --panel:#FFFFFF;
+    --line:#E3E1DB;
+    --shadow:0 8px 28px rgba(0,0,0,.12);
+    --radius:14px;
+    --tap:48px;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --accent:#6FBF95;
+      --accent-strong:#8ED1AD;
+      --accent-soft:#1F3329;
+      --danger:#F2867E;
+      --ink:#F2F2F0;
+      --muted:#A1A1A6;
+      --paper:#141414;
+      --panel:#1E1E1F;
+      --line:#2F2F31;
+      --shadow:0 8px 28px rgba(0,0,0,.5);
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+    -webkit-tap-highlight-color:transparent;
+  }
+  button,input,select{font:inherit;color:inherit;}
+  button{cursor:pointer;}
+  [hidden]{display:none !important;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    display:flex;align-items:center;gap:10px;
+    padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .icon-btn{
+    width:var(--tap);height:var(--tap);flex-shrink:0;
+    display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  }
+  .icon-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;}
+  .topbar h1{font-size:20px;font-weight:700;margin:0;flex:1;letter-spacing:-.01em;}
+  .sync{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);}
+  .sync::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);}
+  .sync.live::before{background:#34A853;}
+  .sync.off::before{background:var(--danger);}
+
+  /* ---------- Sidebar ---------- */
+  .scrim{
+    position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.35);
+    opacity:0;pointer-events:none;transition:opacity .2s ease;
+  }
+  .scrim.open{opacity:1;pointer-events:auto;}
+  .sidebar{
+    position:fixed;top:0;bottom:0;left:0;z-index:31;
+    width:min(280px,82vw);
+    padding:calc(16px + env(safe-area-inset-top,0px)) 12px calc(16px + env(safe-area-inset-bottom,0px));
+    background:var(--panel);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:6px;
+    transform:translateX(-105%);transition:transform .22s ease;
+  }
+  .sidebar.open{transform:none;}
+  .sidebar .side-head{display:flex;align-items:center;justify-content:space-between;padding:0 4px 12px;}
+  .sidebar .side-head strong{font-size:18px;}
+  .nav-item{
+    display:flex;align-items:center;gap:12px;
+    min-height:var(--tap);padding:0 14px;border-radius:12px;
+    border:0;background:transparent;text-align:left;font-weight:600;font-size:17px;
+  }
+  .nav-item[aria-current="page"]{background:var(--accent-soft);color:var(--accent-strong);}
+  .nav-item .sub{font-weight:400;color:var(--muted);font-size:14px;}
+  .sidebar .spacer{flex:1;}
+  .side-foot{font-size:13px;color:var(--muted);padding:8px 4px;word-break:break-all;}
+  .link-btn{border:0;background:none;color:var(--accent-strong);font-weight:600;padding:8px 4px;text-align:left;}
+
+  /* ---------- Layout ---------- */
+  main{max-width:720px;margin:0 auto;padding:12px 12px calc(110px + env(safe-area-inset-bottom,0px));}
+
+  .search{
+    position:relative;margin-bottom:10px;
+  }
+  .search input{
+    width:100%;min-height:var(--tap);padding:0 44px 0 42px;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    font-size:17px;
+  }
+  .search input:focus{outline:2px solid var(--accent);outline-offset:-1px;}
+  .search .lens{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:2;}
+  .search .clear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;background:none;color:var(--muted);font-size:22px;}
+
+  .segmented{
+    display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin-bottom:12px;
+    background:var(--line);border-radius:var(--radius);
+  }
+  .segmented button{
+    min-height:44px;border:0;border-radius:11px;background:transparent;font-weight:600;color:var(--muted);
+  }
+  .segmented button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12);}
+
+  /* ---------- Categories (full list) ---------- */
+  .cat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;}
+  .cat-head{
+    width:100%;min-height:52px;padding:0 14px;border:0;background:transparent;
+    display:flex;align-items:center;gap:10px;text-align:left;font-weight:600;font-size:17px;
+  }
+  .cat-head .chev{width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2.2;transition:transform .15s ease;flex-shrink:0;}
+  .cat-head[aria-expanded="true"] .chev{transform:rotate(90deg);}
+  .cat-head .count{color:var(--accent-strong);font-weight:600;}
+  .cat-head .total{margin-left:auto;font-size:13px;color:var(--muted);font-weight:400;}
+  .cat-body{border-top:1px solid var(--line);}
+  .items{list-style:none;margin:0;padding:0;}
+  .item{display:flex;align-items:center;border-bottom:1px solid var(--line);}
+  .item label{flex:1;display:flex;align-items:center;gap:12px;min-height:var(--tap);padding:6px 4px 6px 14px;cursor:pointer;}
+  .item input[type=checkbox]{width:22px;height:22px;accent-color:var(--accent);flex-shrink:0;margin:0;}
+  .item .name{overflow-wrap:anywhere;}
+  .item.checked .name{font-weight:600;}
+  .item .del{width:var(--tap);height:var(--tap);border:0;background:none;color:var(--muted);font-size:20px;flex-shrink:0;}
+  .item .del:active{color:var(--danger);}
+  .empty-cat{padding:12px 14px;color:var(--muted);font-size:14px;border-bottom:1px solid var(--line);}
+  .add-row{display:flex;gap:8px;padding:8px 8px 8px 14px;}
+  .add-row input{flex:1;min-width:0;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);}
+  .add-row button{width:44px;height:44px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-size:24px;line-height:1;flex-shrink:0;}
+  @media (prefers-color-scheme: dark){ .add-row button{color:#0F1F17;} }
+
+  .no-match{
+    background:var(--panel);border:1px dashed var(--accent);border-radius:var(--radius);
+    padding:14px;margin-bottom:10px;
+  }
+  .no-match p{margin:0 0 10px;font-weight:600;overflow-wrap:anywhere;}
+  .no-match .row{display:flex;gap:8px;flex-wrap:wrap;}
+  .no-match select{flex:1;min-width:160px;min-height:var(--tap);padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);}
+
+  /* ---------- Shopping mode ---------- */
+  .shop-group h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:16px 4px 6px;}
+  .shop-item{
+    width:100%;min-height:60px;margin-bottom:6px;padding:0 16px;
+    display:flex;align-items:center;gap:14px;text-align:left;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    font-size:19px;font-weight:600;
+  }
+  .shop-item .box{
+    width:28px;height:28px;border-radius:8px;border:2px solid var(--line);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .shop-item .box svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:3;opacity:0;}
+  .shop-item.in-cart{background:var(--accent-soft);border-color:transparent;}
+  .shop-item.in-cart .label{text-decoration:line-through;color:var(--muted);font-weight:500;}
+  .shop-item.in-cart .box{background:var(--accent);border-color:var(--accent);}
+  .shop-item.in-cart .box svg{opacity:1;}
+  .shop-empty{text-align:center;color:var(--muted);padding:40px 16px;line-height:1.5;}
+
+  .shop-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:15;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);border-top:1px solid var(--line);
+  }
+  .shop-bar .inner{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+  .shop-bar .progress{font-size:14px;color:var(--muted);flex-shrink:0;}
+
+  /* ---------- Buttons, screens ---------- */
+  .btn{
+    min-height:var(--tap);padding:0 18px;border-radius:12px;border:0;
+    background:var(--accent);color:#fff;font-weight:600;font-size:16px;
+  }
+  @media (prefers-color-scheme: dark){ .btn{color:#0F1F17;} }
+  .btn.block{width:100%;}
+  .btn.grow{flex:1;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  .btn.danger{background:var(--danger);color:#fff;}
+  .btn:disabled{opacity:.55;}
+
+  .screen{max-width:420px;margin:0 auto;padding:calc(48px + env(safe-area-inset-top,0px)) 20px 40px;}
+  .screen h1{font-size:28px;margin:0 0 6px;letter-spacing:-.02em;}
+  .screen p{color:var(--muted);line-height:1.5;margin:0 0 20px;}
+  .screen form{display:flex;flex-direction:column;gap:12px;}
+  .screen label{font-size:14px;font-weight:600;}
+  .screen input{
+    width:100%;min-height:var(--tap);padding:0 14px;margin-top:6px;
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:17px;
+  }
+  .screen .note{font-size:14px;color:var(--muted);}
+  .screen .ok{color:var(--accent-strong);font-weight:600;}
+  .screen .err{color:var(--danger);}
+  .screen details{margin-top:20px;}
+  .screen summary{cursor:pointer;color:var(--accent-strong);font-weight:600;padding:6px 0;}
+
+  .placeholder{text-align:center;padding:60px 20px;color:var(--muted);}
+  .placeholder h2{color:var(--ink);margin:0 0 8px;}
+
+  /* ---------- Dialog & toasts ---------- */
+  dialog{
+    border:0;border-radius:18px;padding:22px;width:min(92vw,380px);
+    background:var(--panel);color:var(--ink);box-shadow:var(--shadow);
+  }
+  dialog::backdrop{background:rgba(0,0,0,.4);}
+  dialog p{margin:0 0 20px;font-size:17px;line-height:1.45;overflow-wrap:anywhere;}
+  dialog .actions{display:flex;gap:10px;}
+  dialog .actions .btn{flex:1;}
+
+  .toasts{
+    position:fixed;left:0;right:0;z-index:50;pointer-events:none;
+    bottom:calc(84px + env(safe-area-inset-bottom,0px));
+    display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 12px;
+  }
+  .toast{
+    max-width:520px;padding:12px 16px;border-radius:12px;
+    background:#2B2B2D;color:#fff;font-size:15px;box-shadow:var(--shadow);
+    animation:toast-in .18s ease;
+  }
+  .toast.error{background:var(--danger);color:#fff;}
+  @keyframes toast-in{from{transform:translateY(8px);opacity:0;}to{transform:none;opacity:1;}}
+
+  .loading{padding:40px;text-align:center;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<!-- ===================== Setup (no config found) ===================== -->
+<section id="screen-setup" class="screen" hidden>
+  <h1>Leon46</h1>
+  <p>Falta la conexión con Supabase. Pega la URL del proyecto y la clave pública (anon). Se guarda solo en este dispositivo.</p>
+  <form id="setup-form">
+    <label>URL del proyecto
+      <input name="url" type="url" inputmode="url" autocomplete="off" placeholder="https://xxxx.supabase.co" required>
+    </label>
+    <label>Clave pública (anon / publishable)
+      <input name="key" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+    </label>
+    <button class="btn block" type="submit">Guardar</button>
+  </form>
+</section>
+
+<!-- ===================== Login ===================== -->
+<section id="screen-login" class="screen" hidden>
+  <h1>Leon46</h1>
+  <p>Compra y tareas de casa. Entra con tu correo y te enviamos un enlace mágico.</p>
+  <form id="login-form">
+    <label>Correo electrónico
+      <input name="email" type="email" inputmode="email" autocomplete="email" required>
+    </label>
+    <button class="btn block" type="submit">Enviar enlace</button>
+    <div id="login-msg" class="note" role="status"></div>
+  </form>
+  <details>
+    <summary>¿Tienes un código del correo?</summary>
+    <form id="code-form" style="margin-top:10px">
+      <label>Código
+        <input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" required>
+      </label>
+      <button class="btn ghost block" type="submit">Entrar con código</button>
+    </form>
+  </details>
+  <button id="reset-config" class="link-btn" type="button" hidden>Cambiar conexión</button>
+</section>
+
+<!-- ===================== Not allowed ===================== -->
+<section id="screen-denied" class="screen" hidden>
+  <h1>Sin acceso</h1>
+  <p>La cuenta <strong id="denied-email"></strong> no tiene permiso para usar esta app.</p>
+  <button class="btn ghost block" type="button" data-action="logout">Cerrar sesión</button>
+</section>
+
+<!-- ===================== App ===================== -->
+<div id="screen-app" hidden>
+  <header class="topbar">
+    <button class="icon-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <h1 id="view-title">Compra</h1>
+    <span id="sync" class="sync" aria-live="polite">Conectando</span>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="sidebar" id="sidebar" aria-label="Secciones" aria-hidden="true">
+    <div class="side-head">
+      <strong>Leon46</strong>
+      <button class="icon-btn" id="menu-close" type="button" aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <button class="nav-item" type="button" data-view="compra" aria-current="page">Compra <span class="sub">Groceries</span></button>
+    <button class="nav-item" type="button" data-view="tareas">Tareas <span class="sub">Chores</span></button>
+    <div class="spacer"></div>
+    <div class="side-foot" id="user-email"></div>
+    <button class="link-btn" type="button" data-action="logout">Cerrar sesión</button>
+  </nav>
+
+  <main>
+    <!-- Groceries -->
+    <section id="view-compra">
+      <div class="search">
+        <svg class="lens" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Buscar producto…" autocomplete="off" enterkeyhint="search" aria-label="Buscar producto">
+        <button class="clear" id="search-clear" type="button" aria-label="Borrar búsqueda" hidden>×</button>
+      </div>
+
+      <div class="segmented" role="group" aria-label="Modo">
+        <button type="button" data-mode="list" aria-pressed="true">Lista completa</button>
+        <button type="button" data-mode="shop" aria-pressed="false">Modo compra</button>
+      </div>
+
+      <div id="no-match" class="no-match" hidden>
+        <p id="no-match-text"></p>
+        <form class="row" id="no-match-form">
+          <select id="no-match-cat" aria-label="Categoría"></select>
+          <button class="btn" type="submit">Añadir</button>
+        </form>
+      </div>
+
+      <div id="loading" class="loading">Cargando…</div>
+      <div id="cat-list"></div>
+      <div id="shop-list" hidden></div>
+    </section>
+
+    <!-- Chores (placeholder) -->
+    <section id="view-tareas" hidden>
+      <div class="placeholder">
+        <h2>Tareas</h2>
+        <p>Próximamente.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="shop-bar" id="shop-bar" hidden>
+    <div class="inner">
+      <span class="progress" id="shop-progress"></span>
+      <button class="btn grow" type="button" id="finish-btn">Terminar compra</button>
+    </div>
+  </div>
+</div>
+
+<dialog id="confirm">
+  <p id="confirm-text"></p>
+  <div class="actions">
+    <button class="btn ghost" type="button" value="cancel">Cancelar</button>
+    <button class="btn" type="button" value="ok" id="confirm-ok">Aceptar</button>
+  </div>
+</dialog>
+
+<div class="toasts" id="toasts" aria-live="assertive"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  const CATEGORIES = [
+    'Proteína', 'Lácteos', 'Embutidos', 'Frutas', 'Verduras', 'Legumbres', 'Carbohidratos',
+    'Panadería', 'Congelados', 'Bebidas', 'Salsas', 'Especias', 'Snacks', 'Otros'
+  ];
+  const CONFIG_KEY = 'leon46.config';
+  const MODE_KEY = 'leon46.mode';
+  const TABLE = 'grocery_items';
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  // ---------- small utils ----------
+  const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  const byName = (a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' });
+  const uuid = () => (crypto.randomUUID ? crypto.randomUUID()
+    : '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+    del(k) { try { localStorage.removeItem(k); } catch {} },
+  };
+  const el = (tag, props = {}, ...children) => {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (k === 'class') node.className = v;
+      else if (k === 'dataset') Object.assign(node.dataset, v);
+      else if (k in node) node[k] = v;
+      else node.setAttribute(k, v);
+    }
+    for (const c of children) if (c != null) node.append(c);
+    return node;
+  };
+  const svg = (markup) => { const t = document.createElement('template'); t.innerHTML = markup.trim(); return t.content.firstChild; };
+
+  function toast(msg, type = '') {
+    const t = el('div', { class: 'toast ' + type, textContent: msg });
+    $('#toasts').append(t);
+    setTimeout(() => t.remove(), type === 'error' ? 5000 : 2800);
+  }
+
+  // Promise-based confirm built on <dialog>. Resolves true only for the OK button.
+  let confirmResolve = null;
+  function settleConfirm(value) {
+    const dlg = $('#confirm');
+    if (dlg.open) dlg.close();
+    if (confirmResolve) { const r = confirmResolve; confirmResolve = null; r(value); }
+  }
+  $('#confirm').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[value]');
+    if (btn) settleConfirm(btn.value === 'ok');
+  });
+  $('#confirm').addEventListener('cancel', () => settleConfirm(false)); // Escape key
+  $('#confirm').addEventListener('close', () => settleConfirm(false));
+
+  function confirmDialog(message, okLabel = 'Aceptar', danger = false) {
+    settleConfirm(false); // never stack two dialogs
+    $('#confirm-text').textContent = message;
+    const ok = $('#confirm-ok');
+    ok.textContent = okLabel;
+    ok.classList.toggle('danger', danger);
+    return new Promise((resolve) => {
+      confirmResolve = resolve;
+      $('#confirm').showModal();
+    });
+  }
+
+  function showScreen(id) {
+    for (const s of ['setup', 'login', 'denied', 'app']) $('#screen-' + s).hidden = s !== id;
+  }
+
+  // ---------- config ----------
+  function readConfig() {
+    const fromFile = window.LEON46_CONFIG;
+    if (fromFile && fromFile.supabaseUrl && fromFile.supabaseAnonKey) return { ...fromFile, source: 'file' };
+    try {
+      const saved = JSON.parse(store.get(CONFIG_KEY) || 'null');
+      if (saved && saved.supabaseUrl && saved.supabaseAnonKey) return { ...saved, source: 'local' };
+    } catch {}
+    return null;
+  }
+
+  $('#setup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const supabaseUrl = String(f.get('url')).trim().replace(/\/+$/, '');
+    const supabaseAnonKey = String(f.get('key')).trim();
+    if (!/^https:\/\/.+/.test(supabaseUrl) || !supabaseAnonKey) return toast('Revisa la URL y la clave', 'error');
+    store.set(CONFIG_KEY, JSON.stringify({ supabaseUrl, supabaseAnonKey }));
+    location.reload();
+  });
+  $('#reset-config').addEventListener('click', () => { store.del(CONFIG_KEY); location.reload(); });
+
+  // ---------- state ----------
+  const state = {
+    items: new Map(),       // id -> item
+    pending: new Map(),     // id -> number of in-flight writes
+    open: new Set(),        // expanded categories (full list, no search)
+    search: '',
+    mode: store.get(MODE_KEY) === 'shop' ? 'shop' : 'list',
+    view: 'compra',
+    loaded: false,
+  };
+  let sb = null;
+  let channel = null;
+  let currentUserId = null;
+
+  // ---------- auth ----------
+  const config = readConfig();
+  if (!config) {
+    showScreen('setup');
+    return;
+  }
+  if (!window.supabase || !window.supabase.createClient) {
+    showScreen('login');
+    $('#login-msg').innerHTML = '<span class="err">No se pudo cargar Supabase. Comprueba la conexión.</span>';
+    return;
+  }
+  $('#reset-config').hidden = config.source !== 'local';
+
+  // Surface errors from an expired / invalid magic link.
+  const hashParams = new URLSearchParams(location.hash.slice(1));
+  const linkError = hashParams.get('error_description');
+
+  sb = window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey, {
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'implicit' },
+  });
+
+  sb.auth.onAuthStateChange((_event, session) => {
+    // Defer: calling Supabase inside this callback can deadlock the auth lock.
+    setTimeout(() => handleSession(session), 0);
+  });
+
+  async function handleSession(session) {
+    if (!session) {
+      currentUserId = null;
+      teardown();
+      showScreen('login');
+      if (linkError) {
+        $('#login-msg').innerHTML = '';
+        $('#login-msg').append(el('span', { class: 'err', textContent: 'El enlace no es válido o ha caducado. Pide uno nuevo.' }));
+        history.replaceState(null, '', location.pathname);
+      }
+      return;
+    }
+    // Make sure Realtime uses the user's JWT (needed for RLS on postgres_changes).
+    sb.realtime.setAuth(session.access_token);
+    if (session.user.id === currentUserId) return; // token refresh etc.
+    currentUserId = session.user.id;
+    if (location.hash) history.replaceState(null, '', location.pathname);
+
+    const email = session.user.email || '';
+    const { data: allowed, error } = await sb.rpc('leon46_is_allowed');
+    if (error) {
+      currentUserId = null;
+      toast('No se pudo comprobar el acceso: ' + error.message, 'error');
+      showScreen('denied');
+      $('#denied-email').textContent = email;
+      return;
+    }
+    if (!allowed) {
+      showScreen('denied');
+      $('#denied-email').textContent = email;
+      return;
+    }
+    $('#user-email').textContent = email;
+    showScreen('app');
+    startApp();
+  }
+
+  $('#login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = String(new FormData(form).get('email')).trim();
+    const btn = $('button', form);
+    const msg = $('#login-msg');
+    btn.disabled = true;
+    msg.textContent = 'Enviando…';
+    const { error } = await sb.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: location.origin + location.pathname },
+    });
+    btn.disabled = false;
+    msg.innerHTML = '';
+    if (error) msg.append(el('span', { class: 'err', textContent: error.message }));
+    else msg.append(el('span', { class: 'ok', textContent: 'Revisa tu correo y abre el enlace en este dispositivo.' }));
+  });
+
+  $('#code-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = String($('#login-form input[name=email]').value).trim();
+    const token = String(new FormData(e.target).get('code')).trim();
+    if (!email) return toast('Escribe primero tu correo arriba', 'error');
+    const { error } = await sb.auth.verifyOtp({ email, token, type: 'email' });
+    if (error) toast(error.message, 'error');
+  });
+
+  document.addEventListener('click', async (e) => {
+    if (!e.target.closest('[data-action="logout"]')) return;
+    closeSidebar();
+    await sb.auth.signOut();
+  });
+
+  // ---------- sidebar & views ----------
+  function openSidebar() {
+    $('#sidebar').classList.add('open');
+    $('#scrim').classList.add('open');
+    $('#sidebar').setAttribute('aria-hidden', 'false');
+    $('#menu-btn').setAttribute('aria-expanded', 'true');
+  }
+  function closeSidebar() {
+    $('#sidebar').classList.remove('open');
+    $('#scrim').classList.remove('open');
+    $('#sidebar').setAttribute('aria-hidden', 'true');
+    $('#menu-btn').setAttribute('aria-expanded', 'false');
+  }
+  $('#menu-btn').addEventListener('click', () => $('#sidebar').classList.contains('open') ? closeSidebar() : openSidebar());
+  $('#menu-close').addEventListener('click', closeSidebar);
+  $('#scrim').addEventListener('click', closeSidebar);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
+
+  $$('.nav-item').forEach((b) => b.addEventListener('click', () => {
+    state.view = b.dataset.view;
+    $$('.nav-item').forEach((n) => n === b ? n.setAttribute('aria-current', 'page') : n.removeAttribute('aria-current'));
+    $('#view-compra').hidden = state.view !== 'compra';
+    $('#view-tareas').hidden = state.view !== 'tareas';
+    $('#view-title').textContent = state.view === 'compra' ? 'Compra' : 'Tareas';
+    closeSidebar();
+    render();
+  }));
+
+  // ---------- data ----------
+  function startApp() {
+    buildCategorySkeleton();
+    render();
+    fetchAll();
+    subscribe();
+  }
+
+  function teardown() {
+    if (channel) { sb.removeChannel(channel); channel = null; }
+    state.items.clear();
+    state.pending.clear();
+    state.loaded = false;
+  }
+
+  async function fetchAll() {
+    const { data, error } = await sb.from(TABLE).select('*');
+    if (error) { toast('Error al cargar: ' + error.message, 'error'); return; }
+    const next = new Map(data.map((r) => [r.id, r]));
+    // Keep local versions of rows with writes still in flight.
+    for (const id of state.pending.keys()) {
+      if (state.items.has(id)) next.set(id, state.items.get(id));
+      else next.delete(id);
+    }
+    state.items = next;
+    state.loaded = true;
+    render();
+  }
+
+  function setSync(status) {
+    const s = $('#sync');
+    s.classList.toggle('live', status === 'live');
+    s.classList.toggle('off', status === 'off');
+    s.textContent = status === 'live' ? 'En vivo' : status === 'off' ? 'Sin conexión' : 'Conectando';
+  }
+
+  function subscribe() {
+    if (channel) sb.removeChannel(channel);
+    setSync('connecting');
+    channel = sb.channel('leon46-grocery')
+      .on('postgres_changes', { event: '*', schema: 'public', table: TABLE }, (payload) => {
+        if (payload.eventType === 'DELETE') {
+          const id = payload.old && payload.old.id;
+          if (id && !state.pending.has(id)) state.items.delete(id);
+        } else {
+          const row = payload.new;
+          if (row && !state.pending.has(row.id)) state.items.set(row.id, row);
+        }
+        render();
+      })
+      .subscribe((status) => {
+        if (status === 'SUBSCRIBED') { setSync('live'); fetchAll(); } // catch up on anything missed
+        else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT' || status === 'CLOSED') setSync('off');
+      });
+  }
+
+  // Phones sleep: re-sync when the page comes back.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && currentUserId) fetchAll();
+  });
+  window.addEventListener('online', () => { if (currentUserId) subscribe(); });
+  window.addEventListener('offline', () => setSync('off'));
+
+  const markPending = (id) => state.pending.set(id, (state.pending.get(id) || 0) + 1);
+  const unmarkPending = (id) => {
+    const n = (state.pending.get(id) || 1) - 1;
+    if (n <= 0) state.pending.delete(id); else state.pending.set(id, n);
+  };
+
+  async function updateItem(id, patch) {
+    const item = state.items.get(id);
+    if (!item) return;
+    const prev = {};
+    for (const k of Object.keys(patch)) prev[k] = item[k];
+    state.items.set(id, { ...item, ...patch });
+    markPending(id);
+    render();
+    const { error } = await sb.from(TABLE).update(patch).eq('id', id);
+    unmarkPending(id);
+    if (error) {
+      const cur = state.items.get(id);
+      if (cur) state.items.set(id, { ...cur, ...prev });
+      render();
+      toast('No se pudo guardar: ' + error.message, 'error');
+    }
+  }
+
+  function findDuplicate(category, name) {
+    const n = norm(name);
+    for (const it of state.items.values()) if (it.category === category && norm(it.name) === n) return it;
+    return null;
+  }
+
+  // Validates synchronously: returns null if invalid, otherwise a Promise<boolean> for the write.
+  function addItem(category, rawName, { checked = false } = {}) {
+    const name = rawName.trim().replace(/\s+/g, ' ');
+    if (!name) return null;
+    if (name.length > 100) { toast('Nombre demasiado largo', 'error'); return null; }
+    const dup = findDuplicate(category, name);
+    if (dup) {
+      toast(`"${dup.name}" ya está en ${category}`, 'error');
+      return null;
+    }
+    const now = new Date().toISOString();
+    return commitAdd({ id: uuid(), name, category, is_checked: checked, in_cart: false, created_at: now, updated_at: now });
+  }
+
+  async function commitAdd(item) {
+    const { name, category, is_checked } = item;
+    state.items.set(item.id, item);
+    markPending(item.id);
+    render();
+    const { error } = await sb.from(TABLE).insert({ id: item.id, name, category, is_checked });
+    unmarkPending(item.id);
+    if (error) {
+      state.items.delete(item.id);
+      render();
+      toast(error.code === '23505' ? `"${name}" ya existe en ${category}` : 'No se pudo añadir: ' + error.message, 'error');
+      if (error.code === '23505') fetchAll();
+      return false;
+    }
+    return true;
+  }
+
+  async function deleteItem(id) {
+    const item = state.items.get(id);
+    if (!item) return;
+    const ok = await confirmDialog(`¿Eliminar "${item.name}" de ${item.category}?`, 'Eliminar', true);
+    if (!ok) return;
+    state.items.delete(id);
+    markPending(id);
+    render();
+    const { error } = await sb.from(TABLE).delete().eq('id', id);
+    unmarkPending(id);
+    if (error) {
+      state.items.set(id, item);
+      render();
+      toast('No se pudo eliminar: ' + error.message, 'error');
+    }
+  }
+
+  async function finishShopping() {
+    const affected = [...state.items.values()].filter((i) => i.is_checked || i.in_cart);
+    if (!affected.length) return toast('No hay nada en la lista');
+    const ok = await confirmDialog('¿Terminar la compra? Se desmarcarán todos los productos (seguirán en el catálogo).', 'Terminar');
+    if (!ok) return;
+    for (const it of affected) { state.items.set(it.id, { ...it, is_checked: false, in_cart: false }); markPending(it.id); }
+    render();
+    const { error } = await sb.from(TABLE)
+      .update({ is_checked: false, in_cart: false })
+      .or('is_checked.eq.true,in_cart.eq.true');
+    affected.forEach((it) => unmarkPending(it.id));
+    if (error) {
+      for (const it of affected) {
+        const cur = state.items.get(it.id);
+        if (cur) state.items.set(it.id, { ...cur, is_checked: it.is_checked, in_cart: it.in_cart });
+      }
+      render();
+      toast('No se pudo terminar la compra: ' + error.message, 'error');
+      return;
+    }
+    toast('Compra terminada');
+  }
+
+  // ---------- rendering ----------
+  const CHEV = '<svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const TICK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const catRefs = new Map(); // category -> { section, head, count, total, body, list }
+
+  function buildCategorySkeleton() {
+    if (catRefs.size) return;
+    const root = $('#cat-list');
+    for (const cat of CATEGORIES) {
+      const count = el('span', { class: 'count' });
+      const total = el('span', { class: 'total' });
+      const head = el('button', { class: 'cat-head', type: 'button', 'aria-expanded': 'false', dataset: { cat } },
+        svg(CHEV), el('span', { textContent: cat }), count, total);
+      const list = el('ul', { class: 'items' });
+      const input = el('input', { type: 'text', placeholder: `Añadir a ${cat}…`, enterKeyHint: 'done', autocomplete: 'off', 'aria-label': `Nuevo producto en ${cat}` });
+      const form = el('form', { class: 'add-row', dataset: { cat } }, input, el('button', { type: 'submit', textContent: '+', 'aria-label': `Añadir a ${cat}` }));
+      const body = el('div', { class: 'cat-body', hidden: true }, list, form);
+      const section = el('section', { class: 'cat' }, head, body);
+      root.append(section);
+      catRefs.set(cat, { section, head, count, total, body, list });
+    }
+    const sel = $('#no-match-cat');
+    for (const cat of CATEGORIES) sel.append(el('option', { value: cat, textContent: cat }));
+  }
+
+  function itemsByCategory(filterFn = () => true) {
+    const groups = new Map(CATEGORIES.map((c) => [c, []]));
+    for (const it of state.items.values()) if (groups.has(it.category) && filterFn(it)) groups.get(it.category).push(it);
+    for (const arr of groups.values()) arr.sort(byName);
+    return groups;
+  }
+
+  function render() {
+    if (state.view !== 'compra') { $('#shop-bar').hidden = true; return; }
+    $('#loading').hidden = state.loaded;
+    $$('.segmented button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+
+    const q = norm(state.search);
+    const matches = (it) => !q || norm(it.name).includes(q);
+    const isShop = state.mode === 'shop';
+
+    // "Add '<text>' to…" when the search finds nothing (in the current mode's scope).
+    const scope = isShop ? (it) => it.is_checked && matches(it) : matches;
+    const anyMatch = [...state.items.values()].some(scope);
+    const showNoMatch = state.loaded && !!q && !anyMatch;
+    $('#no-match').hidden = !showNoMatch;
+    if (showNoMatch) {
+      const exists = [...state.items.values()].some(matches);
+      $('#no-match-text').textContent = isShop && exists
+        ? `"${state.search.trim()}" no está marcado. Añádelo en Lista completa, o crea uno nuevo en…`
+        : `Añadir "${state.search.trim()}" a…`;
+    }
+
+    $('#cat-list').hidden = isShop || !state.loaded;
+    $('#shop-list').hidden = !isShop || !state.loaded;
+    $('#shop-bar').hidden = !isShop;
+
+    if (isShop) renderShop(matches); else renderList(q, matches);
+  }
+
+  function renderList(q, matches) {
+    const all = itemsByCategory();
+    for (const cat of CATEGORIES) {
+      const ref = catRefs.get(cat);
+      const items = all.get(cat);
+      const visible = items.filter(matches);
+      const checked = items.filter((i) => i.is_checked).length;
+      ref.count.textContent = `(${checked})`;
+      ref.total.textContent = items.length ? `${items.length}` : '';
+
+      const expanded = q ? visible.length > 0 : state.open.has(cat);
+      ref.section.hidden = !!q && visible.length === 0;
+      ref.body.hidden = !expanded;
+      ref.head.setAttribute('aria-expanded', String(expanded));
+      if (!expanded) continue;
+
+      ref.list.replaceChildren(...(visible.length ? visible.map(renderItemRow)
+        : [el('li', { class: 'empty-cat', textContent: 'Sin productos todavía.' })]));
+    }
+  }
+
+  function renderItemRow(it) {
+    const cb = el('input', { type: 'checkbox', checked: !!it.is_checked, dataset: { id: it.id } });
+    return el('li', { class: 'item' + (it.is_checked ? ' checked' : '') },
+      el('label', {}, cb, el('span', { class: 'name', textContent: it.name })),
+      el('button', { class: 'del', type: 'button', textContent: '✕', 'aria-label': `Eliminar ${it.name}`, dataset: { del: it.id } }));
+  }
+
+  function renderShop(matches) {
+    const groups = itemsByCategory((it) => it.is_checked);
+    const root = $('#shop-list');
+    const nodes = [];
+    let total = 0, inCart = 0;
+    for (const [cat, items] of groups) {
+      total += items.length;
+      inCart += items.filter((i) => i.in_cart).length;
+      const visible = items.filter(matches);
+      if (!visible.length) continue;
+      nodes.push(el('div', { class: 'shop-group' },
+        el('h2', { textContent: cat }),
+        ...visible.map((it) => el('button', {
+          type: 'button', class: 'shop-item' + (it.in_cart ? ' in-cart' : ''),
+          'aria-pressed': String(!!it.in_cart), dataset: { cart: it.id },
+        }, el('span', { class: 'box' }, svg(TICK)), el('span', { class: 'label', textContent: it.name })))));
+    }
+    if (!total) {
+      nodes.push(el('div', { class: 'shop-empty', innerHTML: 'No hay nada marcado.<br>Marca productos en <strong>Lista completa</strong>.' }));
+    }
+    root.replaceChildren(...nodes);
+    $('#shop-progress').textContent = total ? `${inCart}/${total} en el carro` : '';
+    $('#finish-btn').disabled = total === 0 && ![...state.items.values()].some((i) => i.in_cart);
+  }
+
+  // ---------- events ----------
+  $('#search').addEventListener('input', (e) => {
+    state.search = e.target.value;
+    $('#search-clear').hidden = !state.search;
+    render();
+  });
+  $('#search').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); if (!$('#no-match').hidden) $('#no-match-cat').focus(); else e.target.blur(); }
+  });
+  $('#search-clear').addEventListener('click', () => {
+    state.search = '';
+    $('#search').value = '';
+    $('#search-clear').hidden = true;
+    render();
+    $('#search').focus();
+  });
+
+  $$('.segmented button').forEach((b) => b.addEventListener('click', () => {
+    state.mode = b.dataset.mode;
+    store.set(MODE_KEY, state.mode);
+    render();
+    window.scrollTo({ top: 0 });
+  }));
+
+  $('#no-match-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const cat = $('#no-match-cat').value;
+    // Added from the search bar = you want to buy it, so it starts checked.
+    const write = addItem(cat, state.search, { checked: true });
+    if (!write) return;
+    state.search = '';
+    $('#search').value = '';
+    $('#search-clear').hidden = true;
+    if (state.mode === 'list') state.open.add(cat);
+    render();
+    if (await write) toast(`Añadido a ${cat}`);
+  });
+
+  $('#cat-list').addEventListener('click', (e) => {
+    const head = e.target.closest('.cat-head');
+    if (head) {
+      if (state.search) return; // expansion follows the search while filtering
+      const cat = head.dataset.cat;
+      state.open.has(cat) ? state.open.delete(cat) : state.open.add(cat);
+      render();
+      return;
+    }
+    const del = e.target.closest('[data-del]');
+    if (del) deleteItem(del.dataset.del);
+  });
+
+  $('#cat-list').addEventListener('change', (e) => {
+    const cb = e.target.closest('input[type=checkbox][data-id]');
+    if (!cb) return;
+    const patch = { is_checked: cb.checked };
+    if (!cb.checked) patch.in_cart = false;
+    updateItem(cb.dataset.id, patch);
+  });
+
+  $('#cat-list').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target.closest('.add-row');
+    if (!form) return;
+    const input = $('input', form);
+    const text = input.value;
+    const write = addItem(form.dataset.cat, text);
+    input.focus();
+    if (!write) return;
+    input.value = '';
+    if (!(await write) && !input.value) input.value = text; // restore text if the write failed
+  });
+
+  $('#shop-list').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-cart]');
+    if (!btn) return;
+    const it = state.items.get(btn.dataset.cart);
+    if (it) updateItem(it.id, { in_cart: !it.in_cart });
+  });
+
+  $('#finish-btn').addEventListener('click', finishShopping);
+})();
+</script>
+</body>
+</html>
