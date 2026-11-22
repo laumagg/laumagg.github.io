@@ -258,7 +258,7 @@
   <p>Falta la conexión con Supabase. Pega la URL del proyecto y la clave pública (anon). Se guarda solo en este dispositivo.</p>
   <form id="setup-form">
     <label>URL del proyecto
-      <input name="url" type="url" inputmode="url" autocomplete="off" placeholder="https://xxxx.supabase.co" required>
+      <input name="url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://xxxx.supabase.co" required>
     </label>
     <label>Clave pública (anon / publishable)
       <input name="key" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
@@ -452,22 +452,74 @@
   }
 
   // ---------- config ----------
+  // Accepts the API URL, a URL with extra path (/rest/v1…), a bare project ref,
+  // or a dashboard link (supabase.com/dashboard/project/<ref>) and returns https://<ref>.supabase.co
+  function normalizeUrl(raw) {
+    let s = String(raw || '').trim();
+    if (/^[a-z0-9]{15,30}$/i.test(s)) return `https://${s.toLowerCase()}.supabase.co`;
+    if (!/^https?:\/\//i.test(s)) s = 'https://' + s;
+    let u;
+    try { u = new URL(s); } catch { return null; }
+    if (/(^|\.)supabase\.com$/i.test(u.hostname)) {
+      const m = u.pathname.match(/\/project\/([a-z0-9]+)/i);
+      return m ? `https://${m[1].toLowerCase()}.supabase.co` : null;
+    }
+    return u.origin;
+  }
+
+  // Returns an error message, or null if the key looks like a public client key.
+  function checkKey(key) {
+    if (/^sb_secret_/.test(key)) return 'Esa es la clave secreta. Usa la clave pública (anon / publishable).';
+    if (/^sb_publishable_/.test(key)) return null;
+    const parts = key.split('.');
+    if (parts.length === 3) {
+      try {
+        const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+        if (payload.role === 'service_role') return 'Esa es la clave service_role (secreta). Usa la clave anon.';
+        return null;
+      } catch {}
+    }
+    return 'La clave no parece válida. Copia la clave anon / publishable completa.';
+  }
+
   function readConfig() {
     const fromFile = window.LEON46_CONFIG;
-    if (fromFile && fromFile.supabaseUrl && fromFile.supabaseAnonKey) return { ...fromFile, source: 'file' };
+    if (fromFile && fromFile.supabaseUrl && fromFile.supabaseAnonKey) {
+      return { ...fromFile, supabaseUrl: normalizeUrl(fromFile.supabaseUrl) || fromFile.supabaseUrl, source: 'file' };
+    }
     try {
       const saved = JSON.parse(store.get(CONFIG_KEY) || 'null');
-      if (saved && saved.supabaseUrl && saved.supabaseAnonKey) return { ...saved, source: 'local' };
+      if (saved && saved.supabaseUrl && saved.supabaseAnonKey) {
+        const fixed = normalizeUrl(saved.supabaseUrl);
+        if (!fixed) return null; // unusable → show setup again
+        if (fixed !== saved.supabaseUrl) store.set(CONFIG_KEY, JSON.stringify({ ...saved, supabaseUrl: fixed }));
+        return { ...saved, supabaseUrl: fixed, source: 'local' };
+      }
     } catch {}
     return null;
   }
 
-  $('#setup-form').addEventListener('submit', (e) => {
+  $('#setup-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const f = new FormData(e.target);
-    const supabaseUrl = String(f.get('url')).trim().replace(/\/+$/, '');
-    const supabaseAnonKey = String(f.get('key')).trim();
-    if (!/^https:\/\/.+/.test(supabaseUrl) || !supabaseAnonKey) return toast('Revisa la URL y la clave', 'error');
+    const supabaseUrl = normalizeUrl(f.get('url'));
+    const supabaseAnonKey = String(f.get('key')).replace(/\s+/g, '');
+    if (!supabaseUrl) return toast('La URL no es válida. Debe ser como https://xxxx.supabase.co', 'error');
+    const keyError = checkKey(supabaseAnonKey);
+    if (keyError) return toast(keyError, 'error');
+    const btn = $('button', e.target);
+    btn.disabled = true;
+    btn.textContent = 'Comprobando…';
+    try {
+      // Verify that the URL really is a Supabase API and the key is accepted.
+      const res = await fetch(supabaseUrl + '/auth/v1/settings', { headers: { apikey: supabaseAnonKey } });
+      const body = await res.json().catch(() => null);
+      if (!res.ok || !body) throw new Error(res.status === 401 ? 'La clave no es correcta para este proyecto.' : 'Esa URL no responde como un proyecto de Supabase.');
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Guardar';
+      return toast(err instanceof TypeError ? 'No se pudo conectar con ' + supabaseUrl : err.message, 'error');
+    }
     store.set(CONFIG_KEY, JSON.stringify({ supabaseUrl, supabaseAnonKey }));
     location.reload();
   });
@@ -564,7 +616,10 @@
     });
     btn.disabled = false;
     msg.innerHTML = '';
-    if (error) msg.append(el('span', { class: 'err', textContent: error.message }));
+    if (error && /JSON|Unexpected token|Failed to fetch/i.test(error.message)) {
+      msg.append(el('span', { class: 'err', textContent: 'La URL de Supabase no es correcta. Pulsa "Cambiar conexión" y usa la Project URL (https://xxxx.supabase.co).' }));
+      $('#reset-config').hidden = false;
+    } else if (error) msg.append(el('span', { class: 'err', textContent: error.message }));
     else msg.append(el('span', { class: 'ok', textContent: 'Revisa tu correo y abre el enlace en este dispositivo.' }));
   });
 
